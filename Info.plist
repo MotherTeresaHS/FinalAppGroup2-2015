@@ -7,7 +7,8 @@
 	<key>Buffer Order</key>
 	<array>
 		<string>Main</string>
-		<string>SplashScreenScene</string>
+		<string>CompanyScene</string>
+		<string>GameLogoScene</string>
 		<string>MainScene</string>
 		<string>MainGameScene</string>
 		<string>StoreScene</string>

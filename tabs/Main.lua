@@ -17,12 +17,13 @@ function setup()
     pushStyle()
     
     -- create the scenes
-    Scene("splash", SplashScreenScene)
+    Scene("company", CompanyScene)
+    Scene("logo", GameLogoScene)
     Scene("main", MainScene)
     Scene("game", MainGameScene)
     Scene("store", StoreScene)
     
-    Scene.Change("splash")
+    Scene.Change("company")
 end
 
 -- This function gets called once every frame

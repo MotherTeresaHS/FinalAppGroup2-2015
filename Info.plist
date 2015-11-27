@@ -7,11 +7,15 @@
 	<key>Buffer Order</key>
 	<array>
 		<string>Main</string>
-		<string>CompanyScene</string>
+		<string>CompanyLogoScene</string>
 		<string>GameLogoScene</string>
-		<string>MainScene</string>
-		<string>MainGameScene</string>
+		<string>MainMenuScene</string>
+		<string>SettingsScene</string>
+		<string>CreditsScene</string>
 		<string>StoreScene</string>
+		<string>AchievementsScene</string>
+		<string>LeaderboardsScene</string>
+		<string>MainGameScene</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Description</key>

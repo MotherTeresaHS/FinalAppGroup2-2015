@@ -4,7 +4,7 @@
 -- Created by: Zacharias Octavious 
 -- Created on: Nov - 2015
 -- Created for: ICS2O
--- This is the first scene (company logo)
+-- This is the second scene (game logo)
 
 GameLogoScene = class()
 
@@ -21,16 +21,12 @@ function GameLogoScene:draw()
     -- Codea does not automatically call this method
     
     sprite("Dropbox:GameLogo", WIDTH/2, HEIGHT/2)
-    
-    print(ElapsedTime)
-    print("End time is "..startTime2 + 6)
-    if(startTime2 + 6 < ElapsedTime) then
-        Scene.Change("main")
-        print("The end time is "..ElapsedTime)
+
+    if(startTime2 + 3 < ElapsedTime) then
+        Scene.Change("mainmenu")
     end
 end
 
 function GameLogoScene:touched(touch)
     -- Codea does not automatically call this method
-
 end

@@ -69,7 +69,7 @@ function MainMenuScene:touched(touch)
     if(settingsButton.selected == true) then
         Scene.Change("settings")
     elseif(mainGameButton.selected == true) then
-        Scene.Change("maingame")
+        Scene.Change("worlds")
     elseif(storeButton.selected == true) then
         Scene.Change("store")
     elseif(achievementsButton.selected == true) then

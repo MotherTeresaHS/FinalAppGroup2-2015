@@ -26,6 +26,7 @@ function setup()
     Scene("store", StoreScene)
     Scene("achievements", AchievementsScene)
     Scene("leaderboards", LeaderboardsScene)
+    Scene("worlds", WorldsScene)
     
     Scene.Change("companylogo")
 end

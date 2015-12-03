@@ -15,6 +15,7 @@
 		<string>StoreScene</string>
 		<string>AchievementsScene</string>
 		<string>LeaderboardsScene</string>
+		<string>WorldsScene</string>
 		<string>MainGameScene</string>
 		<string>HelperClass</string>
 	</array>

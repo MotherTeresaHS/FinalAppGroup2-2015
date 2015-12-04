@@ -16,6 +16,7 @@
 		<string>AchievementsScene</string>
 		<string>LeaderboardsScene</string>
 		<string>WorldsScene</string>
+		<string>LevelDifficultyScene</string>
 		<string>MainGameScene</string>
 		<string>HelperClass</string>
 	</array>

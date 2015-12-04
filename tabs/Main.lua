@@ -6,6 +6,9 @@
 -- Created for: ICS2O
 -- This is the main starting point 
 
+worldSelected = nil 
+levelDifficultySelected = nil
+
 -- Use this function to perform your initial setup
 function setup()
     
@@ -27,6 +30,7 @@ function setup()
     Scene("achievements", AchievementsScene)
     Scene("leaderboards", LeaderboardsScene)
     Scene("worlds", WorldsScene)
+    Scene("levels", LevelDifficultyScene)
     
     Scene.Change("companylogo")
 end

@@ -68,4 +68,17 @@ function WorldsScene:touched(touch)
     if(homeButton.selected == true) then
         Scene.Change("mainmenu")
     end
+    
+    if(additionWorldButton.selected == true) then
+        worldSelected = addition
+    elseif(subtractionWorldButton.selected == true) then
+        worldSelected = subtraction
+    elseif(multiplicationWorldButton.selected == true) then
+        worldSelected = multiplication
+    elseif(divisionWorldButton.selected == true) then
+        worldSelected = division
+    elseif(sugarMountainWorldButton.selected == true) then
+        worldSelected = all
+    end
+    Scene.Change("levels")
 end

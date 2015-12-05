@@ -6,8 +6,8 @@
 -- Created for: ICS2O
 -- This is the main starting point 
 
-worldSelected = nil 
-levelDifficultySelected = nil
+worldSelected = "none"
+levelDifficultySelected = "invalid"
 
 -- Use this function to perform your initial setup
 function setup()

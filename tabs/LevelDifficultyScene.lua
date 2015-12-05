@@ -54,14 +54,14 @@ function LevelDifficultyScene:touched(touch)
     
     if(homeButton.selected == true) then
         Scene.Change("worlds")
-    end
-    
-    if(easyLevelDifficultyButton.selected == true) then
-        levelDifficultySelected = easy
+    elseif(easyLevelDifficultyButton.selected == true) then
+        levelDifficultySelected = "EASY"
+        Scene.Change("maingame")
     elseif(mediumLevelDifficultyButton.selected == true) then
-        levelDifficultySelected = medium
+        levelDifficultySelected = "MEDIUM"
+        Scene.Change("maingame")
     elseif(hardLevelDifficultyButton.selected == true) then
-        levelDifficultySelected = hard
+        levelDifficultySelected = "HARD"
+        Scene.Change("maingame")
     end
-    Scene.Change("maingame")
 end

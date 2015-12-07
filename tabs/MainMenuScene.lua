@@ -16,7 +16,7 @@ local achievementsButton
 local leaderboardsButton
     
 function MainMenuScene:init()
-    --sprite()
+ 
     settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
     mainGameButton = Button("Dropbox:Blue Move Scene Forward Button", vec2(WIDTH/2, HEIGHT/2))
     storeButton = Button("Dropbox:Blue Cancel Button", vec2(WIDTH/2, HEIGHT/2-200))

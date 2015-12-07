@@ -13,7 +13,6 @@ local startTime2
 
 function GameLogoScene:init()
 
-    --sprite("iOS Button Pack:Blue Level Menu Button")
     startTime2 = ElapsedTime
 end
 

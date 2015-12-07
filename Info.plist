@@ -18,6 +18,8 @@
 		<string>WorldsScene</string>
 		<string>LevelDifficultyScene</string>
 		<string>MainGameScene</string>
+		<string>MainGameRight</string>
+		<string>MainGameWrong</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Description</key>

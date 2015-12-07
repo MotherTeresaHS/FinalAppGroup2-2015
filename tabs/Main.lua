@@ -6,8 +6,10 @@
 -- Created for: ICS2O
 -- This is the main starting point 
 
-worldSelected = "none"
-levelDifficultySelected = "invalid"
+worldSelected = ""
+levelDifficultySelected = ""
+amountOfRightAnswers = 0
+amountOfCandyInBasket = 0
 
 -- Use this function to perform your initial setup
 function setup()
@@ -31,6 +33,8 @@ function setup()
     Scene("leaderboards", LeaderboardsScene)
     Scene("worlds", WorldsScene)
     Scene("levels", LevelDifficultyScene)
+    Scene("right", MainGameRight)
+    Scene("wrong", MainGameWrong)
     
     Scene.Change("companylogo")
 end

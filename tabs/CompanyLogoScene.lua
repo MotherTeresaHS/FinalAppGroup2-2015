@@ -13,7 +13,6 @@ local startTime
 
 function CompanyLogoScene:init()
 
-    --sprite("iOS Button Pack:Blue Level Menu Button")
     startTime = ElapsedTime
 end
 

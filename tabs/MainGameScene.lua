@@ -66,7 +66,7 @@ function MainGameScene:draw()
     -- Codea does not automatically call this method
     background(0, 0, 0, 255)
     
-    --same test as above but in the draw function. *The equations will be done in here*
+    --same test as above but in the draw function using text() rather than print(). *The equations will be done in here*
     fill(255, 255, 255, 255)
     fontSize(60)
     if( (worldSelected == "ADDITION") and

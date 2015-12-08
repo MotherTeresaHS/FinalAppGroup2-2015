@@ -19,9 +19,9 @@ function MainMenuScene:init()
  
     settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
     mainGameButton = Button("Dropbox:Blue Move Scene Forward Button", vec2(WIDTH/2, HEIGHT/2))
-    storeButton = Button("Dropbox:Blue Cancel Button", vec2(WIDTH/2, HEIGHT/2-200))
-    achievementsButton = Button("Dropbox:Blue Level Menu Button", vec2(WIDTH/2+200, HEIGHT/2-200))
-    leaderboardsButton = Button("Dropbox:Blue Redo Button", vec2(WIDTH/2-200, HEIGHT/2-200))
+    storeButton = Button("Dropbox:Blue Cancel Button", vec2(WIDTH/2, HEIGHT/2-300))
+    achievementsButton = Button("Dropbox:Blue Level Menu Button", vec2(WIDTH/2+300, HEIGHT/2-300))
+    leaderboardsButton = Button("Dropbox:Blue Redo Button", vec2(WIDTH/2-300, HEIGHT/2-300))
     
     settingsButton.draggable = false
     mainGameButton.draggable = false 
@@ -41,7 +41,8 @@ end
 function MainMenuScene:draw()
     -- Codea does not automatically call this method
     
-    background(0, 0, 0, 255)
+    --background(0, 0, 0, 255)
+    sprite("Dropbox:MainMenu", WIDTH/2, HEIGHT/2, 1048, 768)
     settingsButton:draw()
     mainGameButton:draw()
     storeButton:draw()
@@ -50,12 +51,12 @@ function MainMenuScene:draw()
     
     fill(255, 255, 255, 255)
     fontSize(72)
-    text("Play", WIDTH/2, HEIGHT/2+100) 
+    text("Play", WIDTH/2, HEIGHT/2+200) 
     
     fontSize(48)
-    text("Store", WIDTH/2, HEIGHT/2-100)
-    text("Achievements", WIDTH/2+200, HEIGHT/2-100)
-    text("Leaderboards", WIDTH/2-200, HEIGHT/2-100)
+    text("Store", WIDTH/2, HEIGHT/2-200)
+    text("Achievements", WIDTH/2+300, HEIGHT/2-200)
+    text("Leaderboards", WIDTH/2-300, HEIGHT/2-200)
 end
 
 function MainMenuScene:touched(touch)

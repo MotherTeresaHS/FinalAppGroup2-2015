@@ -19,7 +19,7 @@ end
 function CompanyLogoScene:draw()
     -- Codea does not automatically call this method
     
-    sprite("Dropbox:CompanyLogo", WIDTH/2, HEIGHT/2)
+    sprite("Dropbox:CompanyLogo@2x copy", WIDTH/2, HEIGHT/2)
     
     if(startTime + 1 < ElapsedTime) then
         Scene.Change("gamelogo")

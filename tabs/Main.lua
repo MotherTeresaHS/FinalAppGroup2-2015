@@ -20,8 +20,8 @@ function setup()
     noSmooth()
     noStroke()
     pushStyle()
-    
-    -- create the scenes
+
+    -- create the scenest
     Scene("companylogo", CompanyLogoScene)
     Scene("gamelogo", GameLogoScene)
     Scene("mainmenu", MainMenuScene)

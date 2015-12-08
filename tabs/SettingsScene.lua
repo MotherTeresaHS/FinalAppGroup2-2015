@@ -28,13 +28,15 @@ end
 function SettingsScene:draw()
     -- Codea does not automatically call this method
     
-    background(163, 157, 157, 255)
+    background(141, 133, 133, 255)
     creditsButton:draw()
     homeButton:draw()
     musicOnButton:draw()
     musicOffButton:draw()
     
     fill(255, 255, 255, 255)
+    fontSize(60)
+    text("Settings", WIDTH/2, HEIGHT/2+300)
     fontSize(55)
     text("Credits", WIDTH/2, HEIGHT/2-100) 
     text("Music", WIDTH/2-300, HEIGHT/2+150)

@@ -29,7 +29,9 @@ end
 
 function LevelDifficultyScene:draw()
     -- Codea does not automatically call this method
-    background(0, 0, 0, 255)
+    
+    --background(0, 0, 0, 255)
+    sprite("Dropbox:LevelDifficultySelector", WIDTH/2, HEIGHT/2, 1048, 768)
     
     homeButton:draw()
     easyLevelDifficultyButton:draw()
@@ -42,6 +44,7 @@ function LevelDifficultyScene:draw()
     text("Easy", WIDTH/2-200, HEIGHT/2+100)
     text("Medium", WIDTH/2, HEIGHT/2+100)
     text("Hard", WIDTH/2+200, HEIGHT/2+100)
+
 end
 
 function LevelDifficultyScene:touched(touch)

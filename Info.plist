@@ -20,6 +20,14 @@
 		<string>MainGameScene</string>
 		<string>MainGameRight</string>
 		<string>MainGameWrong</string>
+		<string>MainGameTotalScoreScene</string>
+		<string>TutorialMainMenuScene</string>
+		<string>TutorialWorldsScene</string>
+		<string>TutorialLevelDifficultyScene</string>
+		<string>TutorialMainGameScene</string>
+		<string>TutorialMainGameRightScene</string>
+		<string>TutorialMainGameWrongScene</string>
+		<string>TutorialMainGameTotalScoreScene</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Description</key>

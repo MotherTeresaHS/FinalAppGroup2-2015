@@ -21,7 +21,7 @@ function setup()
     noStroke()
     pushStyle()
 
-    -- create the scenest
+    -- create the scenes
     Scene("companylogo", CompanyLogoScene)
     Scene("gamelogo", GameLogoScene)
     Scene("mainmenu", MainMenuScene)
@@ -35,6 +35,15 @@ function setup()
     Scene("levels", LevelDifficultyScene)
     Scene("right", MainGameRight)
     Scene("wrong", MainGameWrong)
+    Scene("totalscore", MainGameTotalScoreScene)
+        --tutorial scenes
+    Scene("tutorialmainmenu", TutorialMainMenuScene)
+    Scene("tutorialworlds", TutorialWorldsScene)
+    Scene("tutoriallevels", TutorialLevelDifficultyScene)
+    Scene("tutorialmaingame", TutorialMainGameScene)
+    Scene("tutorialright", TutorialMainGameRightScene)
+    Scene("tutorialwrong", TutorialMainGameWrongScene)
+    Scene("tutorialtotalscore", TutorialMainGameTotalScoreScene)
     
     Scene.Change("companylogo")
 end

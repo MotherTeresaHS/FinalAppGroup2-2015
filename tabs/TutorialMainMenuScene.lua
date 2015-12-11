@@ -1,12 +1,12 @@
--- MainMenuScene
+-- TutorialMainMenuScene
 -- FinalAppGroup2-2015
 
 -- Created by: Zacharias Octavious 
--- Created on: Nov - 2015
+-- Created on: Dec - 2015
 -- Created for: ICS2O
--- This is the third scene with all the buttons to game, settings/credits, store, achievements and leaderboards
+-- This is the main menu scene with the tutorial
 
-MainMenuScene = class()
+TutorialMainMenuScene = class()
 
 --global to this file
 local settingsButton
@@ -14,9 +14,10 @@ local mainGameButton
 local storeButton
 local achievementsButton
 local leaderboardsButton
+
+function TutorialMainMenuScene:init()
+    -- you can accept and set parameters here
     
-function MainMenuScene:init()
- 
     settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
     mainGameButton = Button("Dropbox:Blue Move Scene Forward Button", vec2(WIDTH/2, HEIGHT/2))
     storeButton = Button("Dropbox:Blue Cancel Button", vec2(WIDTH/2, HEIGHT/2-300))
@@ -38,11 +39,11 @@ function MainMenuScene:init()
     end
 end
 
-function MainMenuScene:draw()
+function TutorialMainMenuScene:draw()
     -- Codea does not automatically call this method
     
     background(255, 0, 0, 255)
-    --sprite("Dropbox:MainMenu", WIDTH/2, HEIGHT/2, 1048, 768)
+    --sprite("CompanyLogo@2x copy", WIDTH/2, HEIGHT/2, 1048, 768)
     settingsButton:draw()
     mainGameButton:draw()
     storeButton:draw()
@@ -51,31 +52,23 @@ function MainMenuScene:draw()
     
     fill(255, 255, 255, 255)
     fontSize(72)
-    text("Play", WIDTH/2, HEIGHT/2+200) 
+    text("Play", WIDTH/2, HEIGHT/2+100) 
     
     fontSize(48)
     text("Store", WIDTH/2, HEIGHT/2-200)
     text("Achievements", WIDTH/2+300, HEIGHT/2-200)
     text("Leaderboards", WIDTH/2-300, HEIGHT/2-200)
+    
+    fontSize(30)
+    text("Press this to begin the game ->", WIDTH/2-250, HEIGHT/2)
 end
 
-function MainMenuScene:touched(touch)
+function TutorialMainMenuScene:touched(touch)
     -- Codea does not automatically call this method
-    settingsButton:touched(touch)
-    mainGameButton:touched(touch)
-    storeButton:touched(touch)
-    achievementsButton:touched(touch)
-    leaderboardsButton:touched(touch)
     
-    if(settingsButton.selected == true) then
-        Scene.Change("settings")
-    elseif(mainGameButton.selected == true) then
-        Scene.Change("worlds")
-    elseif(storeButton.selected == true) then
-        Scene.Change("store")
-    elseif(achievementsButton.selected == true) then
-        Scene.Change("achievements")
-    elseif(leaderboardsButton.selected == true) then
-        Scene.Change("leaderboards")
+    mainGameButton:touched(touch)
+    
+    if(mainGameButton.selected == true) then
+        Scene.Change("tutorialworlds")
     end
 end

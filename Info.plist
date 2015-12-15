@@ -25,6 +25,7 @@
 		<string>TutorialLevelDifficultyScene</string>
 		<string>TutorialMainGameScene</string>
 		<string>TutorialMainGameRightScene</string>
+		<string>HelperClass</string>
 	</array>
 	<key>Description</key>
 	<string>No description available</string>

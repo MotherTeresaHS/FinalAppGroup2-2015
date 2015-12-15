@@ -1,21 +1,37 @@
 -- MainGameTotalScoreScene
 -- FinalAppGroup2-2015
 
--- Created by: 
+-- Created by: Luke Vandenberghe 
 -- Created on: Dec - 2015
 -- Created for: ICS2O
--- This is the scene that tells the user the amount of right questions they got
+-- This is the main game right scene where the program tells the user theyir total amount of right answers
 
 MainGameTotalScoreScene = class()
 
+local startTime
+
 function MainGameTotalScoreScene:init()
-    -- you can accept and set parameters here
+  
+    startTime = ElapsedTime
 end
 
 function MainGameTotalScoreScene:draw()
-    -- Codea does not automatically call this method
+
+    sprite("SpaceCute:Background", 512, 384, 1024, 768)
+
+    -- Changes colour, font, size of text
+    -- this text indicates to the user how many answers the got out of ten correct                    
+    fill(255, 0, 175, 255)
+    font("Futura-CondensedExtraBold")
+    fontSize(60) 
+    text("Candy has been added basket!", WIDTH/2, 100)
+    text("Score "..MainGameScene.getCorrectCounter().." out of 10",WIDTH/2, 600)
+    
+    if(startTime + 3 < ElapsedTime) then
+        Scene.Change("mainmenu")
+    end
 end
 
 function MainGameTotalScoreScene:touched(touch)
-    -- Codea does not automatically call this method
+
 end

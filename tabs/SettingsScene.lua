@@ -11,14 +11,17 @@ SettingsScene = class()
 --global to this file
 local creditsButton
 local homeButton
+local musicOnButton
+local musicOffButton
 
 function SettingsScene:init()
     -- you can accept and set parameters here
     
-    creditsButton = Button("Dropbox:Blue Info Button", vec2(WIDTH/2, HEIGHT/2-200))
-    homeButton = Button("Dropbox:Blue Back Rectangle Button", vec2(WIDTH/2-400, HEIGHT/2+325))
-    musicOnButton = Button("Dropbox:Star Gold", vec2(WIDTH/2+150, HEIGHT/2+150))
-    musicOffButton = Button("Dropbox:Star Black", vec2(WIDTH/2+300, HEIGHT/2+150))
+    creditsButton = Button("Dropbox:creditsButton", vec2(WIDTH/2, HEIGHT/2-200))
+    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
+    musicOnButton = Button("Dropbox:settingsMusicOnButton", vec2(WIDTH/2+150, HEIGHT/2+150))
+    musicOffButton = Button("Dropbox:settingsMusicOffButton", vec2(WIDTH/2+300, HEIGHT/2+150))
+    
     creditsButton.draggable = false
     homeButton.draggable = false 
     musicOnButton.draggable = false
@@ -28,7 +31,8 @@ end
 function SettingsScene:draw()
     -- Codea does not automatically call this method
     
-    background(141, 133, 133, 255)
+    background(0, 0, 0, 255)
+    
     creditsButton:draw()
     homeButton:draw()
     musicOnButton:draw()
@@ -38,7 +42,6 @@ function SettingsScene:draw()
     fontSize(60)
     text("Settings", WIDTH/2, HEIGHT/2+300)
     fontSize(55)
-    text("Credits", WIDTH/2, HEIGHT/2-100) 
     text("Music", WIDTH/2-300, HEIGHT/2+150)
 end
 

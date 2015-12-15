@@ -13,7 +13,7 @@ local homeButton
 
 function CreditsScene:init()
     -- you can accept and set parameters here
-    homeButton = Button("Dropbox:Blue Back Rectangle Button", vec2(WIDTH/2-400, HEIGHT/2+325))
+    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
     homeButton.draggable = false 
 end
 

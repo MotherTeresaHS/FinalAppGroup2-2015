@@ -19,10 +19,10 @@ function TutorialMainMenuScene:init()
     -- you can accept and set parameters here
     
     settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
-    mainGameButton = Button("Dropbox:Blue Move Scene Forward Button", vec2(WIDTH/2, HEIGHT/2))
-    storeButton = Button("Dropbox:Blue Cancel Button", vec2(WIDTH/2, HEIGHT/2-300))
-    achievementsButton = Button("Dropbox:Blue Level Menu Button", vec2(WIDTH/2+300, HEIGHT/2-300))
-    leaderboardsButton = Button("Dropbox:Blue Redo Button", vec2(WIDTH/2-300, HEIGHT/2-300))
+    mainGameButton = Button("Dropbox:mainMenuPlayButton", vec2(WIDTH/2, HEIGHT/2))
+    storeButton = Button("Dropbox:mainMenuStoreButton", vec2(WIDTH/2, HEIGHT/2-300))
+    achievementsButton = Button("Dropbox:mainMenuAchievementsButton", vec2(WIDTH/2+300, HEIGHT/2-300))
+    leaderboardsButton = Button("Dropbox:mainMenuLeaderboardsButton", vec2(WIDTH/2-300, HEIGHT/2-300))
     
     settingsButton.draggable = false
     mainGameButton.draggable = false 
@@ -41,26 +41,24 @@ end
 
 function TutorialMainMenuScene:draw()
     -- Codea does not automatically call this method
+
+    sprite("Dropbox:mainMenuScene", WIDTH/2, HEIGHT/2, 1024, 800)
     
-    background(255, 0, 0, 255)
-    --sprite("CompanyLogo@2x copy", WIDTH/2, HEIGHT/2, 1048, 768)
     settingsButton:draw()
     mainGameButton:draw()
     storeButton:draw()
-    achievementsButton:draw()
-    leaderboardsButton:draw()
+    --achievementsButton:draw()
+    --leaderboardsButton:draw()
     
     fill(255, 255, 255, 255)
-    fontSize(72)
-    text("Play", WIDTH/2, HEIGHT/2+100) 
+    stroke(0, 0, 0, 255)
+    strokeWidth(3)
+    rectMode(CENTER)
+    rect(WIDTH/2-325, HEIGHT/2, 350, 30) -- Creates white rectangle behind text
     
-    fontSize(48)
-    text("Store", WIDTH/2, HEIGHT/2-200)
-    text("Achievements", WIDTH/2+300, HEIGHT/2-200)
-    text("Leaderboards", WIDTH/2-300, HEIGHT/2-200)
-    
-    fontSize(30)
-    text("Press this to begin the game ->", WIDTH/2-250, HEIGHT/2)
+    fill(0, 0, 0, 255)
+    fontSize(27)
+    text("Press this to begin the game->", WIDTH/2-320, HEIGHT/2)
 end
 
 function TutorialMainMenuScene:touched(touch)

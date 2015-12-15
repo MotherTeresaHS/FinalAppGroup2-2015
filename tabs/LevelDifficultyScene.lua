@@ -16,10 +16,10 @@ local hardLevelDifficultyButton
 function LevelDifficultyScene:init()
     -- you can accept and set parameters here
    
-    homeButton = Button("Dropbox:Blue Back Rectangle Button", vec2(WIDTH/2-400, HEIGHT/2+325))
-    easyLevelDifficultyButton = Button("Dropbox:Green Level Menu Button", vec2(WIDTH/2-200, HEIGHT/2))
-    mediumLevelDifficultyButton = Button("Dropbox:Yellow Level Menu Button", vec2(WIDTH/2, HEIGHT/2))
-    hardLevelDifficultyButton = Button("Dropbox:Red Level Menu Button", vec2(WIDTH/2+200,HEIGHT/2))
+    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
+    easyLevelDifficultyButton = Button("Dropbox:levelDifficultyEasyButton", vec2(WIDTH/2-200, HEIGHT/2))
+    mediumLevelDifficultyButton = Button("Dropbox:levelDifficultyMediumButton", vec2(WIDTH/2-20, HEIGHT/2))
+    hardLevelDifficultyButton = Button("Dropbox:levelDifficultyHardButton", vec2(WIDTH/2+180,HEIGHT/2))
     
     homeButton.draggable = false
     easyLevelDifficultyButton.draggable = false
@@ -30,21 +30,16 @@ end
 function LevelDifficultyScene:draw()
     -- Codea does not automatically call this method
     
-    background(0, 0, 0, 255)
-    --sprite("Dropbox:LevelDifficultySelector", WIDTH/2, HEIGHT/2, 1048, 768)
+    sprite("Dropbox:levelDifficultyScene", WIDTH/2, HEIGHT/2)
+    
+    fill(0, 0, 0, 255)
+    fontSize(60)
+    text("Level Difficulty Selector", WIDTH/2, HEIGHT/2+330) 
     
     homeButton:draw()
     easyLevelDifficultyButton:draw()
     mediumLevelDifficultyButton:draw()
     hardLevelDifficultyButton:draw()
-    
-    fill(255, 255, 255, 255)
-    fontSize(60)
-    text("Level Difficulty", WIDTH/2, HEIGHT/2+300) --title
-    text("Easy", WIDTH/2-200, HEIGHT/2+100)
-    text("Medium", WIDTH/2, HEIGHT/2+100)
-    text("Hard", WIDTH/2+200, HEIGHT/2+100)
-
 end
 
 function LevelDifficultyScene:touched(touch)
@@ -58,13 +53,13 @@ function LevelDifficultyScene:touched(touch)
     if(homeButton.selected == true) then
         Scene.Change("worlds")
     elseif(easyLevelDifficultyButton.selected == true) then
-        levelDifficultySelected = "EASY"
+        levelDifficultySelected = "Easy"
         Scene.Change("maingame")
     elseif(mediumLevelDifficultyButton.selected == true) then
-        levelDifficultySelected = "MEDIUM"
+        levelDifficultySelected = "Medium"
         Scene.Change("maingame")
     elseif(hardLevelDifficultyButton.selected == true) then
-        levelDifficultySelected = "HARD"
+        levelDifficultySelected = "Hard"
         Scene.Change("maingame")
     end
 end

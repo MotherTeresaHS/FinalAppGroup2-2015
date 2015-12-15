@@ -16,14 +16,13 @@ local divisionWorldButton
 local sugarMountainWorldButton
 
 function WorldsScene:init()
-    -- you can accept and set parameters here
-  
-    homeButton = Button("Dropbox:Blue Back Rectangle Button", vec2(WIDTH/2-400, HEIGHT/2+325))
-    additionWorldButton = Button("Dropbox:Teal Forward Circle Button", vec2(WIDTH/2-150, HEIGHT/2+100))
-    subtractionWorldButton = Button("Dropbox:Green Forward Circle Button", vec2(WIDTH/2+150, HEIGHT/2+100))
-    multiplicationWorldButton = Button("Dropbox:Purple Forward Circle Button", vec2(WIDTH/2-150, HEIGHT/2-100))
-    divisionWorldButton = Button("Dropbox:Red Forward Circle Button", vec2(WIDTH/2+150, HEIGHT/2-100))
-    sugarMountainWorldButton = Button("Dropbox:Yellow Forward Circle Button", vec2(WIDTH/2, HEIGHT/2))
+    
+    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
+    additionWorldButton = Button("Dropbox:additionWorldSelect", vec2(WIDTH/2-325, HEIGHT/2+150))
+    subtractionWorldButton = Button("Dropbox:subtractionWorldSelect", vec2(WIDTH/2+325, HEIGHT/2+150))
+    multiplicationWorldButton = Button("Dropbox:multiplicationWorldSelect", vec2(WIDTH/2-325, HEIGHT/2-230))
+    divisionWorldButton = Button("Dropbox:divisionWorldSelect", vec2(WIDTH/2+325, HEIGHT/2-230))
+    sugarMountainWorldButton = Button("Dropbox:sugarMountainWorldSelect", vec2(WIDTH/2, HEIGHT/2))
     
     homeButton.draggable = false
     additionWorldButton.draggable = false
@@ -34,8 +33,8 @@ function WorldsScene:init()
 end
 
 function WorldsScene:draw()
-    -- Codea does not automatically call this method
-    background(0, 0, 0, 255)
+    
+    sprite("Dropbox:levelSelectBackground", WIDTH/2, HEIGHT/2)
     
     homeButton:draw()
     additionWorldButton:draw()
@@ -44,15 +43,9 @@ function WorldsScene:draw()
     divisionWorldButton:draw()
     sugarMountainWorldButton:draw()
     
-    fill(255, 255, 255, 255)
+    fill(0, 0, 0, 255)
     fontSize(60)
     text("Worlds", WIDTH/2, HEIGHT/2+300) 
-    text("+", WIDTH/2-150, HEIGHT/2+180) 
-    text("-", WIDTH/2+150, HEIGHT/2+180)
-    text("x", WIDTH/2-150, HEIGHT/2-180)
-    text("/", WIDTH/2+150, HEIGHT/2-180)
-    fontSize(40)
-    text("+ - x /", WIDTH/2, HEIGHT/2+70)
 end
 
 function WorldsScene:touched(touch)
@@ -70,19 +63,19 @@ function WorldsScene:touched(touch)
     end
 
     if(additionWorldButton.selected == true) then
-        worldSelected = "ADDITION"
+        worldSelected = "+"
         Scene.Change("levels")
     elseif(subtractionWorldButton.selected == true) then
-        worldSelected = "SUBTRACTION"
+        worldSelected = "-"
         Scene.Change("levels")
     elseif(multiplicationWorldButton.selected == true) then
-        worldSelected = "MULTIPLICATION"
+        worldSelected = "*"
         Scene.Change("levels")
     elseif(divisionWorldButton.selected == true) then
-        worldSelected = "DIVISION"
+        worldSelected = "/"
         Scene.Change("levels")
     elseif(sugarMountainWorldButton.selected == true) then
-        worldSelected = "SUGAR MOUNTAIN" 
+        worldSelected = "?" 
         Scene.Change("levels")
     end
 end

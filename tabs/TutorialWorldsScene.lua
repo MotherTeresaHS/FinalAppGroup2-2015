@@ -16,15 +16,14 @@ local divisionWorldButton
 local sugarMountainWorldButton
 
 function TutorialWorldsScene:init()
-    -- you can accept and set parameters here
     
-    homeButton = Button("Dropbox:Blue Back Rectangle Button", vec2(WIDTH/2-400, HEIGHT/2+325))
-    additionWorldButton = Button("Dropbox:Teal Forward Circle Button", vec2(WIDTH/2-150, HEIGHT/2+100))
-    subtractionWorldButton = Button("Dropbox:Green Forward Circle Button", vec2(WIDTH/2+150, HEIGHT/2+100))
-    multiplicationWorldButton = Button("Dropbox:Purple Forward Circle Button", vec2(WIDTH/2-150, HEIGHT/2-100))
-    divisionWorldButton = Button("Dropbox:Red Forward Circle Button", vec2(WIDTH/2+150, HEIGHT/2-100))
-    sugarMountainWorldButton = Button("Dropbox:Yellow Forward Circle Button", vec2(WIDTH/2, HEIGHT/2))
-    
+    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
+    additionWorldButton = Button("Dropbox:additionWorldSelect", vec2(WIDTH/2-325, HEIGHT/2+150))
+    subtractionWorldButton = Button("Dropbox:subtractionWorldSelect", vec2(WIDTH/2+325, HEIGHT/2+150))
+    multiplicationWorldButton = Button("Dropbox:multiplicationWorldSelect", vec2(WIDTH/2-325, HEIGHT/2-230))
+    divisionWorldButton = Button("Dropbox:divisionWorldSelect", vec2(WIDTH/2+325, HEIGHT/2-230))
+    sugarMountainWorldButton = Button("Dropbox:sugarMountainWorldSelect", vec2(WIDTH/2, HEIGHT/2))
+        
     homeButton.draggable = false
     additionWorldButton.draggable = false
     subtractionWorldButton.draggable = false
@@ -34,9 +33,9 @@ function TutorialWorldsScene:init()
 end
 
 function TutorialWorldsScene:draw()
-    -- Codea does not automatically call this method
     
-    background(0, 0, 0, 255)
+    sprite("Dropbox:levelSelectBackground", WIDTH/2, HEIGHT/2)
+    
     homeButton:draw()
     additionWorldButton:draw()
     subtractionWorldButton:draw()
@@ -45,14 +44,16 @@ function TutorialWorldsScene:draw()
     sugarMountainWorldButton:draw()
     
     fill(255, 255, 255, 255)
+    stroke(0, 0, 0, 255)
+    strokeWidth(3)
+    rectMode(CORNER)
+    rect(WIDTH/2-222, HEIGHT/2+125, 280, 30)
+    
+    fill(0, 0, 0, 255)
     fontSize(60)
     text("Worlds", WIDTH/2, HEIGHT/2+300) 
-    text("+", WIDTH/2-150, HEIGHT/2+180) 
-    text("-", WIDTH/2+150, HEIGHT/2+180)
-    text("x", WIDTH/2-150, HEIGHT/2-180)
-    text("/", WIDTH/2+150, HEIGHT/2-180)
-    fontSize(40)
-    text("+ - x /", WIDTH/2, HEIGHT/2+70)
+    fontSize(24)
+    text("<- Press the addition world", WIDTH/2-90, HEIGHT/2+140)
 end
 
 function TutorialWorldsScene:touched(touch)

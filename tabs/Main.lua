@@ -8,7 +8,6 @@
 
 worldSelected = ""
 levelDifficultySelected = ""
-amountOfRightAnswers = 0
 amountOfCandyInBasket = 0
 
 -- Use this function to perform your initial setup

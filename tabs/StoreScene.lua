@@ -12,7 +12,7 @@ local homeButton
 
 function StoreScene:init()
     -- you can accept and set parameters here
-    homeButton = Button("Dropbox:Blue Back Rectangle Button", vec2(WIDTH/2-400, HEIGHT/2+325))
+    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
     homeButton.draggable = false 
 end
 
@@ -24,6 +24,7 @@ function StoreScene:draw()
     fill(255, 255, 255, 255)
     fontSize(60)
     text("Store", WIDTH/2, HEIGHT/2+300) 
+    text("W.I.P", WIDTH/2, HEIGHT/2)
 end
 
 function StoreScene:touched(touch)

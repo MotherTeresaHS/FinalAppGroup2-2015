@@ -10,11 +10,10 @@
 		<string>CompanyLogoScene</string>
 		<string>GameLogoScene</string>
 		<string>MainMenuScene</string>
-		<string>CreditsScene</string>
 		<string>SettingsScene</string>
+		<string>CreditsScene</string>
 		<string>StoreScene</string>
 		<string>AchievementsScene</string>
-		<string>LeaderboardsScene</string>
 		<string>WorldsScene</string>
 		<string>LevelDifficultyScene</string>
 		<string>MainGameScene</string>
@@ -26,9 +25,6 @@
 		<string>TutorialLevelDifficultyScene</string>
 		<string>TutorialMainGameScene</string>
 		<string>TutorialMainGameRightScene</string>
-		<string>TutorialMainGameWrongScene</string>
-		<string>TutorialMainGameTotalScoreScene</string>
-		<string>HelperClass</string>
 	</array>
 	<key>Description</key>
 	<string>No description available</string>

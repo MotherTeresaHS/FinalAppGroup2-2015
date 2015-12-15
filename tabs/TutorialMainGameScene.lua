@@ -9,13 +9,13 @@
 TutorialMainGameScene = class()
 
 function TutorialMainGameScene:init()
-    -- you can accept and set parameters here
+   
 end
 
 function TutorialMainGameScene:draw()
-    -- Codea does not automatically call this method
+   
 end
 
 function TutorialMainGameScene:touched(touch)
-    -- Codea does not automatically call this method
+    
 end

@@ -53,13 +53,17 @@ function SettingsScene:touched(touch)
     musicOffButton:touched(touch)
     
     if(creditsButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("credits")
     elseif(homeButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("mainmenu")
     elseif(musicOnButton.selected == true) then
-        music("A Hero's Quest:Battle")
+        sound(SOUND_HIT, 1851, 0.50)
+        music("Dropbox:Nigel Good - This Is Forever")
         musicOff = false
     elseif(musicOffButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         music.stop()
         musicOff = true
     end

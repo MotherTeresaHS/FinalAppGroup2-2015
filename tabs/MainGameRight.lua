@@ -1,7 +1,7 @@
 -- MainGameRight
 -- FinalAppGroup2-2015
 
--- Created by: Luke Vandenberghe 
+-- Created by: Luke Vandenberghe and Zacharias Octavious 
 -- Created on: Dec - 2015
 -- Created for: ICS2O
 -- This is the main game right scene where the program tells the user they were correct
@@ -13,6 +13,8 @@ local startTime
 function MainGameRight:init()
     
     startTime = ElapsedTime
+    amountOfCandyInBasket = amountOfCandyInBasket + 1
+    --saveLocalData("candy", amountOfCandyInBasket)
 end
 
 function MainGameRight:draw()

@@ -6,9 +6,11 @@
 -- Created for: ICS2O
 -- This is the main starting point 
 
+--global variables
 worldSelected = ""
 levelDifficultySelected = ""
-amountOfCandyInBasket = 0
+amountOfCandyInBasket = 0 -- = nil for read data 
+amountOfSkips = 3  -- = nil for read data 
 
 -- Use this function to perform your initial setup
 function setup()
@@ -20,6 +22,9 @@ function setup()
     noStroke()
     pushStyle()
 
+    --amountOfCandyInBasket = readLocalData("candy", 0)
+    --amountOfSkips = readLocalData("skips", 0)
+    
     -- create the scenes
     Scene("companylogo", CompanyLogoScene)
     Scene("gamelogo", GameLogoScene)
@@ -28,6 +33,8 @@ function setup()
     Scene("credits", CreditsScene)
     Scene("maingame", MainGameScene)
     Scene("store", StoreScene)
+    Scene("backgrounds", BackgroundPreviewScene)
+    Scene("skip", MainGameSkipScene)
     Scene("achievements", AchievementsScene)
     Scene("leaderboards", LeaderboardsScene)
     Scene("worlds", WorldsScene)

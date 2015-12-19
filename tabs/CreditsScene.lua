@@ -27,11 +27,12 @@ function CreditsScene:draw()
     text("Credits", WIDTH/2, HEIGHT/2+300) 
     
     --temp place-holders
-    fontSize(55)
-    text("Programmer #1 ... Zacharias Octavious", WIDTH/2, HEIGHT/2+100)
-    text("Programmer #2 ... Luke Vandenberghe", WIDTH/2, HEIGHT/2+50)
-    text("Artwork ... Thomas Farkas", WIDTH/2, HEIGHT/2-50)
-    text("Artwork ... Indi, Jerianne, Rico", WIDTH/2, HEIGHT/2-100)
+    fontSize(40)
+    text("Programmer #1 ... Zacharias Octavious", WIDTH/2, HEIGHT/2+150)
+    text("Programmer #2 ... Luke Vandenberghe", WIDTH/2, HEIGHT/2+100)
+    text("Artwork ... Thomas Farkas", WIDTH/2, HEIGHT/2)
+    text("Artwork ... Indi, Jerianne, Rico", WIDTH/2, HEIGHT/2-50)
+    text("Music ... Nigel Good - This Is Forever", WIDTH/2, HEIGHT/2-150)
 end
 
 function CreditsScene:touched(touch)
@@ -39,6 +40,7 @@ function CreditsScene:touched(touch)
     homeButton:touched(touch)
     
     if(homeButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("settings")
     end
 end

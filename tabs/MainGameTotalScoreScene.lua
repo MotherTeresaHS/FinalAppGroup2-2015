@@ -1,7 +1,7 @@
 -- MainGameTotalScoreScene
 -- FinalAppGroup2-2015
 
--- Created by: Luke Vandenberghe 
+-- Created by: Luke Vandenberghe and Zacharias Octavious
 -- Created on: Dec - 2015
 -- Created for: ICS2O
 -- This is the main game right scene where the program tells the user theyir total amount of right answers
@@ -24,7 +24,7 @@ function MainGameTotalScoreScene:draw()
     fill(255, 0, 175, 255)
     font("Futura-CondensedExtraBold")
     fontSize(60) 
-    text("Candy has been added basket!", WIDTH/2, 100)
+    text(MainGameScene.getCorrectCounter().." Candy has been added basket!", WIDTH/2, 100)
     text("Score "..MainGameScene.getCorrectCounter().." out of 10",WIDTH/2, 600)
     
     if(startTime + 3 < ElapsedTime) then

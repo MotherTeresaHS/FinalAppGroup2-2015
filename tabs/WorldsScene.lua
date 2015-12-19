@@ -59,22 +59,28 @@ function WorldsScene:touched(touch)
     sugarMountainWorldButton:touched(touch)
     
     if(homeButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("mainmenu")
     end
 
     if(additionWorldButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         worldSelected = "+"
         Scene.Change("levels")
     elseif(subtractionWorldButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         worldSelected = "-"
         Scene.Change("levels")
     elseif(multiplicationWorldButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         worldSelected = "*"
         Scene.Change("levels")
     elseif(divisionWorldButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         worldSelected = "/"
         Scene.Change("levels")
     elseif(sugarMountainWorldButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         worldSelected = "?" 
         Scene.Change("levels")
     end

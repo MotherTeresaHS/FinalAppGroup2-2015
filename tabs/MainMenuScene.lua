@@ -28,13 +28,11 @@ function MainMenuScene:init()
     storeButton.draggable = false
     achievementsButton.draggable = false
     leaderboardsButton.draggable = false
-
-    music("A Hero's Quest:Battle", true, 0.50) 
     
     if musicOff then
         music.stop()
     else
-        music("A Hero's Quest:Battle", true, 0.50)
+        music("Dropbox:Nigel Good - This Is Forever", true, 0.25)
     end
 end
 
@@ -58,14 +56,19 @@ function MainMenuScene:touched(touch)
     leaderboardsButton:touched(touch)
     
     if(settingsButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("settings")
     elseif(mainGameButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("worlds")
     elseif(storeButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("store")
     elseif(achievementsButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("achievements")
     elseif(leaderboardsButton.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("leaderboards")
     end
 end

@@ -13,12 +13,14 @@
 		<string>SettingsScene</string>
 		<string>CreditsScene</string>
 		<string>StoreScene</string>
+		<string>BackgroundPreviewScene</string>
 		<string>AchievementsScene</string>
 		<string>WorldsScene</string>
 		<string>LevelDifficultyScene</string>
 		<string>MainGameScene</string>
 		<string>MainGameRight</string>
 		<string>MainGameWrong</string>
+		<string>MainGameSkipScene</string>
 		<string>MainGameTotalScoreScene</string>
 		<string>TutorialMainMenuScene</string>
 		<string>TutorialWorldsScene</string>

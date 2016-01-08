@@ -202,7 +202,7 @@ function MainGameScene:draw()
           
     -- this displays the amount of skips above the skip button 
         fill(255, 255, 255, 255)
-        text("Skips: "..amountOfSkips, WIDTH/2, HEIGHT/2-230)
+        text("Skips: "..math.floor(amountOfSkips), WIDTH/2, HEIGHT/2-230)
     --this draws the home and skip button 
         homeButton:draw()
         skipButton:draw()
@@ -523,9 +523,8 @@ end
 
 
 function MainGameScene:changeCounter()
-    if ( correctCounter+incorrectCounter>0) then
-         MainGameScene:changeTheEquation()
-    end
+    
+    MainGameScene:changeTheEquation()
     correctCounter = 0
     incorrectCounter = 0
     trackingAnswers={}

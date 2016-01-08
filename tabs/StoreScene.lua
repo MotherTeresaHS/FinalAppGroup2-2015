@@ -71,14 +71,21 @@ function StoreScene:touched(touch)
         sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("mainmenu")
     elseif(buyButtonForSkips.selected == true) then
+        sound(SOUND_HIT, 1851, 0.50)
         if(amountOfCandyInBasket >= 15) then
             amountOfCandyInBasket = amountOfCandyInBasket - 15
             amountOfSkips = amountOfSkips + 1
+            saveLocalData("candy", amountOfCandyInBasket)
+        else
+            alert("Not enough candy!", "Can't buy item")
         end
     elseif(buyButtonForBackgrounds.selected == true) then
         if(amountOfCandyInBasket >= 10) then
             amountOfCandyInBasket = amountOfCandyInBasket - 10
-            -- need to make a variable for background 
+            saveLocalData("candy", amountOfCandyInBasket)
+            -- need to make a variable for background in the main game
+        else
+            alert("Not enough candy!", "Can't buy item")
         end
     elseif(backgroundPreviewRed.selected == true) then
         backgroundPreview = "red"

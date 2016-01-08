@@ -21,7 +21,7 @@ function CompanyLogoScene:draw()
     
     sprite("Dropbox:companyLogo", WIDTH/2, HEIGHT/2)
     
-    if(startTime + 1 < ElapsedTime) then
+    if(startTime + 2 < ElapsedTime) then
         Scene.Change("gamelogo")
     end
 end

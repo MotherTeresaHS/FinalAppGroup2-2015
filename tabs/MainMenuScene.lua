@@ -32,7 +32,7 @@ function MainMenuScene:init()
     if musicOff then
         music.stop()
     else
-        music("Dropbox:Nigel Good - This Is Forever", true, 0.25)
+        music("Dropbox:Nigel Good - Discover", true, 0.25)
     end
 end
 
@@ -43,8 +43,8 @@ function MainMenuScene:draw()
     settingsButton:draw()
     mainGameButton:draw()
     storeButton:draw()
-    --achievementsButton:draw()
-    --leaderboardsButton:draw()
+    achievementsButton:draw()
+    leaderboardsButton:draw()
 end
 
 function MainMenuScene:touched(touch)
@@ -68,7 +68,10 @@ function MainMenuScene:touched(touch)
         sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("achievements")
     elseif(leaderboardsButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("leaderboards")
+        if(gamecenter.enabled() == true) then
+            gamecenter.showLeaderboards()
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("leaderboards")
+        end
     end
 end

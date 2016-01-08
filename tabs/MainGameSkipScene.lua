@@ -14,7 +14,7 @@ function MainGameSkipScene:init()
   
     startTime = ElapsedTime
     amountOfSkips = amountOfSkips - 1
-    --saveLocalData("skips", amountOfSkips)
+    saveLocalData("skips", amountOfSkips)
 end
 
 function MainGameSkipScene:draw()

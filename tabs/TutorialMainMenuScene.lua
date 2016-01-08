@@ -30,13 +30,7 @@ function TutorialMainMenuScene:init()
     achievementsButton.draggable = false
     leaderboardsButton.draggable = false
 
-    music("A Hero's Quest:Battle", true, 0.50) 
-    
-    if musicOff then
-        music.stop()
-    else
-        music("A Hero's Quest:Battle", true, 0.50)
-    end
+    music("Dropbox:Nigel Good - Discover", true, 0.25) 
 end
 
 function TutorialMainMenuScene:draw()

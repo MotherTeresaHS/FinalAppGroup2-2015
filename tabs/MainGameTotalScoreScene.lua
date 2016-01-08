@@ -4,7 +4,7 @@
 -- Created by: Luke Vandenberghe and Zacharias Octavious
 -- Created on: Dec - 2015
 -- Created for: ICS2O
--- This is the main game right scene where the program tells the user theyir total amount of right answers
+-- This is the main game right scene where the program tells the user their total amount of right answers
 
 MainGameTotalScoreScene = class()
 

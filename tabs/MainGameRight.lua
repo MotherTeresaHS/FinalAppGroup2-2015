@@ -14,7 +14,10 @@ function MainGameRight:init()
     
     startTime = ElapsedTime
     amountOfCandyInBasket = amountOfCandyInBasket + 1
-    --saveLocalData("candy", amountOfCandyInBasket)
+    amountOfEquationsRightInTotal = amountOfEquationsRightInTotal + 1
+    saveLocalData("candy", amountOfCandyInBasket)
+    saveLocalData("highscore", amountOfEquationsRightInTotal)
+    gamecenter.submitScore(math.floor(amountOfEquationsRightInTotal), "CandyQuationsLeaderboard")
 end
 
 function MainGameRight:draw()

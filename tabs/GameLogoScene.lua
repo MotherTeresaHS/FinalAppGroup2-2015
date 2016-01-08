@@ -20,9 +20,13 @@ function GameLogoScene:draw()
     -- Codea does not automatically call this method
     
     sprite("Dropbox:gameLogo", WIDTH/2, HEIGHT/2)
-
-    if(startTime2 + 1 < ElapsedTime) then
-        Scene.Change("mainmenu")
+    
+    if(startTime2 + 2 < ElapsedTime) then
+        if tutorialOver then
+            Scene.Change("mainmenu")
+        else 
+            Scene.Change("tutorialmainmenu")
+        end
     end
 end
 

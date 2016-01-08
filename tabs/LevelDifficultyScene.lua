@@ -56,14 +56,17 @@ function LevelDifficultyScene:touched(touch)
     elseif(easyLevelDifficultyButton.selected == true) then
         sound(SOUND_HIT, 1851, 0.50)
         levelDifficultySelected = "Easy"
+        MainGameScene:changeCounter()
         Scene.Change("maingame")
     elseif(mediumLevelDifficultyButton.selected == true) then
         sound(SOUND_HIT, 1851, 0.50)
         levelDifficultySelected = "Medium"
+        MainGameScene:changeCounter()
         Scene.Change("maingame")
     elseif(hardLevelDifficultyButton.selected == true) then
         sound(SOUND_HIT, 1851, 0.50)
         levelDifficultySelected = "Hard"
+        MainGameScene:changeCounter()
         Scene.Change("maingame")
     end
 end

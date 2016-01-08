@@ -6,24 +6,30 @@
 -- Created for: ICS2O
 -- This is the main starting point 
 
+
+-- set debug to false for exporting 
+DEBUG_GAMECENTER = true
+
 --global variables
 worldSelected = ""
 levelDifficultySelected = ""
-amountOfCandyInBasket = 0 -- = nil for read data 
-amountOfSkips = 3  -- = nil for read data 
+amountOfCandyInBasket = nil 
+amountOfSkips = nil
+amountOfEquationsRightInTotal = nil
 
 -- Use this function to perform your initial setup
 function setup()
     
     supportedOrientations(LANDSCAPE_ANY)
-    displayMode(FULLSCREEN)
+    displayMode(FULLSCREEN) --FULLSCREEN_NO_BUTTONS when exporting
     noFill()
     noSmooth()
     noStroke()
     pushStyle()
 
-    --amountOfCandyInBasket = readLocalData("candy", 0)
-    --amountOfSkips = readLocalData("skips", 0)
+    amountOfCandyInBasket = readLocalData("candy", 0)
+    amountOfSkips = readLocalData("skips", 3)
+    amountOfEquationsRightInTotal = readLocalData("highscore", 0)
     
     -- create the scenes
     Scene("companylogo", CompanyLogoScene)
@@ -49,7 +55,7 @@ function setup()
     Scene("tutorialmaingame", TutorialMainGameScene)
     Scene("tutorialright", TutorialMainGameRightScene)
     Scene("tutorialwrong", TutorialMainGameWrongScene)
-    Scene("tutorialtotalscore", TutorialMainGameTotalScoreScene)
+    Scene("tutorialover", TutorialOverScene)
     
     Scene.Change("companylogo")
 end

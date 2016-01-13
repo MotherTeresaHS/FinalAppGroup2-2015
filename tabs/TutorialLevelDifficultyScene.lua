@@ -12,6 +12,7 @@ local homeButton
 local easyLevelDifficultyButton
 local mediumLevelDifficultyButton
 local hardLevelDifficultyButton
+local backgroundTextBox
 
 function TutorialLevelDifficultyScene:init()
     -- you can accept and set parameters here
@@ -20,7 +21,7 @@ function TutorialLevelDifficultyScene:init()
     easyLevelDifficultyButton = Button("Dropbox:levelDifficultyEasyButton", vec2(WIDTH/2-190, HEIGHT/2))
     mediumLevelDifficultyButton = Button("Dropbox:levelDifficultyMediumButton", vec2(WIDTH/2-20, HEIGHT/2))
     hardLevelDifficultyButton = Button("Dropbox:levelDifficultyHardButton", vec2(WIDTH/2+180,HEIGHT/2))
-    
+    backgroundTextBox = SpriteObject("Dropbox:tutorialBackgroundRectangleForTextLevels", vec2(WIDTH/2-370, HEIGHT/2))
     homeButton.draggable = false
     easyLevelDifficultyButton.draggable = false
     mediumLevelDifficultyButton.draggable = false
@@ -40,12 +41,7 @@ function TutorialLevelDifficultyScene:draw()
     easyLevelDifficultyButton:draw()
     mediumLevelDifficultyButton:draw()
     hardLevelDifficultyButton:draw()
-    
-    fill(255, 255, 255, 255)
-    stroke(0, 0, 0, 255)
-    strokeWidth(3)
-    rectMode(CENTER)
-    rect(WIDTH/2-370, HEIGHT/2, 260, 30) -- Creates white rectangle behind text
+    backgroundTextBox:draw()
     
     fill(0, 0, 0, 255)
     fontSize(24)

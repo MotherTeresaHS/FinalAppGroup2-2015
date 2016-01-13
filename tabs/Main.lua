@@ -4,7 +4,7 @@
 -- Created by: Zacharias Octavious 
 -- Created on: Nov - 2015
 -- Created for: ICS2O
--- This is the main starting point 
+-- This is the main starting point that contains all the global variables for the program and all the scenes
 
 -- set debug to false for exporting 
 DEBUG_GAMECENTER = true

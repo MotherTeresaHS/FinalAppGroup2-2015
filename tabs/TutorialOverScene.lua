@@ -16,7 +16,12 @@ function TutorialOverScene:init()
     startTime = ElapsedTime
     tutorialOver = tutorialOver + 1
     saveLocalData("tutorial", tutorialOver)
-    --gamecenter.submitAchievement(completeTutorial, 100)
+    if(tutorialOver == 0) then
+        if(gamecenter.enabled() == true) then
+        -- the achievement for completing the tutorial 
+            gamecenter.submitAchievement("CompleteTutorialCandyQuations", 100)
+        end
+    end
 end
 
 function TutorialOverScene:draw()

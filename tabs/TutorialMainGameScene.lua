@@ -13,6 +13,8 @@ local greenCircle
 local redCircle
 local smallGreenCircle
 local smallRedCircle
+local backgroundTextBoxFirstTime
+local backgroundTextBoxSecondTime
 
 function TutorialMainGameScene:init()
     
@@ -21,11 +23,15 @@ function TutorialMainGameScene:init()
     redCircle = SpriteObject("Dropbox:tutorialRedCircle", vec2(WIDTH/2-350, HEIGHT/2-200))
     smallGreenCircle = SpriteObject("Dropbox:tutorialSmallGreenCircle", vec2(WIDTH/2+350, HEIGHT/2-200))
     smallRedCircle = SpriteObject("Dropbox:tutorialSmallRedCircle", vec2(WIDTH/2-350, HEIGHT/2-200))
-    
+    backgroundTextBoxFirstTime = SpriteObject("Dropbox:tutorialBackgroundRectangleForTextMainGameFirstTime", vec2(WIDTH/2, HEIGHT/2))
+    backgroundTextBoxSecondTime = SpriteObject("Dropbox:tutorialBackgroundRectangleForTextMainGameSecondTime", vec2(WIDTH/2, HEIGHT/2))
+    --sprite("Dropbox:tutorialBackgroundRectangleForTextMainGameFirstTime")
     greenCircle.draggable = false
     redCircle.draggable = false 
     smallGreenCircle.draggable = false
     smallRedCircle.draggable = false
+    backgroundTextBoxFirstTime.draggable = false
+    backgroundTextBoxSecondTime.draggable = false
 end
 
 function TutorialMainGameScene:draw()
@@ -36,23 +42,14 @@ function TutorialMainGameScene:draw()
     redCircle:draw()
     equationToDrag:draw()
     
-    fill(255, 255, 255, 255)
-    stroke(0, 0, 0, 255)
-    strokeWidth(3)
-    rectMode(CENTER)
-    
-    if tutorialSecondTime then
-        rect(WIDTH/2, HEIGHT/2, 500, 40) -- Creates white rectangle behind text
-    else
-        rect(WIDTH/2, HEIGHT/2, 500, 40) -- Creates white rectangle behind text
-    end
-    
     fill(0, 0, 0, 255)
     fontSize(30)
     
     if tutorialSecondTime then
+        backgroundTextBoxSecondTime:draw()
         text("Now drag the equation to the red circle", WIDTH/2, HEIGHT/2)
     else
+        backgroundTextBoxFirstTime:draw()
         text("Drag the equation to the green circle", WIDTH/2, HEIGHT/2)
     end
 end

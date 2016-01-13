@@ -14,6 +14,7 @@ local mainGameButton
 local storeButton
 local achievementsButton
 local leaderboardsButton
+local backgroundTextBox
 
 function TutorialMainMenuScene:init()
     -- you can accept and set parameters here
@@ -23,12 +24,14 @@ function TutorialMainMenuScene:init()
     storeButton = Button("Dropbox:mainMenuStoreButton", vec2(WIDTH/2, HEIGHT/2-300))
     achievementsButton = Button("Dropbox:mainMenuAchievementsButton", vec2(WIDTH/2+300, HEIGHT/2-300))
     leaderboardsButton = Button("Dropbox:mainMenuLeaderboardsButton", vec2(WIDTH/2-300, HEIGHT/2-300))
+    backgroundTextBox = SpriteObject("Dropbox:tutorialBackgroundRectangleForTextMainMenu", vec2(WIDTH/2-320, HEIGHT/2))
     
     settingsButton.draggable = false
     mainGameButton.draggable = false 
     storeButton.draggable = false
     achievementsButton.draggable = false
     leaderboardsButton.draggable = false
+    backgroundTextBox.draggable = false
 
     music("Dropbox:Nigel Good - Discover", true, 0.25) 
 end
@@ -41,14 +44,9 @@ function TutorialMainMenuScene:draw()
     settingsButton:draw()
     mainGameButton:draw()
     storeButton:draw()
-    --achievementsButton:draw()
-    --leaderboardsButton:draw()
-    
-    fill(255, 255, 255, 255)
-    stroke(0, 0, 0, 255)
-    strokeWidth(3)
-    rectMode(CENTER)
-    rect(WIDTH/2-325, HEIGHT/2, 350, 30) -- Creates white rectangle behind text
+    achievementsButton:draw()
+    leaderboardsButton:draw()
+    backgroundTextBox:draw()
     
     fill(0, 0, 0, 255)
     fontSize(27)

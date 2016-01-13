@@ -30,6 +30,8 @@ function WorldsScene:init()
     multiplicationWorldButton.draggable = false 
     divisionWorldButton.draggable = false 
     sugarMountainWorldButton.draggable = false
+    
+    noTutorialQuestion = false
 end
 
 function WorldsScene:draw()

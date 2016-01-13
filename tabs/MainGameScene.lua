@@ -189,8 +189,14 @@ function MainGameScene:draw()
     --this code displays the equation the user has to drag
     --It randomly generates a wrong equation or a right equation
      if (equation == 1) then
+        if(equationType == "*") then
+            equationType = "x"
+        end
         text (" "..number1.." "..equationType.." "..number2.." = "..equationAnswer, myBoxX, myBoxY)
      elseif (equation == 2) then 
+        if(equationType == "*") then
+            equationType = "x"
+        end
         text (" "..number1.." "..equationType.." "..number2.." = "..equationAnswerIncorrect, myBoxX, myBoxY)
     end  
     

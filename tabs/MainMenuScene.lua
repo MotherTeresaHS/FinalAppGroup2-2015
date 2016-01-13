@@ -16,6 +16,7 @@ local achievementsButton
 local leaderboardsButton
 local tutorialYesButton
 local tutorialNoButton
+local backgroundTextBox
     
 function MainMenuScene:init()
     
@@ -24,9 +25,10 @@ function MainMenuScene:init()
     storeButton = Button("Dropbox:mainMenuStoreButton", vec2(WIDTH/2, HEIGHT/2-300))
     achievementsButton = Button("Dropbox:mainMenuAchievementsButton", vec2(WIDTH/2+300, HEIGHT/2-300))
     leaderboardsButton = Button("Dropbox:mainMenuLeaderboardsButton", vec2(WIDTH/2-300, HEIGHT/2-300))
-    tutorialYesButton = Button("Dropbox:tutorialYesButton", vec2(WIDTH/2-100, HEIGHT/2+200))
-    tutorialNoButton = Button("Dropbox:tutorialNoButton", vec2(WIDTH/2+100, HEIGHT/2+200))
-    
+    tutorialYesButton = Button("Dropbox:tutorialYesButton", vec2(WIDTH/2-100, HEIGHT/2+225))
+    tutorialNoButton = Button("Dropbox:tutorialNoButton", vec2(WIDTH/2+100, HEIGHT/2+225))
+    backgroundTextBox = SpriteObject("Dropbox:backgroundRectangleForTextMainMenu", vec2(WIDTH/2, HEIGHT/2+300))
+
     settingsButton.draggable = false
     mainGameButton.draggable = false 
     storeButton.draggable = false
@@ -34,6 +36,7 @@ function MainMenuScene:init()
     leaderboardsButton.draggable = false
     tutorialYesButton.draggable = false
     tutorialNoButton.draggable = false
+    backgroundTextBox.draggable = false
     
     if musicOff then
         music.stop()
@@ -54,18 +57,17 @@ function MainMenuScene:draw()
     leaderboardsButton:draw()
     
     if(tutorialOver ~= 0) then
-        tutorialYesButton:draw()
-        tutorialNoButton:draw()
-        
-        fill(255, 255, 255, 255)
-        stroke(0, 0, 0, 255)
-        strokeWidth(3)
-        rectMode(CENTER)
-        rect(WIDTH/2, HEIGHT/2+300, 500, 40) --rectangle behind text
-        
-        fill(0, 0, 0, 255)
-        fontSize(30)
-        text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
+        if noTutorialQuestion then
+            return
+        else
+            backgroundTextBox:draw()
+            tutorialYesButton:draw()
+            tutorialNoButton:draw()
+            
+            fill(0, 0, 0, 255)
+            fontSize(30)
+            text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
+        end
     end
 end
 
@@ -102,5 +104,8 @@ function MainMenuScene:touched(touch)
         end
     elseif(tutorialYesButton.selected == true) then
         Scene.Change("tutorialmainmenu")
+    elseif(tutorialNoButton.selected == true) then
+        noTutorialQuestion = true 
+        Scene.Change("mainmenu")
     end
 end

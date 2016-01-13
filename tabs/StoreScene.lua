@@ -11,37 +11,58 @@ StoreScene = class()
 local homeButton 
 local buyButtonForSkips
 local buyButtonForBackgrounds
-local backgroundPreviewRed
-local backgroundPreviewGreen
-local backgroundPreviewBlue
+local backgroundPreviewStripes
+local backgroundPreviewRainbow
+local backgroundPreviewDots
+local backgroundPreviewSelectedStripes
+local backgroundPreviewButton
+local backgroundPreviewSelected = ""
+local startTime = 0
+local timeRedButtonIsHeld = 0
+backgroundPreview = ""
 
 function StoreScene:init()
     -- you can accept and set parameters here
     homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
     buyButtonForSkips = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2+150))
     buyButtonForBackgrounds = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2))
-    backgroundPreviewRed = Button("Dropbox:storeBackgroundPreviewRed", vec2(WIDTH/2-75, HEIGHT/2))
-    backgroundPreviewGreen = Button("Dropbox:storeBackgroundPreviewGreen", vec2(WIDTH/2, HEIGHT/2))
-    backgroundPreviewBlue = Button("Dropbox:storeBackgroundPreviewBlue", vec2(WIDTH/2+75, HEIGHT/2))
+    backgroundPreviewStripes = Button("Dropbox:storeBackgroundPreviewStripes", vec2(WIDTH/2-75, HEIGHT/2))
+    backgroundPreviewRainbow = Button("Dropbox:storeBackgroundPreviewRainbow", vec2(WIDTH/2, HEIGHT/2))
+    backgroundPreviewDots = Button("Dropbox:storeBackgroundPreviewDots", vec2(WIDTH/2+75, HEIGHT/2))
+    backgroundPreviewSelectedStripes = SpriteObject("Dropbox:storeBackgroundPreviewSelectedStripes", vec2(WIDTH/2-75, HEIGHT/2))
+    
+    backgroundPreviewButton = Button("Dropbox:storeBackgroundPreviewButton", vec2(WIDTH/2, HEIGHT/2-150))
+    --sprite("Dropbox:storeBackgroundPreviewButton")
     
     homeButton.draggable = false 
     buyButtonForSkips.draggable = false
     buyButtonForBackgrounds.draggable = false
-    backgroundPreviewRed.draggable = false
-    backgroundPreviewGreen.draggable = false
-    backgroundPreviewBlue.draggable = false
+    backgroundPreviewStripes.draggable = false
+    backgroundPreviewRainbow.draggable = false
+    backgroundPreviewDots.draggable = false
+    backgroundPreviewSelectedStripes.draggable = false
+    backgroundPreviewButton.draggable = false
 end
 
 function StoreScene:draw()
     -- Codea does not automatically call this method
     background(0, 0, 0, 255)
+    
     homeButton:draw()
     buyButtonForSkips:draw()
     buyButtonForBackgrounds:draw()
-    backgroundPreviewRed:draw()
-    backgroundPreviewGreen:draw()
-    backgroundPreviewBlue:draw()
+    if backgroundPreviewSelected == "stripes" then
+        backgroundPreviewSelectedStripes:draw()
+    elseif backgroundPreviewSelected == "stripesunselected" then
+        backgroundPreviewStripes:draw()
+    elseif backgroundPreviewSelected == "" then
+        backgroundPreviewStripes:draw()
+    end
     
+    backgroundPreviewRainbow:draw()
+    backgroundPreviewDots:draw()
+    backgroundPreviewButton:draw()
+
     fill(255, 255, 255, 255)
     fontSize(60)
     text("Store", WIDTH/2, HEIGHT/2+300) 
@@ -54,7 +75,7 @@ function StoreScene:draw()
     sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+5, 75, 75)
     
     --amount of candy in basket in top right of screen
-    text(amountOfCandyInBasket, WIDTH/2+300, HEIGHT/2+325)
+    text(math.floor(amountOfCandyInBasket), WIDTH/2+300, HEIGHT/2+325)
     sprite("Dropbox:candyForCurrency", WIDTH/2+400, HEIGHT/2+325, 75, 75)
 end
 
@@ -63,9 +84,11 @@ function StoreScene:touched(touch)
     homeButton:touched(touch)
     buyButtonForSkips:touched(touch)
     buyButtonForBackgrounds:touched(touch)
-    backgroundPreviewRed:touched(touch)
-    backgroundPreviewGreen:touched(touch)
-    backgroundPreviewBlue:touched(touch)
+    backgroundPreviewStripes:touched(touch)
+    backgroundPreviewRainbow:touched(touch)
+    backgroundPreviewDots:touched(touch)
+    backgroundPreviewSelectedStripes:touched(touch)
+    backgroundPreviewButton:touched(touch)
     
     if(homeButton.selected == true) then
         sound(SOUND_HIT, 1851, 0.50)
@@ -87,14 +110,16 @@ function StoreScene:touched(touch)
         else
             alert("Not enough candy!", "Can't buy item")
         end
-    elseif(backgroundPreviewRed.selected == true) then
-        backgroundPreview = "red"
-        Scene.Change("backgrounds")
-    elseif(backgroundPreviewGreen.selected == true) then
-        backgroundPreview = "green"
-        Scene.Change("backgrounds")
-    elseif(backgroundPreviewBlue.selected == true) then
-        backgroundPreview = "blue"
+    elseif(backgroundPreviewStripes.selected == true) then
+        backgroundPreview = "stripes"
+        backgroundPreviewSelected = "stripes"
+    elseif(backgroundPreviewRainbow.selected == true) then
+        backgroundPreview = "rainbow"
+    elseif(backgroundPreviewDots.selected == true) then
+        backgroundPreview = "dots"
+    elseif(backgroundPreviewSelectedStripes.selected == true) then
+        backgroundPreviewSelected = "stripesunselected"
+    elseif(backgroundPreviewButton.selected == true) then
         Scene.Change("backgrounds")
     end
 end

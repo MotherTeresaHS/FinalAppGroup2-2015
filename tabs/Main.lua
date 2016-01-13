@@ -6,7 +6,6 @@
 -- Created for: ICS2O
 -- This is the main starting point 
 
-
 -- set debug to false for exporting 
 DEBUG_GAMECENTER = true
 
@@ -16,6 +15,7 @@ levelDifficultySelected = ""
 amountOfCandyInBasket = nil 
 amountOfSkips = nil
 amountOfEquationsRightInTotal = nil
+tutorialOver = nil
 
 -- Use this function to perform your initial setup
 function setup()
@@ -30,6 +30,7 @@ function setup()
     amountOfCandyInBasket = readLocalData("candy", 0)
     amountOfSkips = readLocalData("skips", 3)
     amountOfEquationsRightInTotal = readLocalData("highscore", 0)
+    tutorialOver = readLocalData("tutorial", 0)
     
     -- create the scenes
     Scene("companylogo", CompanyLogoScene)

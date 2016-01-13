@@ -44,7 +44,7 @@ function TutorialMainGameScene:draw()
     if tutorialSecondTime then
         rect(WIDTH/2, HEIGHT/2, 500, 40) -- Creates white rectangle behind text
     else
-        rect(WIDTH/2, HEIGHT/2, 450, 40) -- Creates white rectangle behind text
+        rect(WIDTH/2, HEIGHT/2, 500, 40) -- Creates white rectangle behind text
     end
     
     fill(0, 0, 0, 255)

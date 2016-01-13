@@ -14,6 +14,8 @@ local mainGameButton
 local storeButton
 local achievementsButton
 local leaderboardsButton
+local tutorialYesButton
+local tutorialNoButton
     
 function MainMenuScene:init()
     
@@ -22,12 +24,16 @@ function MainMenuScene:init()
     storeButton = Button("Dropbox:mainMenuStoreButton", vec2(WIDTH/2, HEIGHT/2-300))
     achievementsButton = Button("Dropbox:mainMenuAchievementsButton", vec2(WIDTH/2+300, HEIGHT/2-300))
     leaderboardsButton = Button("Dropbox:mainMenuLeaderboardsButton", vec2(WIDTH/2-300, HEIGHT/2-300))
+    tutorialYesButton = Button("Dropbox:tutorialYesButton", vec2(WIDTH/2-100, HEIGHT/2+200))
+    tutorialNoButton = Button("Dropbox:tutorialNoButton", vec2(WIDTH/2+100, HEIGHT/2+200))
     
     settingsButton.draggable = false
     mainGameButton.draggable = false 
     storeButton.draggable = false
     achievementsButton.draggable = false
     leaderboardsButton.draggable = false
+    tutorialYesButton.draggable = false
+    tutorialNoButton.draggable = false
     
     if musicOff then
         music.stop()
@@ -40,11 +46,27 @@ function MainMenuScene:draw()
     -- Codea does not automatically call this method
     
     sprite("Dropbox:mainMenuScene", WIDTH/2, HEIGHT/2, 1024, 800)
+    
     settingsButton:draw()
     mainGameButton:draw()
     storeButton:draw()
     achievementsButton:draw()
     leaderboardsButton:draw()
+    
+    if(tutorialOver ~= 0) then
+        tutorialYesButton:draw()
+        tutorialNoButton:draw()
+        
+        fill(255, 255, 255, 255)
+        stroke(0, 0, 0, 255)
+        strokeWidth(3)
+        rectMode(CENTER)
+        rect(WIDTH/2, HEIGHT/2+300, 500, 40) --rectangle behind text
+        
+        fill(0, 0, 0, 255)
+        fontSize(30)
+        text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
+    end
 end
 
 function MainMenuScene:touched(touch)
@@ -54,6 +76,8 @@ function MainMenuScene:touched(touch)
     storeButton:touched(touch)
     achievementsButton:touched(touch)
     leaderboardsButton:touched(touch)
+    tutorialYesButton:touched(touch)
+    tutorialNoButton:touched(touch)
     
     if(settingsButton.selected == true) then
         sound(SOUND_HIT, 1851, 0.50)
@@ -65,13 +89,18 @@ function MainMenuScene:touched(touch)
         sound(SOUND_HIT, 1851, 0.50)
         Scene.Change("store")
     elseif(achievementsButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("achievements")
+        if(gamecenter.enabled() == true) then
+            gamecenter.showAchievements()
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("achievements")
+        end
     elseif(leaderboardsButton.selected == true) then
         if(gamecenter.enabled() == true) then
             gamecenter.showLeaderboards()
             sound(SOUND_HIT, 1851, 0.50)
             Scene.Change("leaderboards")
         end
+    elseif(tutorialYesButton.selected == true) then
+        Scene.Change("tutorialmainmenu")
     end
 end

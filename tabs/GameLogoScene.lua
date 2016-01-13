@@ -22,9 +22,9 @@ function GameLogoScene:draw()
     sprite("Dropbox:gameLogo", WIDTH/2, HEIGHT/2)
     
     if(startTime2 + 2 < ElapsedTime) then
-        if tutorialOver then
+        if(tutorialOver ~= 0) then
             Scene.Change("mainmenu")
-        else 
+        elseif(tutorialOver == 0) then
             Scene.Change("tutorialmainmenu")
         end
     end

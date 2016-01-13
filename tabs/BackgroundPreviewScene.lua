@@ -9,21 +9,32 @@
 BackgroundPreviewScene = class()
 
 local startTime
+local backgroundStripes
+local backgroundRainbow
+local backgroundDots
 local perfectCircle = 150
 
 function BackgroundPreviewScene:init()
     
     startTime = ElapsedTime
+    backgroundStripes = SpriteObject("Dropbox:backgroundsForMainGameStripes", vec2(WIDTH/2, HEIGHT/2))
+    backgroundRainbow = SpriteObject("Dropbox:backgroundsForMainGameRainbow", vec2(WIDTH/2, HEIGHT/2))
+    backgroundDots = SpriteObject("Dropbox:backgroundsForMainGameDots", vec2(WIDTH/2, HEIGHT/2))
 end
 
 function BackgroundPreviewScene:draw()
     
-    if(backgroundPreview == "red") then
-        background(255, 0, 0, 255)
-    elseif(backgroundPreview == "green") then
-        background(0, 255, 0, 255)
-    elseif(backgroundPreview == "blue") then
-        background(0, 0, 255, 255)
+    if(backgroundPreview == "stripes") then
+        backgroundStripes:draw()
+    elseif(backgroundPreview == "rainbow") then
+        backgroundRainbow:draw()
+    elseif(backgroundPreview == "dots") then
+        backgroundDots:draw()
+    elseif(backgroundPreview == "") then
+        fill(255, 255, 255, 255)
+        fontSize(50)
+        font("Futura-CondensedExtraBold")
+        text("Select a background to preview it!", WIDTH/2, HEIGHT/2+100)
     end   
     
     fontSize(100)

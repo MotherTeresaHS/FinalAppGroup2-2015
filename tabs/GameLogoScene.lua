@@ -17,7 +17,6 @@ function GameLogoScene:init()
 end
 
 function GameLogoScene:draw()
-    -- Codea does not automatically call this method
     
     sprite("Dropbox:gameLogo", WIDTH/2, HEIGHT/2)
     
@@ -31,5 +30,5 @@ function GameLogoScene:draw()
 end
 
 function GameLogoScene:touched(touch)
-    -- Codea does not automatically call this method
+    
 end

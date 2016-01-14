@@ -18,7 +18,7 @@ function TutorialOverScene:init()
     saveLocalData("tutorial", tutorialOver)
     if(tutorialOver == 0) then
         if(gamecenter.enabled() == true) then
-        -- the achievement for completing the tutorial 
+            --the achievement for completing the tutorial 
             gamecenter.submitAchievement("CompleteTutorialCandyQuations", 100)
         end
     end
@@ -28,7 +28,7 @@ function TutorialOverScene:draw()
     -- Codea does not automatically call this method
     
     --background(0, 0, 0, 255)
-    sprite("Cargo Bot:Background Fade", WIDTH/2, HEIGHT/2, 2048, 1536)
+    sprite("Dropbox:tutorialOverSceneBackground", WIDTH/2, HEIGHT/2, 2048, 1536)
     
     fill(255, 255, 255, 255)
     font("ArialRoundedMTBold")

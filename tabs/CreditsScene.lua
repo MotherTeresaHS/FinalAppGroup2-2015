@@ -15,7 +15,7 @@ local soundcloudButton
 local twitterButton
 
 function CreditsScene:init()
-    -- you can accept and set parameters here
+    
     homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
     facebookButton = Button("Dropbox:creditsNigelGoodFacebookButton", vec2(WIDTH/2-200, HEIGHT/2-190))
     soundcloudButton = Button("Dropbox:creditsNigelGoodSoundcloudButton", vec2(WIDTH/2, HEIGHT/2-190))
@@ -30,15 +30,17 @@ function CreditsScene:init()
 end
 
 function CreditsScene:draw()
-    -- Codea does not automatically call this method
-    background(0, 0, 0, 255)
+    
+    --background(0, 0, 0, 255)
+    sprite("Dropbox:creditsBackground", WIDTH/2, HEIGHT/2)
     
     homeButton:draw()
     facebookButton:draw()
     soundcloudButton:draw()
     twitterButton:draw()
     
-    fill(255, 255, 255, 255)
+    fill(0, 0, 0, 255)
+    font("Arial-BoldMT")
     fontSize(60)
     text("Credits", WIDTH/2, HEIGHT/2+300) 
 
@@ -53,7 +55,7 @@ function CreditsScene:draw()
 end
 
 function CreditsScene:touched(touch)
-    -- Codea does not automatically call this method
+    
     homeButton:touched(touch)
     facebookButton:touched(touch)
     soundcloudButton:touched(touch)

@@ -11,13 +11,13 @@ AchievementsScene = class()
 local homeButton
 
 function AchievementsScene:init()
-    -- you can accept and set parameters here
+    
     homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
     homeButton.draggable = false 
 end
 
 function AchievementsScene:draw()
-    -- Codea does not automatically call this method
+    
     background(0, 0, 0, 255)
     homeButton:draw()
     
@@ -45,7 +45,6 @@ function AchievementsScene:draw()
 end
 
 function AchievementsScene:touched(touch)
-    -- Codea does not automatically call this method
     
     homeButton:touched(touch)
     

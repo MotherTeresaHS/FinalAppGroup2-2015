@@ -6,6 +6,9 @@
 -- Created for: ICS2O
 -- This is the store scene 
 
+--no store 
+
+
 StoreScene = class()
 
 local homeButton 
@@ -22,7 +25,7 @@ local timeRedButtonIsHeld = 0
 backgroundPreview = ""
 
 function StoreScene:init()
-    -- you can accept and set parameters here
+    
     homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
     buyButtonForSkips = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2+150))
     buyButtonForBackgrounds = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2))
@@ -30,10 +33,10 @@ function StoreScene:init()
     backgroundPreviewRainbow = Button("Dropbox:storeBackgroundPreviewRainbow", vec2(WIDTH/2, HEIGHT/2))
     backgroundPreviewDots = Button("Dropbox:storeBackgroundPreviewDots", vec2(WIDTH/2+75, HEIGHT/2))
     backgroundPreviewSelectedStripes = SpriteObject("Dropbox:storeBackgroundPreviewSelectedStripes", vec2(WIDTH/2-75, HEIGHT/2))
-    
+    backgroundPreviewSelectedRainbow = SpriteObject("Dropbox:storeBackgroundPreviewSelectedRainbow", vec2(WIDTH/2, HEIGHT/2))
+    backgroundPreviewSelectedDots = SpriteObject("Dropbox:storeBackgroundPreviewSelectedDots", vec2(WIDTH/2+75, HEIGHT/2))
     backgroundPreviewButton = Button("Dropbox:storeBackgroundPreviewButton", vec2(WIDTH/2, HEIGHT/2-150))
-    --sprite("Dropbox:storeBackgroundPreviewButton")
-    
+  
     homeButton.draggable = false 
     buyButtonForSkips.draggable = false
     buyButtonForBackgrounds.draggable = false
@@ -41,22 +44,37 @@ function StoreScene:init()
     backgroundPreviewRainbow.draggable = false
     backgroundPreviewDots.draggable = false
     backgroundPreviewSelectedStripes.draggable = false
+    backgroundPreviewSelectedRainbow.draggable = false
+    backgroundPreviewSelectedDots.draggable = false
     backgroundPreviewButton.draggable = false
 end
 
 function StoreScene:draw()
-    -- Codea does not automatically call this method
+    
     background(0, 0, 0, 255)
     
     homeButton:draw()
     buyButtonForSkips:draw()
     buyButtonForBackgrounds:draw()
-    if backgroundPreviewSelected == "stripes" then
+    
+    if backgroundPreviewSelected == "" or backgroundPreviewSelected == "rainbow" or backgroundPreviewSelected == "dots" then
+        backgroundPreviewStripes:draw()
+    --elseif backgroundPreviewSelected == "" or backgroundPreviewSelected == "stripes" or backgroundPreviewSelected == "dots" then
+        backgroundPreviewRainbow:draw()
+    --elseif backgroundPreviewSelected == "" or backgroundPreviewSelected == "stripes" or backgroundPreviewSelected == "rainbow" then
+        backgroundPreviewDots:draw()
+    elseif backgroundPreviewSelected == "stripes" then
         backgroundPreviewSelectedStripes:draw()
     elseif backgroundPreviewSelected == "stripesunselected" then
         backgroundPreviewStripes:draw()
-    elseif backgroundPreviewSelected == "" then
-        backgroundPreviewStripes:draw()
+    elseif backgroundPreviewSelected == "rainbow" then
+        backgroundPreviewSelectedRainbow:draw()
+    elseif backgroundPreviewSelected == "rainbowunselected" then
+        backgroundPreviewRainbow:draw()
+    elseif backgroundPreviewSelected == "dots" then
+        backgroundPreviewSelectedDots:draw()
+    elseif backgroundPreviewSelected == "dotsunselected" then
+        backgroundPreviewDots:draw()
     end
     
     backgroundPreviewRainbow:draw()
@@ -80,7 +98,7 @@ function StoreScene:draw()
 end
 
 function StoreScene:touched(touch)
-    -- Codea does not automatically call this method
+    
     homeButton:touched(touch)
     buyButtonForSkips:touched(touch)
     buyButtonForBackgrounds:touched(touch)
@@ -88,6 +106,8 @@ function StoreScene:touched(touch)
     backgroundPreviewRainbow:touched(touch)
     backgroundPreviewDots:touched(touch)
     backgroundPreviewSelectedStripes:touched(touch)
+    backgroundPreviewSelectedRainbow:touched(touch)
+    backgroundPreviewSelectedDots:touched(touch)
     backgroundPreviewButton:touched(touch)
     
     if(homeButton.selected == true) then
@@ -115,10 +135,16 @@ function StoreScene:touched(touch)
         backgroundPreviewSelected = "stripes"
     elseif(backgroundPreviewRainbow.selected == true) then
         backgroundPreview = "rainbow"
+        backgroundPreviewSelected = "rainbow"
     elseif(backgroundPreviewDots.selected == true) then
         backgroundPreview = "dots"
+        backgroundPreviewSelected = "dots"
     elseif(backgroundPreviewSelectedStripes.selected == true) then
         backgroundPreviewSelected = "stripesunselected"
+    elseif(backgroundPreviewSelectedRainbow.selected == true) then
+        backgroundPreviewSelected = "rainbowunselected"
+    elseif(backgroundPreviewSelectedDots.selected == true) then
+        backgroundPreviewSelected = "dotsunselected"
     elseif(backgroundPreviewButton.selected == true) then
         Scene.Change("backgrounds")
     end

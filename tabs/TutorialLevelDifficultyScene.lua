@@ -22,6 +22,7 @@ function TutorialLevelDifficultyScene:init()
     mediumLevelDifficultyButton = Button("Dropbox:levelDifficultyMediumButton", vec2(WIDTH/2-20, HEIGHT/2))
     hardLevelDifficultyButton = Button("Dropbox:levelDifficultyHardButton", vec2(WIDTH/2+180,HEIGHT/2))
     backgroundTextBox = SpriteObject("Dropbox:tutorialBackgroundRectangleForTextLevels", vec2(WIDTH/2-370, HEIGHT/2))
+    
     homeButton.draggable = false
     easyLevelDifficultyButton.draggable = false
     mediumLevelDifficultyButton.draggable = false

@@ -24,7 +24,7 @@ function TutorialWorldsScene:init()
     multiplicationWorldButton = Button("Dropbox:multiplicationWorldSelect", vec2(WIDTH/2-325, HEIGHT/2-230))
     divisionWorldButton = Button("Dropbox:divisionWorldSelect", vec2(WIDTH/2+325, HEIGHT/2-230))
     sugarMountainWorldButton = Button("Dropbox:sugarMountainWorldSelect", vec2(WIDTH/2, HEIGHT/2))
-    backgroundTextBox = SpriteObject("Dropbox:tutorialBackgroundRectangleForTextWorlds", vec2(WIDTH/2-90, HEIGHT/2+140))
+    backgroundTextBox = SpriteObject("Dropbox:tutorialBackgroundRectangleForTextWorlds", vec2(WIDTH/2-70, HEIGHT/2+140))
     
     homeButton.draggable = false
     additionWorldButton.draggable = false
@@ -51,7 +51,7 @@ function TutorialWorldsScene:draw()
     fontSize(60)
     text("Worlds", WIDTH/2, HEIGHT/2+300) 
     fontSize(24)
-    text("<- Press the addition world", WIDTH/2-90, HEIGHT/2+140)
+    text("<- Press the addition world", WIDTH/2-70, HEIGHT/2+140)
 end
 
 function TutorialWorldsScene:touched(touch)

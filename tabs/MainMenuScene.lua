@@ -28,7 +28,7 @@ function MainMenuScene:init()
     tutorialYesButton = Button("Dropbox:tutorialYesButton", vec2(WIDTH/2-100, HEIGHT/2+225))
     tutorialNoButton = Button("Dropbox:tutorialNoButton", vec2(WIDTH/2+100, HEIGHT/2+225))
     backgroundTextBox = SpriteObject("Dropbox:backgroundRectangleForTextMainMenu", vec2(WIDTH/2, HEIGHT/2+300))
-
+    
     settingsButton.draggable = false
     mainGameButton.draggable = false 
     storeButton.draggable = false
@@ -41,18 +41,17 @@ function MainMenuScene:init()
     if musicOff then
         music.stop()
     else
-        music("Dropbox:Nigel Good - Discover", true, 0.25)
+        music("Dropbox:Nigel Good - Discover", true, 0.10)
     end
 end
 
 function MainMenuScene:draw()
-    -- Codea does not automatically call this method
     
     sprite("Dropbox:mainMenuScene", WIDTH/2, HEIGHT/2, 1024, 800)
     
     settingsButton:draw()
     mainGameButton:draw()
-    storeButton:draw()
+    --storeButton:draw()
     achievementsButton:draw()
     leaderboardsButton:draw()
     
@@ -72,7 +71,7 @@ function MainMenuScene:draw()
 end
 
 function MainMenuScene:touched(touch)
-    -- Codea does not automatically call this method
+    
     settingsButton:touched(touch)
     mainGameButton:touched(touch)
     storeButton:touched(touch)
@@ -94,13 +93,11 @@ function MainMenuScene:touched(touch)
         if(gamecenter.enabled() == true) then
             gamecenter.showAchievements()
             sound(SOUND_HIT, 1851, 0.50)
-            Scene.Change("achievements")
         end
     elseif(leaderboardsButton.selected == true) then
         if(gamecenter.enabled() == true) then
             gamecenter.showLeaderboards()
             sound(SOUND_HIT, 1851, 0.50)
-            Scene.Change("leaderboards")
         end
     elseif(tutorialYesButton.selected == true) then
         Scene.Change("tutorialmainmenu")

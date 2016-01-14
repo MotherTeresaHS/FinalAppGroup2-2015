@@ -17,7 +17,6 @@ function CompanyLogoScene:init()
 end
 
 function CompanyLogoScene:draw()
-    -- Codea does not automatically call this method
     
     sprite("Dropbox:companyLogo", WIDTH/2, HEIGHT/2)
     
@@ -27,5 +26,5 @@ function CompanyLogoScene:draw()
 end
 
 function CompanyLogoScene:touched(touch)
-    -- Codea does not automatically call this method 
+
 end

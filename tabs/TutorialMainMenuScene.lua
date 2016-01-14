@@ -43,7 +43,7 @@ function TutorialMainMenuScene:draw()
     
     settingsButton:draw()
     mainGameButton:draw()
-    storeButton:draw()
+    --storeButton:draw()
     achievementsButton:draw()
     leaderboardsButton:draw()
     backgroundTextBox:draw()

@@ -51,7 +51,7 @@ function MainMenuScene:draw()
     
     settingsButton:draw()
     mainGameButton:draw()
-    --storeButton:draw()
+    storeButton:draw()
     achievementsButton:draw()
     leaderboardsButton:draw()
     

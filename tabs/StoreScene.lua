@@ -6,9 +6,6 @@
 -- Created for: ICS2O
 -- This is the store scene 
 
---no store 
-
-
 StoreScene = class()
 
 local homeButton 
@@ -51,46 +48,47 @@ end
 
 function StoreScene:draw()
     
-    background(0, 0, 0, 255)
+    --background(0, 0, 0, 255)
+    sprite("Dropbox:backgroundsForMainGameStripes", WIDTH/2, HEIGHT/2, 1024, 768)
     
     homeButton:draw()
     buyButtonForSkips:draw()
-    buyButtonForBackgrounds:draw()
+    --buyButtonForBackgrounds:draw()
     
-    if backgroundPreviewSelected == "" or backgroundPreviewSelected == "rainbow" or backgroundPreviewSelected == "dots" then
-        backgroundPreviewStripes:draw()
+    --if backgroundPreviewSelected == "" or backgroundPreviewSelected == "rainbow" or backgroundPreviewSelected == "dots" then
+       -- backgroundPreviewStripes:draw()
     --elseif backgroundPreviewSelected == "" or backgroundPreviewSelected == "stripes" or backgroundPreviewSelected == "dots" then
-        backgroundPreviewRainbow:draw()
+        --backgroundPreviewRainbow:draw()
     --elseif backgroundPreviewSelected == "" or backgroundPreviewSelected == "stripes" or backgroundPreviewSelected == "rainbow" then
-        backgroundPreviewDots:draw()
-    elseif backgroundPreviewSelected == "stripes" then
-        backgroundPreviewSelectedStripes:draw()
-    elseif backgroundPreviewSelected == "stripesunselected" then
-        backgroundPreviewStripes:draw()
-    elseif backgroundPreviewSelected == "rainbow" then
-        backgroundPreviewSelectedRainbow:draw()
-    elseif backgroundPreviewSelected == "rainbowunselected" then
-        backgroundPreviewRainbow:draw()
-    elseif backgroundPreviewSelected == "dots" then
-        backgroundPreviewSelectedDots:draw()
-    elseif backgroundPreviewSelected == "dotsunselected" then
-        backgroundPreviewDots:draw()
-    end
+        --backgroundPreviewDots:draw()
+    --elseif backgroundPreviewSelected == "stripes" then
+        --backgroundPreviewSelectedStripes:draw()
+    --elseif backgroundPreviewSelected == "stripesunselected" then
+        --backgroundPreviewStripes:draw()
+    --elseif backgroundPreviewSelected == "rainbow" then
+        --backgroundPreviewSelectedRainbow:draw()
+    --elseif backgroundPreviewSelected == "rainbowunselected" then
+        --backgroundPreviewRainbow:draw()
+    --elseif backgroundPreviewSelected == "dots" then
+        --backgroundPreviewSelectedDots:draw()
+    --elseif backgroundPreviewSelected == "dotsunselected" then
+        --backgroundPreviewDots:draw()
+    --end
     
-    backgroundPreviewRainbow:draw()
-    backgroundPreviewDots:draw()
-    backgroundPreviewButton:draw()
+    --backgroundPreviewRainbow:draw()
+    --backgroundPreviewDots:draw()
+    --backgroundPreviewButton:draw()
 
-    fill(255, 255, 255, 255)
+    fill(0, 0, 0, 255)
     fontSize(60)
     text("Store", WIDTH/2, HEIGHT/2+300) 
     fontSize(55)
     text("Skips", WIDTH/2-300, HEIGHT/2+150)
     text("15", WIDTH/2+190, HEIGHT/2+150) -- cost for skips
     sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+155, 75, 75)
-    text("Backgrounds", WIDTH/2-300, HEIGHT/2)
-    text("10", WIDTH/2+190, HEIGHT/2) -- cost for backgrounds
-    sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+5, 75, 75)
+    --text("Backgrounds", WIDTH/2-300, HEIGHT/2)
+    --text("10", WIDTH/2+190, HEIGHT/2) -- cost for backgrounds
+    --sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+5, 75, 75)
     
     --amount of candy in basket in top right of screen
     text(math.floor(amountOfCandyInBasket), WIDTH/2+300, HEIGHT/2+325)

@@ -36,7 +36,7 @@ end
 function SettingsScene:draw()
 
     --background(0, 0, 0, 255)
-    sprite("Dropbox:settingsBackground", WIDTH/2, HEIGHT/2)
+    sprite("Dropbox:settingsBackground", WIDTH/2, HEIGHT/2, 1024, 768)
     
     creditsButton:draw()
     homeButton:draw()

@@ -32,7 +32,7 @@ end
 function CreditsScene:draw()
     
     --background(0, 0, 0, 255)
-    sprite("Dropbox:creditsBackground", WIDTH/2, HEIGHT/2)
+    sprite("Dropbox:creditsBackground", WIDTH/2, HEIGHT/2, 1024, 768)
     
     homeButton:draw()
     facebookButton:draw()

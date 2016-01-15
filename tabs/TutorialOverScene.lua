@@ -30,7 +30,7 @@ function TutorialOverScene:draw()
     --background(0, 0, 0, 255)
     sprite("Dropbox:tutorialOverSceneBackground", WIDTH/2, HEIGHT/2, 2048, 1536)
     
-    fill(255, 255, 255, 255)
+    fill(0, 0, 0, 255)
     font("ArialRoundedMTBold")
     fontSize(70)
     text("Tutorial Over", WIDTH/2, HEIGHT/2+100)

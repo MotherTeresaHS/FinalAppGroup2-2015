@@ -21,7 +21,7 @@ tutorialOver = nil
 function setup()
     
     supportedOrientations(LANDSCAPE_ANY)
-    displayMode(FULLSCREEN) --FULLSCREEN_NO_BUTTONS when exporting
+    displayMode(FULLSCREEN_NO_BUTTONS) --FULLSCREEN_NO_BUTTONS when exporting
     noFill()
     noSmooth()
     noStroke()

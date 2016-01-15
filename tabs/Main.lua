@@ -21,14 +21,14 @@ tutorialOver = nil
 function setup()
     
     supportedOrientations(LANDSCAPE_ANY)
-    displayMode(FULLSCREEN_NO_BUTTONS) --FULLSCREEN_NO_BUTTONS when exporting
+    displayMode(FULLSCREEN) --FULLSCREEN_NO_BUTTONS when exporting
     noFill()
     noSmooth()
     noStroke()
     pushStyle()
 
     amountOfCandyInBasket = readLocalData("candy", 0)
-    amountOfSkips = readLocalData("skips", 3)
+    amountOfSkips = readLocalData("skips", 0)
     amountOfEquationsRightInTotal = readLocalData("highscore", 0)
     tutorialOver = readLocalData("tutorial", 0)
     

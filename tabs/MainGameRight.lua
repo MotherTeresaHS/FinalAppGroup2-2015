@@ -22,12 +22,11 @@ end
 
 function MainGameRight:draw()
 
-    --backround (only temporary) more backrounds need to be added
-    sprite("SpaceCute:Background", 512, 384, 1024, 768)
- 
+    sprite("Dropbox:backgroundsForMainGameRainbow", WIDTH/2, HEIGHT/2, 1024, 768)
+
     -- Changes colour, font, size of text
     -- this text indicates to the user that they are correct and get candy         
-    fill(25, 255, 0, 255)
+    fill(39, 178, 24, 255)
     font("Futura-CondensedExtraBold")
     fontSize(100) 
     text("You got it Correct!",WIDTH/2, 600)

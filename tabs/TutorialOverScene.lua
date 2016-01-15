@@ -31,12 +31,12 @@ function TutorialOverScene:draw()
     sprite("Dropbox:tutorialOverSceneBackground", WIDTH/2, HEIGHT/2, 2048, 1536)
     
     fill(0, 0, 0, 255)
-    font("ArialRoundedMTBold")
-    fontSize(70)
-    text("Tutorial Over", WIDTH/2, HEIGHT/2+100)
-    text("Enjoy the game!", WIDTH/2, HEIGHT/2-100)
+    font("Arial-BoldMT")
+    fontSize(120)
+    text("Tutorial Over", WIDTH/2, HEIGHT/2+150)
+    text("Enjoy the game!", WIDTH/2, HEIGHT/2-150)
     
-    if(startTime + 2 < ElapsedTime) then
+    if(startTime + 3 < ElapsedTime) then
         Scene.Change("companylogo")
     end
 end

@@ -17,19 +17,18 @@ end
 
 function MainGameWrong:draw()
     
-    --backround (only temporary) more backrounds need to be added
-    sprite("SpaceCute:Background", 512, 384, 1024, 768)
+    sprite("Dropbox:backgroundsForMainGameDots", WIDTH/2, HEIGHT/2, 1024, 768)
     
     -- Changes colour, font, size of text
     -- this text indicates to the user that they are incorrect and don't get candy 
     --it also shows them the correct answer          
-    fill(255, 13, 0, 255)       
+    fill(198, 28, 25, 255)       
     font("Futura-CondensedExtraBold")
     fontSize(80) 
     text("You got it Incorrect...",WIDTH/2, 700)
     text("The Correct Answer was:",WIDTH/2,600)
     text("No Candy for you!", WIDTH/2, 100)
-    fill(0, 255, 0, 255)
+    fill(24, 164, 24, 255)
     text(" "..MainGameScene.getNumber1().." "..MainGameScene.getEquationType().." "..MainGameScene.getNumber2().." = "..MainGameScene.getEquationAnswer(), WIDTH/2,500)
     
     if(startTime + 5 < ElapsedTime) then

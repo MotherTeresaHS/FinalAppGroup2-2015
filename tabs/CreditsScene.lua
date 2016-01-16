@@ -62,19 +62,38 @@ function CreditsScene:touched(touch)
     twitterButton:touched(touch)
     
     if(homeButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("settings")
+        if noSoundEffects then
+            Scene.Change("settings")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("settings")
+        end
     elseif(facebookButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        linkToNigelsSocialMedia = "https://facebook.com/nigelgoodmusic"
-        openURL(linkToNigelsSocialMedia)
+        if noSoundEffects then
+            linkToNigelsSocialMedia = "https://facebook.com/nigelgoodmusic"
+            openURL(linkToNigelsSocialMedia)
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            linkToNigelsSocialMedia = "https://facebook.com/nigelgoodmusic"
+            openURL(linkToNigelsSocialMedia)
+        end
     elseif(soundcloudButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        linkToNigelsSocialMedia = "https://soundcloud.com/nigelgood"
-        openURL(linkToNigelsSocialMedia)
+        if noSoundEffects then
+            linkToNigelsSocialMedia = "https://soundcloud.com/nigelgood"
+            openURL(linkToNigelsSocialMedia)
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            linkToNigelsSocialMedia = "https://soundcloud.com/nigelgood"
+            openURL(linkToNigelsSocialMedia)
+        end
     elseif(twitterButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        linkToNigelsSocialMedia = "https://twitter.com/nigelgood"
-        openURL(linkToNigelsSocialMedia)
+        if noSoundEffects then
+            linkToNigelsSocialMedia = "https://twitter.com/nigelgood"
+            openURL(linkToNigelsSocialMedia)
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            linkToNigelsSocialMedia = "https://twitter.com/nigelgood"
+            openURL(linkToNigelsSocialMedia)
+        end
     end
 end

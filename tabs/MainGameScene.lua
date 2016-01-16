@@ -249,14 +249,27 @@ function MainGameScene:touched(touch)
     
     --this code makes it so if you touch the home button you move back to the difficulty scene.    
     if(homeButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("levels")
-    elseif(skipButton.selected == true) then
-        if(amountOfSkips <= 0) then
-            sound(SOUND_HIT, 24665, 0.50)
-        elseif(amountOfSkips > 0) then
+        if noSoundEffects then
+            Scene.Change("levels")
+        else
             sound(SOUND_HIT, 1851, 0.50)
-            Scene.Change("skip")
+            Scene.Change("levels")
+        end
+    elseif(skipButton.selected == true) then
+        if noSoundEffects then
+            if(amountOfSkips <= 0) then
+                alert("Not enough skips.", "Can't skip!")
+            elseif(amountOfSkips > 0) then
+                Scene.Change("skip")
+            end
+        else
+            if(amountOfSkips <= 0) then
+                sound(SOUND_HIT, 24665, 0.50)
+                alert("Not enough skips.", "Can't skip!")
+            elseif(amountOfSkips > 0) then
+                sound(SOUND_HIT, 1851, 0.50)
+                Scene.Change("skip")
+            end
         end
     end
 end

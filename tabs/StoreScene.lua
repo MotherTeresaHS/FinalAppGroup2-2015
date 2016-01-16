@@ -109,17 +109,33 @@ function StoreScene:touched(touch)
     backgroundPreviewButton:touched(touch)
     
     if(homeButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("mainmenu")
-    elseif(buyButtonForSkips.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        if(amountOfCandyInBasket >= 15) then
-            amountOfCandyInBasket = amountOfCandyInBasket - 15
-            amountOfSkips = amountOfSkips + 1
-            saveLocalData("candy", amountOfCandyInBasket)
+        if noSoundEffects then
+            Scene.Change("mainmenu")
         else
-            alert("Not enough candy!", "Can't buy item")
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("mainmenu")
         end
+    elseif(buyButtonForSkips.selected == true) then
+        if noSoundEffects then
+            if(amountOfCandyInBasket >= 15) then
+                amountOfCandyInBasket = amountOfCandyInBasket - 15
+                amountOfSkips = amountOfSkips + 1
+                saveLocalData("candy", amountOfCandyInBasket)
+            else
+                alert("Not enough candy!", "Can't buy item")
+            end
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            if(amountOfCandyInBasket >= 15) then
+                amountOfCandyInBasket = amountOfCandyInBasket - 15
+                amountOfSkips = amountOfSkips + 1
+                saveLocalData("candy", amountOfCandyInBasket)
+            else
+                alert("Not enough candy!", "Can't buy item")
+            end
+        end
+        
+                        --BACKGROUND BUY CODE WHICH IS NOT IMPLEMENTED IN THE 1.0 VERSION--
     elseif(buyButtonForBackgrounds.selected == true) then
         if(amountOfCandyInBasket >= 10) then
             amountOfCandyInBasket = amountOfCandyInBasket - 10

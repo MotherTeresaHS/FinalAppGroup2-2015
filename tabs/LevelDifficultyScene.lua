@@ -51,22 +51,44 @@ function LevelDifficultyScene:touched(touch)
     hardLevelDifficultyButton:touched(touch)
     
     if(homeButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("worlds")
+        if noSoundEffects then
+            Scene.Change("mainmenu")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("mainmenu")
+        end
     elseif(easyLevelDifficultyButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        levelDifficultySelected = "Easy"
-        MainGameScene:changeCounter()
-        Scene.Change("maingame")
+        if noSoundEffects then
+            levelDifficultySelected = "Easy"
+            MainGameScene:changeCounter()
+            Scene.Change("maingame")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            levelDifficultySelected = "Easy"
+            MainGameScene:changeCounter()
+            Scene.Change("maingame")
+        end
     elseif(mediumLevelDifficultyButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        levelDifficultySelected = "Medium"
-        MainGameScene:changeCounter()
-        Scene.Change("maingame")
+        if noSoundEffects then
+            levelDifficultySelected = "Medium"
+            MainGameScene:changeCounter()
+            Scene.Change("maingame")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            levelDifficultySelected = "Medium"
+            MainGameScene:changeCounter()
+            Scene.Change("maingame")
+        end
     elseif(hardLevelDifficultyButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        levelDifficultySelected = "Hard"
-        MainGameScene:changeCounter()
-        Scene.Change("maingame")
+        if noSoundEffects then
+            levelDifficultySelected = "Hard"
+            MainGameScene:changeCounter()
+            Scene.Change("maingame")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            levelDifficultySelected = "Hard"
+            MainGameScene:changeCounter()
+            Scene.Change("maingame")
+        end
     end
 end

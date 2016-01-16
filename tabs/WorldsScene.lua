@@ -61,29 +61,58 @@ function WorldsScene:touched(touch)
     sugarMountainWorldButton:touched(touch)
     
     if(homeButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("mainmenu")
+        if noSoundEffects then
+            Scene.Change("mainmenu")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("mainmenu")
+        end
     end
 
     if(additionWorldButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        worldSelected = "+"
-        Scene.Change("levels")
+        if noSoundEffects then
+            worldSelected = "+"
+            Scene.Change("levels")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            worldSelected = "+"
+            Scene.Change("levels")
+        end
     elseif(subtractionWorldButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        worldSelected = "-"
-        Scene.Change("levels")
+        if noSoundEffects then
+            worldSelected = "-"
+            Scene.Change("levels")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            worldSelected = "-"
+            Scene.Change("levels")
+        end
     elseif(multiplicationWorldButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        worldSelected = "*"
-        Scene.Change("levels")
+        if noSoundEffects then
+            worldSelected = "*"
+            Scene.Change("levels")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            worldSelected = "*"
+            Scene.Change("levels")
+        end
     elseif(divisionWorldButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        worldSelected = "/"
-        Scene.Change("levels")
+        if noSoundEffects then
+            worldSelected = "/"
+            Scene.Change("levels")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            worldSelected = "/"
+            Scene.Change("levels")
+        end
     elseif(sugarMountainWorldButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        worldSelected = "?" 
-        Scene.Change("levels")
+        if noSoundEffects then
+            worldSelected = "?"
+            Scene.Change("levels")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            worldSelected = "?"
+            Scene.Change("levels")
+        end
     end
 end

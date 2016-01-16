@@ -64,34 +64,37 @@ function SettingsScene:touched(touch)
     
     if(creditsButton.selected == true) then
         if noSoundEffects then
-            return
+            Scene.Change("credits")
         else
             sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("credits")
         end
-        Scene.Change("credits")
     elseif(homeButton.selected == true) then
         if noSoundEffects then
-            return
+            Scene.Change("mainmenu")
         else
             sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("mainmenu")
         end
-        Scene.Change("mainmenu")
     elseif(musicOnButton.selected == true) then
         if noSoundEffects then
-            return
+            music("Dropbox:Nigel Good - Discover", true, 0.20)
+            musicOff = false
         else
             sound(SOUND_HIT, 1851, 0.50)
+            music("Dropbox:Nigel Good - Discover", true, 0.20)
+            musicOff = false
         end
-        music("Dropbox:Nigel Good - This Is Forever")
-        musicOff = false
     elseif(musicOffButton.selected == true) then
         if noSoundEffects then
-            return
+            music.stop()
+            musicOff = true
         else
             sound(SOUND_HIT, 1851, 0.50)
+            music.stop()
+            musicOff = true
         end
-        music.stop()
-        musicOff = true
+        
     elseif(soundEffectOnButton.selected == true) then
         noSoundEffects = false
     elseif(soundEffectOffButton.selected == true) then

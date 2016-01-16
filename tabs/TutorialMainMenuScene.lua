@@ -33,7 +33,11 @@ function TutorialMainMenuScene:init()
     leaderboardsButton.draggable = false
     backgroundTextBox.draggable = false
 
-    music("Dropbox:Nigel Good - Discover", true, 0.25) 
+    if musicOff then
+        music.stop()
+    else
+        music("Dropbox:Nigel Good - Discover", true, 0.20)
+    end
 end
 
 function TutorialMainMenuScene:draw()
@@ -43,7 +47,7 @@ function TutorialMainMenuScene:draw()
     
     settingsButton:draw()
     mainGameButton:draw()
-    --storeButton:draw()
+    storeButton:draw()
     achievementsButton:draw()
     leaderboardsButton:draw()
     backgroundTextBox:draw()

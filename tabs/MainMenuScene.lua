@@ -41,7 +41,7 @@ function MainMenuScene:init()
     if musicOff then
         music.stop()
     else
-        music("Dropbox:Nigel Good - Discover", true, 0.10)
+        music("Dropbox:Nigel Good - Discover", true, 0.20)
     end
 end
 
@@ -81,28 +81,59 @@ function MainMenuScene:touched(touch)
     tutorialNoButton:touched(touch)
     
     if(settingsButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("settings")
+        if noSoundEffects then
+            Scene.Change("settings")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("settings")
+        end
     elseif(mainGameButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("worlds")
+        if noSoundEffects then
+            Scene.Change("worlds")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("worlds")
+        end
     elseif(storeButton.selected == true) then
-        sound(SOUND_HIT, 1851, 0.50)
-        Scene.Change("store")
+        if noSoundEffects then
+            Scene.Change("store")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("store")
+        end
     elseif(achievementsButton.selected == true) then
         if(gamecenter.enabled() == true) then
-            gamecenter.showAchievements()
-            sound(SOUND_HIT, 1851, 0.50)
+            if noSoundEffects then
+                gamecenter.showAchievements()
+            else
+                sound(SOUND_HIT, 1851, 0.50)
+                gamecenter.showAchievements()
+            end
         end
     elseif(leaderboardsButton.selected == true) then
         if(gamecenter.enabled() == true) then
-            gamecenter.showLeaderboards()
-            sound(SOUND_HIT, 1851, 0.50)
+            if noSoundEffects then
+                gamecenter.showLeaderboards()
+            else
+                sound(SOUND_HIT, 1851, 0.50)
+                gamecenter.showLeaderboards()
+            end
         end
     elseif(tutorialYesButton.selected == true) then
-        Scene.Change("tutorialmainmenu")
+        if noSoundEffects then
+            Scene.Change("tutorialmainmenu")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            Scene.Change("tutorialmainmenu")
+        end
     elseif(tutorialNoButton.selected == true) then
-        noTutorialQuestion = true 
-        Scene.Change("mainmenu")
+        if noSoundEffects then
+            noTutorialQuestion = true 
+            Scene.Change("mainmenu")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            noTutorialQuestion = true 
+            Scene.Change("mainmenu")
+        end
     end
 end

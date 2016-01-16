@@ -7,7 +7,7 @@
 -- This is the main starting point that contains all the global variables for the program and all the scenes
 
 -- set debug to false for exporting 
-DEBUG_GAMECENTER = true
+DEBUG_GAMECENTER = false
 
 --global variables
 worldSelected = ""
@@ -21,7 +21,7 @@ tutorialOver = nil
 function setup()
     
     supportedOrientations(LANDSCAPE_ANY)
-    displayMode(FULLSCREEN) --FULLSCREEN_NO_BUTTONS when exporting
+    displayMode(FULLSCREEN_NO_BUTTONS) --FULLSCREEN_NO_BUTTONS when exporting
     noFill()
     noSmooth()
     noStroke()

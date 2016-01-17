@@ -55,6 +55,18 @@ function MainMenuScene:draw()
     achievementsButton:draw()
     leaderboardsButton:draw()
     
+    fill(255, 255, 255, 255)
+    stroke(0, 0, 0, 255)
+    strokeWidth(2)
+    rectMode(CENTER)
+    rect(WIDTH/2, HEIGHT/2-230, 650, 45)
+    
+    fill(0, 0, 0, 255)
+    fontSize(35)
+    font("ArialMT")
+    
+    text("Your total amount of equations right: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
+    
     if(tutorialOver ~= 0) then
         if noTutorialQuestion then
             return
@@ -64,7 +76,8 @@ function MainMenuScene:draw()
             tutorialNoButton:draw()
             
             fill(0, 0, 0, 255)
-            fontSize(30)
+            fontSize(27)
+            font("ArialMT")
             text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
         end
     end
@@ -109,6 +122,13 @@ function MainMenuScene:touched(touch)
                 sound(SOUND_HIT, 1851, 0.50)
                 gamecenter.showAchievements()
             end
+        else    --if game center is not enabled the user will get an alert
+            if noSoundEffects then
+                alert("You are not logged into Game Center.", "Can't see achievements!")
+            else
+                sound(SOUND_HIT, 24665, 0.50)
+                alert("You are not logged into Game Center.", "Can't see achievements!")
+            end
         end
     elseif(leaderboardsButton.selected == true) then
         if(gamecenter.enabled() == true) then
@@ -117,6 +137,13 @@ function MainMenuScene:touched(touch)
             else
                 sound(SOUND_HIT, 1851, 0.50)
                 gamecenter.showLeaderboards()
+            end
+        else    --if game center is not enabled the user will get an alert
+            if noSoundEffects then
+                alert("You are not logged into Game Center.", "Can't see leaderboards!")
+            else
+                sound(SOUND_HIT, 24665, 0.50)
+                alert("You are not logged into Game Center.", "Can't see leaderboards!")
             end
         end
     elseif(tutorialYesButton.selected == true) then

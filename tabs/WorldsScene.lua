@@ -32,6 +32,7 @@ function WorldsScene:init()
     sugarMountainWorldButton.draggable = false
     
     noTutorialQuestion = false
+    noWelcomeMessage = true
 end
 
 function WorldsScene:draw()

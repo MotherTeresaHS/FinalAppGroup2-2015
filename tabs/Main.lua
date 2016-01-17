@@ -16,12 +16,13 @@ amountOfCandyInBasket = nil
 amountOfSkips = nil
 amountOfEquationsRightInTotal = nil
 tutorialOver = nil
+languageForVoiceOver = nil
 
 -- Use this function to perform your initial setup
 function setup()
     
     supportedOrientations(LANDSCAPE_ANY)
-    displayMode(FULLSCREEN_NO_BUTTONS) --FULLSCREEN_NO_BUTTONS when exporting
+    displayMode(FULLSCREEN) --FULLSCREEN_NO_BUTTONS when exporting
     noFill()
     noSmooth()
     noStroke()
@@ -31,6 +32,7 @@ function setup()
     amountOfSkips = readLocalData("skips", 0)
     amountOfEquationsRightInTotal = readLocalData("highscore", 0)
     tutorialOver = readLocalData("tutorial", 0)
+    languageForVoiceOver = readLocalData("language", 1)
     
     -- create the scenes
     Scene("companylogo", CompanyLogoScene)

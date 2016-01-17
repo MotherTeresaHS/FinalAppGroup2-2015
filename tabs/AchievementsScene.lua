@@ -38,10 +38,9 @@ function AchievementsScene:draw()
     text("Complete 100 Equations", WIDTH/2+200, HEIGHT/2+100)
     text("Get an equation correct", WIDTH/2+200, HEIGHT/2+200)
     text("Buy something from the store", WIDTH/2+200, HEIGHT/2+50)
-    text("Buy everything from the store", WIDTH/2+200, HEIGHT/2)
+    --text("Buy everything from the store", WIDTH/2+200, HEIGHT/2)
     text("Look at credits", WIDTH/2+200, HEIGHT/2-50)
     text("Complete Game", WIDTH/2+200, HEIGHT/2-100)
-    text("Complete all achievements", WIDTH/2+200, HEIGHT/2-150)
 end
 
 function AchievementsScene:touched(touch)

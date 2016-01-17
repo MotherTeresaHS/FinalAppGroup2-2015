@@ -37,7 +37,7 @@ function MainMenuScene:init()
     tutorialYesButton.draggable = false
     tutorialNoButton.draggable = false
     backgroundTextBox.draggable = false
-    
+
     if musicOff then
         music.stop()
     else
@@ -65,7 +65,11 @@ function MainMenuScene:draw()
     fontSize(35)
     font("ArialMT")
     
-    text("Your total amount of equations right: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
+    if(languageForVoiceOver == 1) then
+        text("Your total amount of equations right: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
+    elseif(languageForVoiceOver == 2) then
+        text("Votre total d'équations correcte: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
+    end
     
     if(tutorialOver ~= 0) then
         if noTutorialQuestion then
@@ -78,7 +82,12 @@ function MainMenuScene:draw()
             fill(0, 0, 0, 255)
             fontSize(27)
             font("ArialMT")
-            text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
+            if(languageForVoiceOver == 1) then
+                text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
+            elseif(languageForVoiceOver == 2) then
+                fontSize(24)
+                text("Aimeriez-vous prendre le tutoriel à nouveau?", WIDTH/2, HEIGHT/2+300)
+            end
         end
     end
 end
@@ -149,9 +158,43 @@ function MainMenuScene:touched(touch)
     elseif(tutorialYesButton.selected == true) then
         if noSoundEffects then
             Scene.Change("tutorialmainmenu")
+            if noVoiceOver then
+                return
+            else
+                if(languageForVoiceOver == 1) then
+                    speech.rate = 0.1
+                    speech.volume = 0.6
+                    speech.pitch = 1.0
+                    speech.language = "en-US"
+                    speech.say("Press this to begin the game")
+                elseif(languageForVoiceOver == 2) then
+                    speech.rate = 0.1
+                    speech.volume = 0.6
+                    speech.pitch = 1.0
+                    speech.language = "fr-CA"
+                    speech.say("Appuyez sur ce bouton pour commencer le jeu")
+                end
+            end
         else
             sound(SOUND_HIT, 1851, 0.50)
             Scene.Change("tutorialmainmenu")
+            if noVoiceOver then
+                return
+            else
+                if(languageForVoiceOver == 1) then
+                    speech.rate = 0.1
+                    speech.volume = 0.6
+                    speech.pitch = 1.0
+                    speech.language = "en-US"
+                    speech.say("Press this to begin the game")
+                elseif(languageForVoiceOver == 2) then
+                    speech.rate = 0.1
+                    speech.volume = 0.6
+                    speech.pitch = 1.0
+                    speech.language = "fr-CA"
+                    speech.say("Appuyez sur ce bouton pour commencer le jeu")
+                end
+            end            
         end
     elseif(tutorialNoButton.selected == true) then
         if noSoundEffects then

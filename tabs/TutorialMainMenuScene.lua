@@ -17,7 +17,6 @@ local leaderboardsButton
 local backgroundTextBox
 
 function TutorialMainMenuScene:init()
-    -- you can accept and set parameters here
     
     settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
     mainGameButton = Button("Dropbox:mainMenuPlayButton", vec2(WIDTH/2, HEIGHT/2))
@@ -32,11 +31,11 @@ function TutorialMainMenuScene:init()
     achievementsButton.draggable = false
     leaderboardsButton.draggable = false
     backgroundTextBox.draggable = false
-
+    
     if musicOff then
         music.stop()
     else
-        music("Dropbox:Nigel Good - Discover", true, 0.20)
+        music("Dropbox:Nigel Good - Discover", true, 0.10)
     end
 end
 
@@ -53,8 +52,13 @@ function TutorialMainMenuScene:draw()
     backgroundTextBox:draw()
     
     fill(0, 0, 0, 255)
-    fontSize(27)
-    text("Press this to begin the game->", WIDTH/2-320, HEIGHT/2)
+    if(languageForVoiceOver == 1) then   
+        fontSize(27)
+        text("Press this to begin the game->", WIDTH/2-320, HEIGHT/2)
+    elseif(languageForVoiceOver == 2) then
+        fontSize(17)
+        text("Appuyez sur ce bouton pour commencer le jeu->", WIDTH/2-320, HEIGHT/2)
+    end
 end
 
 function TutorialMainMenuScene:touched(touch)
@@ -64,5 +68,24 @@ function TutorialMainMenuScene:touched(touch)
     
     if(mainGameButton.selected == true) then
         Scene.Change("tutorialworlds")
+        if noVoiceOver then
+            return
+        else
+            if(languageForVoiceOver == 1) then --english
+                speech.rate = 0.1
+                speech.volume = 0.6
+                speech.pitch = 1.0
+                speech.preDelay = 2.0
+                speech.language = "en-US"
+                speech.say("Press the addition world")
+            elseif(languageForVoiceOver == 2) then --french
+                speech.rate = 0.1
+                speech.volume = 0.6
+                speech.pitch = 1.0
+                speech.preDelay = 2.0
+                speech.language = "fr-CA"
+                speech.say("Appuyez sur l'addtion monde")
+            end
+        end
     end
 end

@@ -17,11 +17,11 @@ end
 
 function MainGameTotalScoreScene:draw()
 
-    sprite("SpaceCute:Background", 512, 384, 1024, 768)
+    sprite("Dropbox:mainGameTotalScoreBackground", 512, 384, 1024, 768)
 
     -- Changes colour, font, size of text
     -- this text indicates to the user how many answers the got out of ten correct                    
-    fill(255, 0, 175, 255)
+    fill(0, 0, 0, 255)
     font("Futura-CondensedExtraBold")
     fontSize(60) 
     text(MainGameScene.getCorrectCounter().." Candy has been added basket!", WIDTH/2, 100)

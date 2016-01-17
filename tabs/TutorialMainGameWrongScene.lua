@@ -13,6 +13,26 @@ local startTime
 function TutorialMainGameWrongScene:init()
     
     startTime = ElapsedTime
+    
+    if noVoiceOver then
+        return
+    else
+        if(languageForVoiceOver == 1) then --english
+            speech.rate = 0.1
+            speech.volume = 0.6
+            speech.pitch = 1.0
+            speech.preDelay = 5.0
+            speech.language = "en-US"
+            speech.say("Tutorial over. Enjoy the game!")
+        elseif(languageForVoiceOver == 2) then --french
+            speech.rate = 0.1
+            speech.volume = 0.6
+            speech.pitch = 1.0
+            speech.preDelay = 5.0
+            speech.language = "fr-CA"
+            speech.say("Tutoriel complet. Appréciez le jeu!")
+        end
+    end
 end
 
 function TutorialMainGameWrongScene:draw()
@@ -25,9 +45,18 @@ function TutorialMainGameWrongScene:draw()
     fill(198, 28, 25, 255)       
     font("Futura-CondensedExtraBold")
     fontSize(80) 
-    text("You got it Incorrect...",WIDTH/2, 700)
-    text("The Correct Answer was:",WIDTH/2,600)
-    text("No Candy for you!", WIDTH/2, 100)
+    
+    if(languageForVoiceOver == 1) then
+        text("You got it Incorrect...",WIDTH/2, 700)
+        text("The Correct Answer was:",WIDTH/2,600)
+        text("No Candy for you!", WIDTH/2, 100)
+    elseif(languageForVoiceOver == 2) then
+        fontSize(60)
+        text("Vois l'avez bien reçu incorrect...",WIDTH/2, 700)
+        text("La résponse correcte était:",WIDTH/2,600)
+        text("Pas de bonbons pour vous!", WIDTH/2, 100)
+    end
+    
     fill(24, 164, 24, 255)
     text("2 + 2 = 4 ", WIDTH/2,500)
     

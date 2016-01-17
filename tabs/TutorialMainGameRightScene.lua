@@ -15,6 +15,26 @@ function TutorialMainGameRightScene:init()
     
     startTime = ElapsedTime
     tutorialSecondTime = true
+    
+    if noVoiceOver then
+        return
+    else
+        if(languageForVoiceOver == 1) then --english
+            speech.rate = 0.1
+            speech.volume = 0.6
+            speech.pitch = 1.0
+            speech.preDelay = 2.0
+            speech.language = "en-US"
+            speech.say("Now drag the equation to the red circle")
+        elseif(languageForVoiceOver == 2) then --french
+            speech.rate = 0.1
+            speech.volume = 0.6
+            speech.pitch = 1.0
+            speech.preDelay = 2.0
+            speech.language = "fr-CA"
+            speech.say("Maintenant faites glisser l'équation dans le cercle rouge")
+        end
+    end
 end
 
 function TutorialMainGameRightScene:draw()
@@ -27,8 +47,14 @@ function TutorialMainGameRightScene:draw()
     fill(39, 178, 24, 255)
     font("Futura-CondensedExtraBold")
     fontSize(100) 
-    text("You got it Correct!",WIDTH/2, 600)
-    text("Here is a candy", WIDTH/2, 100)
+    if(languageForVoiceOver == 1) then
+        text("You got it Correct!", WIDTH/2, 600)
+        text("Here is a candy", WIDTH/2, 100)
+    elseif(languageForVoiceOver == 2) then
+        fontSize(70)
+        text("Vous avez obtenu elle correcte", WIDTH/2, 600)
+        text("Voici un bonbon", WIDTH/2, 100)
+    end
     sprite("Dropbox:candyForCurrency", WIDTH/2, HEIGHT/2)
     
     if(startTime + 3 < ElapsedTime) then

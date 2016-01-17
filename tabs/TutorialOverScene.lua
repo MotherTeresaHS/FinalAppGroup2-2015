@@ -33,8 +33,13 @@ function TutorialOverScene:draw()
     fill(0, 0, 0, 255)
     font("Arial-BoldMT")
     fontSize(120)
-    text("Tutorial Over", WIDTH/2, HEIGHT/2+150)
-    text("Enjoy the game!", WIDTH/2, HEIGHT/2-150)
+    if(languageForVoiceOver == 1) then
+        text("Tutorial Over", WIDTH/2, HEIGHT/2+150)
+        text("Enjoy the game!", WIDTH/2, HEIGHT/2-150)
+    elseif(languageForVoiceOver == 2) then
+        text("Tutoriel Complet", WIDTH/2, HEIGHT/2+150)
+        text("Appréciez le jeu!", WIDTH/2, HEIGHT/2-150)
+    end
     
     if(startTime + 3 < ElapsedTime) then
         Scene.Change("companylogo")

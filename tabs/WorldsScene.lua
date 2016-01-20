@@ -14,6 +14,9 @@ local subtractionWorldButton
 local multiplicationWorldButton
 local divisionWorldButton
 local sugarMountainWorldButton
+-- French --
+local subtractionWorldFrenchButton
+local sugarMountainWorldFrenchButton
 
 function WorldsScene:init()
     
@@ -23,6 +26,9 @@ function WorldsScene:init()
     multiplicationWorldButton = Button("Dropbox:multiplicationWorldSelect", vec2(WIDTH/2-325, HEIGHT/2-230))
     divisionWorldButton = Button("Dropbox:divisionWorldSelect", vec2(WIDTH/2+325, HEIGHT/2-230))
     sugarMountainWorldButton = Button("Dropbox:sugarMountainWorldSelect", vec2(WIDTH/2, HEIGHT/2))
+    -- French --
+    subtractionWorldFrenchButton = Button("Dropbox:subtractionWorldSelectFrench", vec2(WIDTH/2+325, HEIGHT/2+150))
+    sugarMountainWorldFrenchButton = Button("Dropbox:sugarMountainWorldSelectFrench", vec2(WIDTH/2, HEIGHT/2))
     
     homeButton.draggable = false
     additionWorldButton.draggable = false
@@ -30,6 +36,9 @@ function WorldsScene:init()
     multiplicationWorldButton.draggable = false 
     divisionWorldButton.draggable = false 
     sugarMountainWorldButton.draggable = false
+    -- French --
+    subtractionWorldFrenchButton.draggable = false
+    sugarMountainWorldFrenchButton.draggable = false 
     
     noTutorialQuestion = false
     noWelcomeMessage = true
@@ -41,14 +50,20 @@ function WorldsScene:draw()
     
     homeButton:draw()
     additionWorldButton:draw()
-    subtractionWorldButton:draw()
     multiplicationWorldButton:draw()
     divisionWorldButton:draw()
-    sugarMountainWorldButton:draw()
     
     fill(0, 0, 0, 255)
     fontSize(60)
-    text("Worlds", WIDTH/2, HEIGHT/2+300) 
+    if(languageForVoiceOver == 1) then
+        subtractionWorldButton:draw()
+        sugarMountainWorldButton:draw()
+        text("Worlds", WIDTH/2, HEIGHT/2+300)
+    elseif(languageForVoiceOver == 2) then
+        subtractionWorldFrenchButton:draw()
+        sugarMountainWorldFrenchButton:draw()
+        text("Mondes", WIDTH/2, HEIGHT/2+300)
+    end
 end
 
 function WorldsScene:touched(touch)
@@ -60,6 +75,9 @@ function WorldsScene:touched(touch)
     multiplicationWorldButton:touched(touch)
     divisionWorldButton:touched(touch)
     sugarMountainWorldButton:touched(touch)
+    -- French --
+    subtractionWorldFrenchButton:touched(touch)
+    sugarMountainWorldFrenchButton:touched(touch)
     
     if(homeButton.selected == true) then
         if noSoundEffects then
@@ -79,7 +97,7 @@ function WorldsScene:touched(touch)
             worldSelected = "+"
             Scene.Change("levels")
         end
-    elseif(subtractionWorldButton.selected == true) then
+    elseif(subtractionWorldButton.selected == true) or (subtractionWorldFrenchButton.selected == true) then
         if noSoundEffects then
             worldSelected = "-"
             Scene.Change("levels")
@@ -106,7 +124,7 @@ function WorldsScene:touched(touch)
             worldSelected = "/"
             Scene.Change("levels")
         end
-    elseif(sugarMountainWorldButton.selected == true) then
+    elseif(sugarMountainWorldButton.selected == true) or (sugarMountainWorldFrenchButton.selected == true) then
         if noSoundEffects then
             worldSelected = "?"
             Scene.Change("levels")

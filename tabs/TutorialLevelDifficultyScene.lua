@@ -50,8 +50,8 @@ function TutorialLevelDifficultyScene:draw()
         fontSize(24)
         text("Select the easy difficulty->", WIDTH/2-370, HEIGHT/2)
     elseif(languageForVoiceOver == 2) then
-        fontSize(18)
-        text("Sélectionnez la difficulté facile->", WIDTH/2-370, HEIGHT/2)
+        fontSize(15)
+        text("Sélectionnez le niveau de difficulté facile->", WIDTH/2-370, HEIGHT/2)
     end
 end
 
@@ -78,7 +78,7 @@ function TutorialLevelDifficultyScene:touched(touch)
                 speech.pitch = 1.0
                 speech.preDelay = 2.0
                 speech.language = "fr-CA"
-                speech.say("Faites glisser l'équation pour le cercle vert")
+                speech.say("Faites glisser l'équation dans le cercle vert")
             end
         end
     end

@@ -17,7 +17,20 @@ function MainGameRight:init()
     amountOfEquationsRightInTotal = amountOfEquationsRightInTotal + 1
     saveLocalData("candy", amountOfCandyInBasket)
     saveLocalData("highscore", amountOfEquationsRightInTotal)
-    gamecenter.submitScore(math.floor(amountOfEquationsRightInTotal), "CandyQuationsLeaderboard")
+    
+    if(gamecenter.enabled() == true) then
+        gamecenter.submitScore(math.floor(amountOfEquationsRightInTotal), "CandyQuationsLeaderboard")
+        if(amountOfEquationsRightInTotal == 1) then
+            --the achievement for getting an equation correct
+            gamecenter.submitAchievement("CompleteAnEquationCandyQuations", 100)  
+        elseif(amountOfEquationsRightInTotal == 50) then
+            --the achievement for getting 50 equations correct
+            gamecenter.submitAchievement("Complete50EquationsCandyQuations", 100)
+        elseif(amountOfEquationsRightInTotal == 100) then
+            --the achievement for getting 100 equations correct
+            gamecenter.submitAchievement("Complete100EquationsCandyQuations", 100)
+        end
+    end
 end
 
 function MainGameRight:draw()

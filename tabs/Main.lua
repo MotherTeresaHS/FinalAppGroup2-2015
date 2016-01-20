@@ -7,7 +7,7 @@
 -- This is the main starting point that contains all the global variables for the program and all the scenes
 
 -- set debug to false for exporting 
-DEBUG_GAMECENTER = false
+DEBUG_GAMECENTER = true
 
 --global variables
 worldSelected = ""
@@ -22,7 +22,7 @@ languageForVoiceOver = nil
 function setup()
     
     supportedOrientations(LANDSCAPE_ANY)
-    displayMode(FULLSCREEN_NO_BUTTONS) --FULLSCREEN_NO_BUTTONS when exporting
+    displayMode(FULLSCREEN) --FULLSCREEN_NO_BUTTONS when exporting
     noFill()
     noSmooth()
     noStroke()

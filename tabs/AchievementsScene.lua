@@ -34,7 +34,7 @@ function AchievementsScene:draw()
     text("Complete Jellybean World", WIDTH/2-200, HEIGHT/2)
     text("Complete Sugar Mountain World", WIDTH/2-200, HEIGHT/2-50)
     --ACHIEVEMENTS (right side)
-    text("Complete 50 Equations", WIDTH/2+200, HEIGHT/2+150)
+    text("Complete 50 Equations", WIDTH/2+200, HEIGHT/2+150) --"Complete50Equations"
     text("Complete 100 Equations", WIDTH/2+200, HEIGHT/2+100)
     text("Get an equation correct", WIDTH/2+200, HEIGHT/2+200)
     text("Buy something from the store", WIDTH/2+200, HEIGHT/2+50)

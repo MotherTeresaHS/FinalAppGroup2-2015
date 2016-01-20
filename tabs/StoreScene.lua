@@ -10,40 +10,43 @@ StoreScene = class()
 
 local homeButton 
 local buyButtonForSkips
-local buyButtonForBackgrounds
-local backgroundPreviewStripes
-local backgroundPreviewRainbow
-local backgroundPreviewDots
-local backgroundPreviewSelectedStripes
-local backgroundPreviewButton
-local backgroundPreviewSelected = ""
-local startTime = 0
-local timeRedButtonIsHeld = 0
-backgroundPreview = ""
+local buyButtonForSkipsFrench
+--local buyButtonForBackgrounds
+--local backgroundPreviewStripes
+--local backgroundPreviewRainbow
+--local backgroundPreviewDots
+--local backgroundPreviewSelectedStripes
+--local backgroundPreviewButton
+--local backgroundPreviewSelected = ""
+--local startTime = 0
+--local timeRedButtonIsHeld = 0
+--backgroundPreview = ""
 
 function StoreScene:init()
     
     homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
     buyButtonForSkips = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2+150))
-    buyButtonForBackgrounds = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2))
-    backgroundPreviewStripes = Button("Dropbox:storeBackgroundPreviewStripes", vec2(WIDTH/2-75, HEIGHT/2))
-    backgroundPreviewRainbow = Button("Dropbox:storeBackgroundPreviewRainbow", vec2(WIDTH/2, HEIGHT/2))
-    backgroundPreviewDots = Button("Dropbox:storeBackgroundPreviewDots", vec2(WIDTH/2+75, HEIGHT/2))
-    backgroundPreviewSelectedStripes = SpriteObject("Dropbox:storeBackgroundPreviewSelectedStripes", vec2(WIDTH/2-75, HEIGHT/2))
-    backgroundPreviewSelectedRainbow = SpriteObject("Dropbox:storeBackgroundPreviewSelectedRainbow", vec2(WIDTH/2, HEIGHT/2))
-    backgroundPreviewSelectedDots = SpriteObject("Dropbox:storeBackgroundPreviewSelectedDots", vec2(WIDTH/2+75, HEIGHT/2))
-    backgroundPreviewButton = Button("Dropbox:storeBackgroundPreviewButton", vec2(WIDTH/2, HEIGHT/2-150))
+    buyButtonForSkipsFrench = Button("Dropbox:storeBuyButtonFrench", vec2(WIDTH/2+350, HEIGHT/2+150))
+    --buyButtonForBackgrounds = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2))
+    --backgroundPreviewStripes = Button("Dropbox:storeBackgroundPreviewStripes", vec2(WIDTH/2-75, HEIGHT/2))
+    --backgroundPreviewRainbow = Button("Dropbox:storeBackgroundPreviewRainbow", vec2(WIDTH/2, HEIGHT/2))
+    --backgroundPreviewDots = Button("Dropbox:storeBackgroundPreviewDots", vec2(WIDTH/2+75, HEIGHT/2))
+    --backgroundPreviewSelectedStripes = SpriteObject("Dropbox:storeBackgroundPreviewSelectedStripes", vec2(WIDTH/2-75, HEIGHT/2))
+    --backgroundPreviewSelectedRainbow = SpriteObject("Dropbox:storeBackgroundPreviewSelectedRainbow", vec2(WIDTH/2, HEIGHT/2))
+    --backgroundPreviewSelectedDots = SpriteObject("Dropbox:storeBackgroundPreviewSelectedDots", vec2(WIDTH/2+75, HEIGHT/2))
+    --backgroundPreviewButton = Button("Dropbox:storeBackgroundPreviewButton", vec2(WIDTH/2, HEIGHT/2-150))
   
     homeButton.draggable = false 
     buyButtonForSkips.draggable = false
-    buyButtonForBackgrounds.draggable = false
-    backgroundPreviewStripes.draggable = false
-    backgroundPreviewRainbow.draggable = false
-    backgroundPreviewDots.draggable = false
-    backgroundPreviewSelectedStripes.draggable = false
-    backgroundPreviewSelectedRainbow.draggable = false
-    backgroundPreviewSelectedDots.draggable = false
-    backgroundPreviewButton.draggable = false
+    buyButtonForSkipsFrench.draggable = false
+    --buyButtonForBackgrounds.draggable = false
+    --backgroundPreviewStripes.draggable = false
+    --backgroundPreviewRainbow.draggable = false
+    --backgroundPreviewDots.draggable = false
+    --backgroundPreviewSelectedStripes.draggable = false
+    --backgroundPreviewSelectedRainbow.draggable = false
+    --backgroundPreviewSelectedDots.draggable = false
+    --backgroundPreviewButton.draggable = false
 end
 
 function StoreScene:draw()
@@ -51,8 +54,26 @@ function StoreScene:draw()
     --background(0, 0, 0, 255)
     sprite("Dropbox:backgroundsForMainGameStripes", WIDTH/2, HEIGHT/2, 1024, 768)
     
+    fill(0, 0, 0, 255)
+    
     homeButton:draw()
-    buyButtonForSkips:draw()
+    if(languageForVoiceOver == 1) then
+        buyButtonForSkips:draw()
+        fontSize(60)
+        text("Store", WIDTH/2, HEIGHT/2+300)
+        fontSize(55)
+        text("Skips", WIDTH/2-300, HEIGHT/2+15)
+    elseif(languageForVoiceOver == 2) then
+        buyButtonForSkipsFrench:draw()
+        fontSize(60)
+        text("Magasin", WIDTH/2, HEIGHT/2+300)
+        fontSize(55)
+        text("Passers", WIDTH/2-300, HEIGHT/2+15)
+    end
+    
+    text("15", WIDTH/2+190, HEIGHT/2+150) -- cost for skips
+    sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+155, 75, 75)
+    
     --buyButtonForBackgrounds:draw()
     
     --if backgroundPreviewSelected == "" or backgroundPreviewSelected == "rainbow" or backgroundPreviewSelected == "dots" then
@@ -78,14 +99,7 @@ function StoreScene:draw()
     --backgroundPreviewRainbow:draw()
     --backgroundPreviewDots:draw()
     --backgroundPreviewButton:draw()
-
-    fill(0, 0, 0, 255)
-    fontSize(60)
-    text("Store", WIDTH/2, HEIGHT/2+300) 
-    fontSize(55)
-    text("Skips", WIDTH/2-300, HEIGHT/2+150)
-    text("15", WIDTH/2+190, HEIGHT/2+150) -- cost for skips
-    sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+155, 75, 75)
+    
     --text("Backgrounds", WIDTH/2-300, HEIGHT/2)
     --text("10", WIDTH/2+190, HEIGHT/2) -- cost for backgrounds
     --sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+5, 75, 75)
@@ -99,14 +113,15 @@ function StoreScene:touched(touch)
     
     homeButton:touched(touch)
     buyButtonForSkips:touched(touch)
-    buyButtonForBackgrounds:touched(touch)
-    backgroundPreviewStripes:touched(touch)
-    backgroundPreviewRainbow:touched(touch)
-    backgroundPreviewDots:touched(touch)
-    backgroundPreviewSelectedStripes:touched(touch)
-    backgroundPreviewSelectedRainbow:touched(touch)
-    backgroundPreviewSelectedDots:touched(touch)
-    backgroundPreviewButton:touched(touch)
+    buyButtonForSkipsFrench:touched(touch)
+    --buyButtonForBackgrounds:touched(touch)
+    --backgroundPreviewStripes:touched(touch)
+    --backgroundPreviewRainbow:touched(touch)
+    --backgroundPreviewDots:touched(touch)
+    --backgroundPreviewSelectedStripes:touched(touch)
+    --backgroundPreviewSelectedRainbow:touched(touch)
+    --backgroundPreviewSelectedDots:touched(touch)
+    --backgroundPreviewButton:touched(touch)
     
     if(homeButton.selected == true) then
         if noSoundEffects then
@@ -115,7 +130,7 @@ function StoreScene:touched(touch)
             sound(SOUND_HIT, 1851, 0.50)
             Scene.Change("mainmenu")
         end
-    elseif(buyButtonForSkips.selected == true) then
+    elseif(buyButtonForSkips.selected == true) or (buyButtonForSkipsFrench.selected == true) then
         if noSoundEffects then
             if(amountOfCandyInBasket >= 15) then
                 amountOfCandyInBasket = amountOfCandyInBasket - 15

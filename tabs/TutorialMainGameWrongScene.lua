@@ -52,8 +52,8 @@ function TutorialMainGameWrongScene:draw()
         text("No Candy for you!", WIDTH/2, 100)
     elseif(languageForVoiceOver == 2) then
         fontSize(60)
-        text("Vois l'avez bien reçu incorrect...",WIDTH/2, 700)
-        text("La résponse correcte était:",WIDTH/2,600)
+        text("Ce n'est pas correct...",WIDTH/2, 700)
+        text("La bonne résponse était:",WIDTH/2,600)
         text("Pas de bonbons pour vous!", WIDTH/2, 100)
     end
     

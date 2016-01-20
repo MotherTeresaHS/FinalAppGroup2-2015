@@ -52,7 +52,7 @@ function TutorialMainGameRightScene:draw()
         text("Here is a candy", WIDTH/2, 100)
     elseif(languageForVoiceOver == 2) then
         fontSize(70)
-        text("Vous avez obtenu elle correcte", WIDTH/2, 600)
+        text("Vous avez réussi", WIDTH/2, 600)
         text("Voici un bonbon", WIDTH/2, 100)
     end
     sprite("Dropbox:candyForCurrency", WIDTH/2, HEIGHT/2)

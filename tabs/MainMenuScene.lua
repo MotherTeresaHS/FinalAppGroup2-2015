@@ -17,7 +17,13 @@ local leaderboardsButton
 local tutorialYesButton
 local tutorialNoButton
 local backgroundTextBox
-    
+-- French --
+local storeFrenchButton
+local leaderboardsFrenchButton
+local achievementsFrenchButton
+local tutorialOuiButton
+local tutorialNonButton
+
 function MainMenuScene:init()
     
     settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
@@ -28,6 +34,12 @@ function MainMenuScene:init()
     tutorialYesButton = Button("Dropbox:tutorialYesButton", vec2(WIDTH/2-100, HEIGHT/2+225))
     tutorialNoButton = Button("Dropbox:tutorialNoButton", vec2(WIDTH/2+100, HEIGHT/2+225))
     backgroundTextBox = SpriteObject("Dropbox:backgroundRectangleForTextMainMenu", vec2(WIDTH/2, HEIGHT/2+300))
+    -- French --
+    storeFrenchButton = Button("Dropbox:mainMenuStoreButtonFrench", vec2(WIDTH/2, HEIGHT/2-300))
+    achievementsFrenchButton = Button("Dropbox:mainMenuAchievementsButtonFrench", vec2(WIDTH/2+300, HEIGHT/2-300))
+    leaderboardsFrenchButton = Button("Dropbox:mainMenuLeaderboardsButtonFrench", vec2(WIDTH/2-300, HEIGHT/2-300))
+    tutorialOuiButton = Button("Dropbox:tutorialYesButtonFrench", vec2(WIDTH/2-100, HEIGHT/2+225))
+    tutorialNonButton = Button("Dropbox:tutorialNoButtonFrench", vec2(WIDTH/2+100, HEIGHT/2+225))
     
     settingsButton.draggable = false
     mainGameButton.draggable = false 
@@ -37,11 +49,24 @@ function MainMenuScene:init()
     tutorialYesButton.draggable = false
     tutorialNoButton.draggable = false
     backgroundTextBox.draggable = false
-
+    -- French --
+    storeFrenchButton.draggable = false
+    achievementsFrenchButton.draggable = false
+    leaderboardsFrenchButton.draggable = false
+    tutorialOuiButton.draggable = false
+    tutorialNonButton.draggable = false
+    
     if musicOff then
         music.stop()
     else
         music("Dropbox:Nigel Good - Discover", true, 0.20)
+    end
+    
+    if(gamecenter.enabled() == true) then
+        if(amountOfCandyInBasket == 1) then
+            --the achievement for buying something from the store
+            gamecenter.submitAchievement("BuySomethingFromTheStoreCandyQuations", 100)
+        end
     end
 end
 
@@ -51,9 +76,6 @@ function MainMenuScene:draw()
     
     settingsButton:draw()
     mainGameButton:draw()
-    storeButton:draw()
-    achievementsButton:draw()
-    leaderboardsButton:draw()
     
     fill(255, 255, 255, 255)
     stroke(0, 0, 0, 255)
@@ -66,27 +88,34 @@ function MainMenuScene:draw()
     font("ArialMT")
     
     if(languageForVoiceOver == 1) then
-        text("Your total amount of equations right: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
+        text("Your total amount of equations right: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230) 
+        storeButton:draw()
+        achievementsButton:draw()
+        leaderboardsButton:draw()
     elseif(languageForVoiceOver == 2) then
-        text("Votre total d'équations correcte: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
+        text("Votre total d'équations correctes: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
+        storeFrenchButton:draw()
+        achievementsFrenchButton:draw()
+        leaderboardsFrenchButton:draw()
     end
     
     if(tutorialOver ~= 0) then
         if noTutorialQuestion then
             return
         else
-            backgroundTextBox:draw()
-            tutorialYesButton:draw()
-            tutorialNoButton:draw()
-            
             fill(0, 0, 0, 255)
             fontSize(27)
             font("ArialMT")
             if(languageForVoiceOver == 1) then
+                backgroundTextBox:draw()
+                tutorialYesButton:draw()
+                tutorialNoButton:draw()
                 text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
             elseif(languageForVoiceOver == 2) then
-                fontSize(24)
-                text("Aimeriez-vous prendre le tutoriel à nouveau?", WIDTH/2, HEIGHT/2+300)
+                backgroundTextBox:draw()
+                tutorialOuiButton:draw()
+                tutorialNonButton:draw()
+                text("Aimeriez-vous refaire le tutoriel?", WIDTH/2, HEIGHT/2+300)
             end
         end
     end
@@ -101,6 +130,12 @@ function MainMenuScene:touched(touch)
     leaderboardsButton:touched(touch)
     tutorialYesButton:touched(touch)
     tutorialNoButton:touched(touch)
+    -- French --
+    storeFrenchButton:touched(touch)
+    achievementsFrenchButton:touched(touch)
+    leaderboardsFrenchButton:touched(touch)
+    tutorialOuiButton:touched(touch)
+    tutorialNonButton:touched(touch)
     
     if(settingsButton.selected == true) then
         if noSoundEffects then
@@ -116,14 +151,14 @@ function MainMenuScene:touched(touch)
             sound(SOUND_HIT, 1851, 0.50)
             Scene.Change("worlds")
         end
-    elseif(storeButton.selected == true) then
+    elseif(storeButton.selected == true) or (storeFrenchButton.selected == true) then
         if noSoundEffects then
             Scene.Change("store")
         else
             sound(SOUND_HIT, 1851, 0.50)
             Scene.Change("store")
         end
-    elseif(achievementsButton.selected == true) then
+    elseif(achievementsButton.selected == true) or (achievementsFrenchButton.selected == true) then
         if(gamecenter.enabled() == true) then
             if noSoundEffects then
                 gamecenter.showAchievements()
@@ -139,7 +174,7 @@ function MainMenuScene:touched(touch)
                 alert("You are not logged into Game Center.", "Can't see achievements!")
             end
         end
-    elseif(leaderboardsButton.selected == true) then
+    elseif(leaderboardsButton.selected == true) or (leaderboardsFrenchButton.selected == true) then
         if(gamecenter.enabled() == true) then
             if noSoundEffects then
                 gamecenter.showLeaderboards()
@@ -155,7 +190,7 @@ function MainMenuScene:touched(touch)
                 alert("You are not logged into Game Center.", "Can't see leaderboards!")
             end
         end
-    elseif(tutorialYesButton.selected == true) then
+    elseif(tutorialYesButton.selected == true) or (tutorialOuiButton.selected == true) then
         if noSoundEffects then
             Scene.Change("tutorialmainmenu")
             if noVoiceOver then
@@ -196,7 +231,7 @@ function MainMenuScene:touched(touch)
                 end
             end            
         end
-    elseif(tutorialNoButton.selected == true) then
+    elseif(tutorialNoButton.selected == true) or (tutorialNonButton.selected == true) then
         if noSoundEffects then
             noTutorialQuestion = true 
             Scene.Change("mainmenu")

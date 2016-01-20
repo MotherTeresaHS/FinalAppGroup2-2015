@@ -59,7 +59,7 @@ function TutorialMainGameScene:draw()
             text("Drag the equation to the green circle", WIDTH/2, HEIGHT/2)
         elseif(languageForVoiceOver == 2) then
             fontSize(25)
-            text("Faites glisser l'équation pour le cercle vert", WIDTH/2, HEIGHT/2)
+            text("Faites glisser l'équation dans le cercle vert", WIDTH/2, HEIGHT/2)
         end
     end
 end

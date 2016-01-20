@@ -37,8 +37,8 @@ function TutorialOverScene:draw()
         text("Tutorial Over", WIDTH/2, HEIGHT/2+150)
         text("Enjoy the game!", WIDTH/2, HEIGHT/2-150)
     elseif(languageForVoiceOver == 2) then
-        text("Tutoriel Complet", WIDTH/2, HEIGHT/2+150)
-        text("Appréciez le jeu!", WIDTH/2, HEIGHT/2-150)
+        text("Ce tutoriel est terminé", WIDTH/2, HEIGHT/2+150)
+        text("Amusez vous'", WIDTH/2, HEIGHT/2-150)
     end
     
     if(startTime + 3 < ElapsedTime) then

@@ -83,7 +83,7 @@ function TutorialWorldsScene:touched(touch)
                 speech.pitch = 1.0
                 speech.preDelay = 2.0
                 speech.language = "fr-CA"
-                speech.say("Sélectionnez la difficulté facile")
+                speech.say("Sélectionnez le niveau de difficulté facile")
             end
         end
     end

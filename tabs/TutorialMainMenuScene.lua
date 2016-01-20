@@ -15,6 +15,10 @@ local storeButton
 local achievementsButton
 local leaderboardsButton
 local backgroundTextBox
+-- French --
+local storeFrenchButton
+local leaderboardsFrenchButton
+local achievementsFrenchButton
 
 function TutorialMainMenuScene:init()
     
@@ -25,12 +29,21 @@ function TutorialMainMenuScene:init()
     leaderboardsButton = Button("Dropbox:mainMenuLeaderboardsButton", vec2(WIDTH/2-300, HEIGHT/2-300))
     backgroundTextBox = SpriteObject("Dropbox:tutorialBackgroundRectangleForTextMainMenu", vec2(WIDTH/2-320, HEIGHT/2))
     
+    -- French --
+    storeFrenchButton = Button("Dropbox:mainMenuStoreButtonFrench", vec2(WIDTH/2, HEIGHT/2-300))
+    achievementsFrenchButton = Button("Dropbox:mainMenuAchievementsButtonFrench", vec2(WIDTH/2+300, HEIGHT/2-300))
+    leaderboardsFrenchButton = Button("Dropbox:mainMenuLeaderboardsButtonFrench", vec2(WIDTH/2-300, HEIGHT/2-300))
+    
     settingsButton.draggable = false
     mainGameButton.draggable = false 
     storeButton.draggable = false
     achievementsButton.draggable = false
     leaderboardsButton.draggable = false
     backgroundTextBox.draggable = false
+    -- French --
+    storeFrenchButton.draggable = false
+    achievementsFrenchButton.draggable = false
+    leaderboardsFrenchButton.draggable = false
     
     if musicOff then
         music.stop()
@@ -46,16 +59,19 @@ function TutorialMainMenuScene:draw()
     
     settingsButton:draw()
     mainGameButton:draw()
-    storeButton:draw()
-    achievementsButton:draw()
-    leaderboardsButton:draw()
     backgroundTextBox:draw()
     
     fill(0, 0, 0, 255)
     if(languageForVoiceOver == 1) then   
+        storeButton:draw()
+        achievementsButton:draw()
+        leaderboardsButton:draw()
         fontSize(27)
         text("Press this to begin the game->", WIDTH/2-320, HEIGHT/2)
     elseif(languageForVoiceOver == 2) then
+        storeFrenchButton:draw()
+        achievementsFrenchButton:draw()
+        leaderboardsFrenchButton:draw()
         fontSize(17)
         text("Appuyez sur ce bouton pour commencer le jeu->", WIDTH/2-320, HEIGHT/2)
     end

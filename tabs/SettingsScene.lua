@@ -17,6 +17,16 @@ local soundEffectOnButton
 local soundEffectOffButton
 local languageEnglishButton
 local languageFrenchButton
+local voiceOverOnButton
+local voiceOverOffButton
+-- French --
+local creditsFrenchButton
+local musicOnFrenchButton
+local musicOffFrenchButton
+local soundEffectOnFrenchButton
+local soundEffectOffFrenchButton
+local voiceOverOnFrenchButton
+local voiceOverOffFrenchButton
 
 function SettingsScene:init()
     
@@ -31,6 +41,15 @@ function SettingsScene:init()
     languageEnglishButton = Button("Dropbox:settingsLanguageEnglish", vec2(WIDTH/2+175, HEIGHT/2-225))
     languageFrenchButton = Button("Dropbox:settingsLanguageFrench", vec2(WIDTH/2+325, HEIGHT/2-225))
     
+    -- French --
+    creditsFrenchButton = Button("Dropbox:creditsButtonFrench", vec2(WIDTH/2, HEIGHT/2-300))
+    musicOnFrenchButton = Button("Dropbox:settingsOnButtonFrench", vec2(WIDTH/2+175, HEIGHT/2+200))
+    musicOffFrenchButton = Button("Dropbox:settingsOffButtonFrench", vec2(WIDTH/2+325, HEIGHT/2+200))
+    soundEffectOnFrenchButton = Button("Dropbox:settingsOnButtonFrench", vec2(WIDTH/2+175, HEIGHT/2+50))
+    soundEffectOffFrenchButton = Button("Dropbox:settingsOffButtonFrench", vec2(WIDTH/2+325, HEIGHT/2+50))
+    voiceOverOnFrenchButton = Button("Dropbox:settingsOnButtonFrench", vec2(WIDTH/2+175, HEIGHT/2-100))
+    voiceOverOffFrenchButton = Button("Dropbox:settingsOffButtonFrench", vec2(WIDTH/2+325, HEIGHT/2-100))
+    
     creditsButton.draggable = false
     homeButton.draggable = false 
     musicOnButton.draggable = false
@@ -41,6 +60,14 @@ function SettingsScene:init()
     voiceOverOffButton.draggable = false
     languageEnglishButton.draggable = false
     languageFrenchButton.draggable = false
+    -- French --
+    creditsFrenchButton.draggable = false
+    musicOnFrenchButton.draggable = false
+    musicOffFrenchButton.draggable = false
+    soundEffectOnFrenchButton.draggable = false
+    soundEffectOffFrenchButton.draggable = false
+    voiceOverOnFrenchButton.draggable = false
+    voiceOverOffFrenchButton.draggable = false
     
     noWelcomeMessage = true
 end
@@ -50,25 +77,47 @@ function SettingsScene:draw()
     --background(0, 0, 0, 255)
     sprite("Dropbox:settingsBackground", WIDTH/2, HEIGHT/2, 1024, 768)
     
-    creditsButton:draw()
     homeButton:draw()
-    musicOnButton:draw()
-    musicOffButton:draw()
-    soundEffectOnButton:draw()
-    soundEffectOffButton:draw()
-    voiceOverOnButton:draw()
-    voiceOverOffButton:draw()
     languageEnglishButton:draw()
     languageFrenchButton:draw()
     
+    if(languageForVoiceOver == 1) then
+        creditsButton:draw()
+        musicOnButton:draw()
+        musicOffButton:draw()
+        soundEffectOnButton:draw()
+        soundEffectOffButton:draw()
+        voiceOverOnButton:draw()
+        voiceOverOffButton:draw()
+    elseif(languageForVoiceOver == 2) then
+        creditsFrenchButton:draw()
+        musicOnFrenchButton:draw()
+        musicOffFrenchButton:draw()
+        soundEffectOnFrenchButton:draw()
+        soundEffectOffFrenchButton:draw()
+        voiceOverOnFrenchButton:draw()
+        voiceOverOffFrenchButton:draw()
+    end
+    
     fill(0, 0, 0, 255)
-    fontSize(60)
-    text("Settings", WIDTH/2, HEIGHT/2+300)
-    fontSize(55)
-    text("Music", WIDTH/2-300, HEIGHT/2+200)
-    text("Sound Effects", WIDTH/2-300, HEIGHT/2+50)
-    text("Voice Over", WIDTH/2-300, HEIGHT/2-100)
-    text("Language", WIDTH/2-300, HEIGHT/2-225)
+
+    if(languageForVoiceOver == 1) then 
+        fontSize(60)
+        text("Settings", WIDTH/2, HEIGHT/2+300)
+        fontSize(55)
+        text("Music", WIDTH/2-300, HEIGHT/2+200)
+        text("Sound Effects", WIDTH/2-300, HEIGHT/2+50)
+        text("Voice Over", WIDTH/2-300, HEIGHT/2-100)
+        text("Language", WIDTH/2-300, HEIGHT/2-225)
+    elseif(languageForVoiceOver == 2) then
+        fontSize(60)
+        text("Paramètres", WIDTH/2, HEIGHT/2+300)
+        fontSize(55)
+        text("Musique", WIDTH/2-300, HEIGHT/2+200)
+        text("Effect Sonore", WIDTH/2-300, HEIGHT/2+50)
+        text("Commentaire", WIDTH/2-300, HEIGHT/2-100)
+        text("Langue", WIDTH/2-300, HEIGHT/2-225)
+    end
 end
 
 function SettingsScene:touched(touch)
@@ -83,8 +132,16 @@ function SettingsScene:touched(touch)
     voiceOverOffButton:touched(touch)
     languageEnglishButton:touched(touch)
     languageFrenchButton:touched(touch)
+    -- French --
+    creditsFrenchButton:touched(touch)
+    musicOnFrenchButton:touched(touch)
+    musicOffFrenchButton:touched(touch)
+    soundEffectOnFrenchButton:touched(touch)
+    soundEffectOffFrenchButton:touched(touch)
+    voiceOverOnFrenchButton:touched(touch)
+    voiceOverOffFrenchButton:touched(touch)
     
-    if(creditsButton.selected == true) then
+    if(creditsButton.selected == true) or (creditsFrenchButton.selected == true) then
         if noSoundEffects then
             Scene.Change("credits")
         else
@@ -98,7 +155,7 @@ function SettingsScene:touched(touch)
             sound(SOUND_HIT, 1851, 0.50)
             Scene.Change("mainmenu")
         end
-    elseif(musicOnButton.selected == true) then
+    elseif(musicOnButton.selected == true) or (musicOffFrenchButton.selected == true) then
         if noSoundEffects then
             music("Dropbox:Nigel Good - Discover", true, 0.20)
             musicOff = false
@@ -107,7 +164,7 @@ function SettingsScene:touched(touch)
             music("Dropbox:Nigel Good - Discover", true, 0.20)
             musicOff = false
         end
-    elseif(musicOffButton.selected == true) then
+    elseif(musicOffButton.selected == true) or (musicOffFrenchButton.selected == true) then
         if noSoundEffects then
             music.stop()
             musicOff = true
@@ -116,28 +173,28 @@ function SettingsScene:touched(touch)
             music.stop()
             musicOff = true
         end
-    elseif(soundEffectOnButton.selected == true) then
+    elseif(soundEffectOnButton.selected == true) or (soundEffectOnFrenchButton.selected == true) then
          if noSoundEffects then
             noSoundEffects = false
         else
             sound(SOUND_HIT, 1851, 0.50)
             noSoundEffects = false
         end
-    elseif(soundEffectOffButton.selected == true) then
+    elseif(soundEffectOffButton.selected == true) or (soundEffectOffFrenchButton.selected == true) then
         if noSoundEffects then
             noSoundEffects = true
         else
             sound(SOUND_HIT, 1851, 0.50)
             noSoundEffects = true
         end
-    elseif(voiceOverOnButton.selected == true) then
+    elseif(voiceOverOnButton.selected == true) or (voiceOverOnFrenchButton.selected == true) then
         if noSoundEffects then
             noVoiceOver = false
         else
             sound(SOUND_HIT, 1851, 0.50)
             noVoiceOver = false
         end
-    elseif(voiceOverOffButton.selected == true) then
+    elseif(voiceOverOffButton.selected == true) or (voiceOverOffFrenchButton.selected == true) then
         if noSoundEffects then
             noVoiceOver = true
         else
@@ -145,10 +202,26 @@ function SettingsScene:touched(touch)
             noVoiceOver = true
         end
     elseif(languageEnglishButton.selected == true) then
-        languageForVoiceOver = 1
-        saveLocalData("language", languageForVoiceOver)
+        if noSoundEffects then
+            languageForVoiceOver = 1
+            saveLocalData("language", languageForVoiceOver)
+            Scene.Change("settings")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            languageForVoiceOver = 1
+            saveLocalData("language", languageForVoiceOver)
+            Scene.Change("settings")
+        end
     elseif(languageFrenchButton.selected == true) then
-        languageForVoiceOver = 2
-        saveLocalData("language", languageForVoiceOver)
+        if noSoundEffects then
+            languageForVoiceOver = 2
+            saveLocalData("language", languageForVoiceOver)
+            Scene.Change("settings")
+        else
+            sound(SOUND_HIT, 1851, 0.50)
+            languageForVoiceOver = 2
+            saveLocalData("language", languageForVoiceOver)
+            Scene.Change("settings")
+        end
     end
 end

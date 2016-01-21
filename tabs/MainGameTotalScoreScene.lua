@@ -43,13 +43,8 @@ function MainGameTotalScoreScene:draw()
     fill(0, 0, 0, 255)
     font("Futura-CondensedExtraBold")
     fontSize(60) 
-    if(languageForVoiceOver == 1) then
-        text(MainGameScene.getCorrectCounter().." Candy has been added to basket!", WIDTH/2, 100)
-        text("Score "..MainGameScene.getCorrectCounter().." out of 10",WIDTH/2, 600)
-    elseif(languageForVoiceOver == 2) then
-        text(MainGameScene.getCorrectCounter().." Bonbons a été ajouté au panier!", WIDTH/2, 100)
-        text("Score "..MainGameScene.getCorrectCounter().." des 10",WIDTH/2, 600)    
-    end
+    text(MainGameScene.getCorrectCounter().." Candy has been added to basket!", WIDTH/2, 100)
+    text("Score "..MainGameScene.getCorrectCounter().." out of 10",WIDTH/2, 600)
     
     if(startTime + 3 < ElapsedTime) then
         Scene.Change("mainmenu")

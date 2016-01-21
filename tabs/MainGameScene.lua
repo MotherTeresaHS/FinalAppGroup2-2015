@@ -45,14 +45,12 @@ local equationCounter = 0
 local finalWorldEquationType = math.random(1,4)
 local trackingAnswers = {}
 local skipButton
-local skipFrenchButton
 
 function MainGameScene:init()
     
     --home button to leave the game
     homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
     skipButton = Button("Dropbox:mainGameSkipButton", vec2(WIDTH/2, HEIGHT/2-300))
-    skipFrenchButton = Button("Dropbox:mainGameSkipButtonFrench", vec2(WIDTH/2, HEIGHT/2-300))
    
      -- make the equation not change as you drag it
      if (firstTimeThroughInit == 1) then
@@ -207,21 +205,12 @@ function MainGameScene:draw()
     --this draws the home and skip button 
         homeButton:draw()
     
-    if(languageForVoiceOver == 1) then
         text("Skips: "..math.floor(amountOfSkips), WIDTH/2, HEIGHT/2-230) -- this displays the amount of skips above the skip button 
          --this counts how many equations you got right or wrong
         text("Answers You Got Correct: "..correctCounter, 800, 500)
         text("Answers You Got Incorrect: "..incorrectCounter, 200,500)
         text("Progress...",550, 735)
         skipButton:draw()
-    elseif(languageForVoiceOver == 2) then
-        text("Passers: "..math.floor(amountOfSkips), WIDTH/2, HEIGHT/2-230)-- this displays the amount of skips above the skip button 
-         --this counts how many equations you got right or wrong
-        text("Vos Résponses Correctes: "..correctCounter, 800, 500)
-        text("Vos Résponses Inorrectes: "..incorrectCounter, 200,500)
-        text("Progrès...",550, 735)
-        skipFrenchButton:draw()
-    end
 end
 
 function MainGameScene:touched(touch)
@@ -256,7 +245,6 @@ function MainGameScene:touched(touch)
     --this allows you to touch the home and skip button
     homeButton:touched(touch)
     skipButton:touched(touch)
-    skipFrenchButton:touched(touch)
     
     --this code makes it so if you touch the home button you move back to the difficulty scene.    
     if(homeButton.selected == true) then
@@ -266,7 +254,7 @@ function MainGameScene:touched(touch)
             sound(SOUND_HIT, 1851, 0.50)
             Scene.Change("levels")
         end
-    elseif(skipButton.selected == true) or (skipFrenchButton.selected == true) then
+    elseif(skipButton.selected == true) then
         if noSoundEffects then
             if(amountOfSkips <= 0) then
                 alert("Not enough skips.", "Can't skip!")

@@ -47,20 +47,10 @@ function TutorialMainGameScene:draw()
     
     if tutorialSecondTime then
         backgroundTextBoxSecondTime:draw()
-        if(languageForVoiceOver == 1) then
-            text("Now drag the equation to the red circle", WIDTH/2, HEIGHT/2)
-        elseif(languageForVoiceOver == 2) then
-            fontSize(20)
-            text("Maintenant faites glisser l'équation dans le cercle rouge", WIDTH/2, HEIGHT/2)
-        end
+        text("Now drag the equation to the red circle", WIDTH/2, HEIGHT/2)
     else
         backgroundTextBoxFirstTime:draw()
-        if(languageForVoiceOver == 1) then
-            text("Drag the equation to the green circle", WIDTH/2, HEIGHT/2)
-        elseif(languageForVoiceOver == 2) then
-            fontSize(25)
-            text("Faites glisser l'équation dans le cercle vert", WIDTH/2, HEIGHT/2)
-        end
+        text("Drag the equation to the green circle", WIDTH/2, HEIGHT/2)
     end
 end
 

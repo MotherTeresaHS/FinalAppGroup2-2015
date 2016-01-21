@@ -19,22 +19,16 @@ end
 
 function MainGameSkipScene:draw()
   
-    --backround (only temporary) more backrounds need to be added
-    sprite("SpaceCute:Background", 512, 384, 1024, 768)
+    sprite("Dropbox:backgroundsForMainGameStripes", WIDTH/2, HEIGHT/2, 1024, 768)
     
     -- Changes colour, font, size of text
     -- this text indicates to the user that they are incorrect and don't get candy 
     --it also shows them the correct answer          
-    fill(0, 255, 252, 255)       
+    fill(0, 0, 0, 255)       
     font("Futura-CondensedExtraBold")
-    fontSize(80) 
-    if(languageForVoiceOver == 1) then
-        text("You skipped the question...",WIDTH/2, 700)
-        text("The Correct Answer was:",WIDTH/2, HEIGHT/2-100)
-    elseif(languageForVoiceOver == 2) then
-        text("Vois avez sauté la question...",WIDTH/2, 700)
-        text("La bonne résponse était:",WIDTH/2, HEIGHT/2-100)
-    end
+    fontSize(80)
+    text("You skipped the question...",WIDTH/2, 700)
+    text("The Correct Answer was:",WIDTH/2, HEIGHT/2-100)
     fill(0, 255, 0, 255)
     text(" "..MainGameScene.getNumber1().." "..MainGameScene.getEquationType().." "..MainGameScene.getNumber2().." = "..MainGameScene.getEquationAnswer(), WIDTH/2, HEIGHT/2-300)
     

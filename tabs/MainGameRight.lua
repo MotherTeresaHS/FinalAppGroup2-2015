@@ -42,14 +42,9 @@ function MainGameRight:draw()
     fill(39, 178, 24, 255)
     font("Futura-CondensedExtraBold")
     fontSize(100) 
-    if(languageForVoiceOver == 1) then
-        text("You got it Correct!", WIDTH/2, 600)
-        text("Here is a candy", WIDTH/2, 100)
-    elseif(languageForVoiceOver == 2) then
-        fontSize(70)
-        text("Vous avez réussi", WIDTH/2, 600)
-        text("Voici un bonbon", WIDTH/2, 100)
-    end
+ 
+    text("You got it Correct!", WIDTH/2, 600)
+    text("Here is a candy", WIDTH/2, 100)
     
     sprite("Dropbox:candyForCurrency", WIDTH/2, HEIGHT/2)
     

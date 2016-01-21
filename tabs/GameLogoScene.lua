@@ -19,39 +19,23 @@ function GameLogoScene:init()
         if noVoiceOver then
             return
         else
-            if(languageForVoiceOver == 1) then --english
-                speech.rate = 0.1
-                speech.volume = 0.6
-                speech.pitch = 1.0
-                speech.preDelay = 1.5
-                speech.language = "en-US"
-                speech.say("Welcome to CandyQuations")
-            elseif(languageForVoiceOver == 2) then --french
-                speech.rate = 0.1
-                speech.volume = 0.6
-                speech.pitch = 1.0
-                speech.preDelay = 1.5
-                speech.language = "fr-CA"
-                speech.say("Bienvenue à CandyQuations")
-            end
+            speech.rate = 0.1
+            speech.volume = 0.6
+            speech.pitch = 1.0
+            speech.preDelay = 1.5
+            speech.language = "en-US"
+            speech.say("Welcome to CandyQuations")
+            
         end
     elseif(tutorialOver == 0) then
         if noVoiceOver then
             return
         else
-            if(languageForVoiceOver == 1) then
-                    speech.rate = 0.1
-                    speech.volume = 0.6
-                    speech.pitch = 1.0
-                    speech.language = "en-US"
-                    speech.say("Press this to begin the game")
-            elseif(languageForVoiceOver == 2) then
-                    speech.rate = 0.1
-                    speech.volume = 0.6
-                    speech.pitch = 1.0
-                    speech.language = "fr-CA"
-                    speech.say("Appuyez sur ce bouton pour commencer le jeu")
-            end
+            speech.rate = 0.1
+            speech.volume = 0.6
+            speech.pitch = 1.0
+            speech.language = "en-US"
+            speech.say("Press this to begin the game")
         end
     end
 end

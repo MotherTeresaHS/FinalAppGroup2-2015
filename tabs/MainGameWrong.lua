@@ -24,17 +24,10 @@ function MainGameWrong:draw()
     --it also shows them the correct answer          
     fill(198, 28, 25, 255)       
     font("Futura-CondensedExtraBold")
-    fontSize(80) 
-    if(languageForVoiceOver == 1) then
-        text("You got it Incorrect...",WIDTH/2, 700)
-        text("The Correct Answer was:",WIDTH/2,600)
-        text("No Candy for you!", WIDTH/2, 100)
-    elseif(languageForVoiceOver == 2) then
-        fontSize(60)
-        text("Ce n'est pas correct...",WIDTH/2, 700)
-        text("La bonne résponse était:",WIDTH/2,600)
-        text("Pas de bonbons pour vous!", WIDTH/2, 100)
-    end
+    fontSize(80)
+    text("You got it Incorrect...",WIDTH/2, 700)
+    text("The Correct Answer was:",WIDTH/2,600)
+    text("No Candy for you!", WIDTH/2, 100)
     fill(24, 164, 24, 255)
     text(" "..MainGameScene.getNumber1().." "..MainGameScene.getEquationType().." "..MainGameScene.getNumber2().." = "..MainGameScene.getEquationAnswer(), WIDTH/2,500)
     

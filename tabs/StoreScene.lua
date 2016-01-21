@@ -10,7 +10,6 @@ StoreScene = class()
 
 local homeButton 
 local buyButtonForSkips
-local buyButtonForSkipsFrench
 --local buyButtonForBackgrounds
 --local backgroundPreviewStripes
 --local backgroundPreviewRainbow
@@ -25,8 +24,7 @@ local buyButtonForSkipsFrench
 function StoreScene:init()
     
     homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
-    buyButtonForSkips = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2+150))
-    buyButtonForSkipsFrench = Button("Dropbox:storeBuyButtonFrench", vec2(WIDTH/2+350, HEIGHT/2+150))
+    buyButtonForSkips = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+400, HEIGHT/2+150))
     --buyButtonForBackgrounds = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2))
     --backgroundPreviewStripes = Button("Dropbox:storeBackgroundPreviewStripes", vec2(WIDTH/2-75, HEIGHT/2))
     --backgroundPreviewRainbow = Button("Dropbox:storeBackgroundPreviewRainbow", vec2(WIDTH/2, HEIGHT/2))
@@ -38,7 +36,6 @@ function StoreScene:init()
   
     homeButton.draggable = false 
     buyButtonForSkips.draggable = false
-    buyButtonForSkipsFrench.draggable = false
     --buyButtonForBackgrounds.draggable = false
     --backgroundPreviewStripes.draggable = false
     --backgroundPreviewRainbow.draggable = false
@@ -52,27 +49,24 @@ end
 function StoreScene:draw()
     
     --background(0, 0, 0, 255)
-    sprite("Dropbox:backgroundsForMainGameStripes", WIDTH/2, HEIGHT/2, 1024, 768)
+    sprite("Dropbox:storeBackground", WIDTH/2, HEIGHT/2, 1024, 768)
     
     fill(0, 0, 0, 255)
     
     homeButton:draw()
-    if(languageForVoiceOver == 1) then
-        buyButtonForSkips:draw()
-        fontSize(60)
-        text("Store", WIDTH/2, HEIGHT/2+300)
-        fontSize(55)
-        text("Skips", WIDTH/2-300, HEIGHT/2+150)
-    elseif(languageForVoiceOver == 2) then
-        buyButtonForSkipsFrench:draw()
-        fontSize(60)
-        text("Magasin", WIDTH/2, HEIGHT/2+300)
-        fontSize(55)
-        text("Passers", WIDTH/2-300, HEIGHT/2+150)
-    end
+    buyButtonForSkips:draw()
+    fontSize(60)
+    text("Store", WIDTH/2, HEIGHT/2+300)
+    fontSize(55)
+    text("Skips", WIDTH/2-320, HEIGHT/2+150)
     
-    text("15", WIDTH/2+190, HEIGHT/2+150) -- cost for skips
-    sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+155, 75, 75)
+    text("15", WIDTH/2+230, HEIGHT/2+150) -- cost for skips
+    sprite("Dropbox:candyForCurrency", WIDTH/2+340, HEIGHT/2+150, 75, 75)
+    
+    --amount of candy in basket in top right of screen
+    text(math.floor(amountOfCandyInBasket), WIDTH/2+300, HEIGHT/2+325)
+    sprite("Dropbox:candyForCurrency", WIDTH/2+400, HEIGHT/2+325, 75, 75)
+    
     
     --buyButtonForBackgrounds:draw()
     
@@ -102,18 +96,13 @@ function StoreScene:draw()
     
     --text("Backgrounds", WIDTH/2-300, HEIGHT/2)
     --text("10", WIDTH/2+190, HEIGHT/2) -- cost for backgrounds
-    --sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+5, 75, 75)
-    
-    --amount of candy in basket in top right of screen
-    text(math.floor(amountOfCandyInBasket), WIDTH/2+300, HEIGHT/2+325)
-    sprite("Dropbox:candyForCurrency", WIDTH/2+400, HEIGHT/2+325, 75, 75)
+    --sprite("Dropbox:candyForCurrency", WIDTH/2+260, HEIGHT/2+5, 75, 75
 end
 
 function StoreScene:touched(touch)
     
     homeButton:touched(touch)
     buyButtonForSkips:touched(touch)
-    buyButtonForSkipsFrench:touched(touch)
     
     --buyButtonForBackgrounds:touched(touch)
     --backgroundPreviewStripes:touched(touch)
@@ -131,7 +120,7 @@ function StoreScene:touched(touch)
             sound(SOUND_HIT, 1851, 0.50)
             Scene.Change("mainmenu")
         end
-    elseif(buyButtonForSkips.selected == true) or (buyButtonForSkipsFrench.selected == true) then
+    elseif(buyButtonForSkips.selected == true) then
         if noSoundEffects then
             if(amountOfCandyInBasket >= 15) then
                 amountOfCandyInBasket = amountOfCandyInBasket - 15

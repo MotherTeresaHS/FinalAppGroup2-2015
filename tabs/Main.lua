@@ -16,7 +16,6 @@ amountOfCandyInBasket = nil
 amountOfSkips = nil
 amountOfEquationsRightInTotal = nil
 tutorialOver = nil
-languageForVoiceOver = nil
 
 -- Use this function to perform your initial setup
 function setup()
@@ -32,7 +31,6 @@ function setup()
     amountOfSkips = readLocalData("skips", 0)
     amountOfEquationsRightInTotal = readLocalData("highscore", 0)
     tutorialOver = readLocalData("tutorial", 0)
-    languageForVoiceOver = readLocalData("language", 1)
     
     -- create the scenes
     Scene("companylogo", CompanyLogoScene)

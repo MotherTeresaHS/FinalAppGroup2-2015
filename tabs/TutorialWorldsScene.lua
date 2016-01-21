@@ -56,7 +56,7 @@ function TutorialWorldsScene:draw()
         text("<- Press the addition world", WIDTH/2-70, HEIGHT/2+140)
     elseif(languageForVoiceOver == 2) then
         fontSize(20)
-        text("<-Appuyez sur l'addtion monde", WIDTH/2-70, HEIGHT/2+140)
+        text("<-Appuyez sur le monde de l'addition", WIDTH/2-70, HEIGHT/2+140)
     end
 end
 
@@ -74,14 +74,14 @@ function TutorialWorldsScene:touched(touch)
                 speech.rate = 0.1
                 speech.volume = 0.6
                 speech.pitch = 1.0
-                speech.preDelay = 2.0
+                speech.preDelay = 0.5
                 speech.language = "en-US"
                 speech.say("Select the easy difficulty")
             elseif(languageForVoiceOver == 2) then --french
                 speech.rate = 0.1
                 speech.volume = 0.6
                 speech.pitch = 1.0
-                speech.preDelay = 2.0
+                speech.preDelay = 0.5
                 speech.language = "fr-CA"
                 speech.say("Sélectionnez le niveau de difficulté facile")
             end

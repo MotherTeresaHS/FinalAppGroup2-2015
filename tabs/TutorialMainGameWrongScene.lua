@@ -21,14 +21,14 @@ function TutorialMainGameWrongScene:init()
             speech.rate = 0.1
             speech.volume = 0.6
             speech.pitch = 1.0
-            speech.preDelay = 5.0
+            speech.preDelay = 4.0
             speech.language = "en-US"
             speech.say("Tutorial over. Enjoy the game!")
         elseif(languageForVoiceOver == 2) then --french
             speech.rate = 0.1
             speech.volume = 0.6
             speech.pitch = 1.0
-            speech.preDelay = 5.0
+            speech.preDelay = 4.0
             speech.language = "fr-CA"
             speech.say("Tutoriel complet. Appréciez le jeu!")
         end

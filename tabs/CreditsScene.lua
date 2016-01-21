@@ -1,4 +1,4 @@
--- CreditsScene
+    -- CreditsScene
 -- FinalAppGroup2-2015
 
 -- Created by: Zacharias Octavious 
@@ -45,13 +45,23 @@ function CreditsScene:draw()
     text("Credits", WIDTH/2, HEIGHT/2+300) 
 
     fontSize(35)
-    text("Programmer #1 ... Zacharias Octavious", WIDTH/2, HEIGHT/2+200)
-    text("Programmer #2 ... Luke Vandenberghe", WIDTH/2, HEIGHT/2+150)
-    text("Artwork ... Thomas Farkas", WIDTH/2, HEIGHT/2+75)
-    text("Artwork ... Indi, Jerianne, Rico", WIDTH/2, HEIGHT/2+35.5)
-    text("Program Concept ... Indi, Jerianne, Rico", WIDTH/2, HEIGHT/2-50)
-    text("Music ... Nigel Good - Discover", WIDTH/2, HEIGHT/2-120)
-    text("Special Thanks to Mr. Coxall!", WIDTH/2, HEIGHT/2-275)
+    if(languageForVoiceOver == 1) then
+        text("Programmer #1 ... Zacharias Octavious", WIDTH/2, HEIGHT/2+200)
+        text("Programmer #2 ... Luke Vandenberghe", WIDTH/2, HEIGHT/2+150)
+        text("Artwork ... Thomas Farkas", WIDTH/2, HEIGHT/2+75)
+        text("Artwork ... Indi, Jerianne, Rico", WIDTH/2, HEIGHT/2+35.5)
+        text("Program Concept ... Indi, Jerianne, Rico", WIDTH/2, HEIGHT/2-50)
+        text("Music ... Nigel Good - Discover", WIDTH/2, HEIGHT/2-120)
+        text("Special Thanks to Mr. Coxall!", WIDTH/2, HEIGHT/2-275)
+    elseif(languageForVoiceOver == 2) then
+        text("Programmeur #1 ... Zacharias Octavious", WIDTH/2, HEIGHT/2+200)
+        text("Programmeur #2 ... Luke Vandenberghe", WIDTH/2, HEIGHT/2+150)
+        text("Oeuvre ... Thomas Farkas", WIDTH/2, HEIGHT/2+75)
+        text("Oeuvre ... Indi, Jerianne, Rico", WIDTH/2, HEIGHT/2+35.5)
+        text("Concept de Programme ... Indi, Jerianne, Rico", WIDTH/2, HEIGHT/2-50)
+        text("Musique ... Nigel Good - Discover", WIDTH/2, HEIGHT/2-120)
+        text("Un merci spécial à Mr. Coxall!", WIDTH/2, HEIGHT/2-275)
+    end
 end
 
 function CreditsScene:touched(touch)

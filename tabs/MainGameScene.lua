@@ -202,20 +202,24 @@ function MainGameScene:draw()
         text (" "..number1.." "..equationType.." "..number2.." = "..equationAnswerIncorrect, myBoxX, myBoxY)
     end  
     
-        --this counts how many equations you got right or wrong
         fontSize(30)
+        fill(255, 255, 255, 255)
+    --this draws the home and skip button 
+        homeButton:draw()
+    
+    if(languageForVoiceOver == 1) then
+        text("Skips: "..math.floor(amountOfSkips), WIDTH/2, HEIGHT/2-230) -- this displays the amount of skips above the skip button 
+         --this counts how many equations you got right or wrong
         text("Answers You Got Correct: "..correctCounter, 800, 500)
         text("Answers You Got Incorrect: "..incorrectCounter, 200,500)
         text("Progress...",550, 735)
-          
-    -- this displays the amount of skips above the skip button 
-        fill(255, 255, 255, 255)
-        text("Skips: "..math.floor(amountOfSkips), WIDTH/2, HEIGHT/2-230)
-    --this draws the home and skip button 
-        homeButton:draw()
-    if(languageForVoiceOver == 1) then
         skipButton:draw()
     elseif(languageForVoiceOver == 2) then
+        text("Passers: "..math.floor(amountOfSkips), WIDTH/2, HEIGHT/2-230)-- this displays the amount of skips above the skip button 
+         --this counts how many equations you got right or wrong
+        text("Vos Résponses Correctes: "..correctCounter, 800, 500)
+        text("Vos Résponses Inorrectes: "..incorrectCounter, 200,500)
+        text("Progrès...",550, 735)
         skipFrenchButton:draw()
     end
 end

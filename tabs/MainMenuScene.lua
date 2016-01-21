@@ -61,13 +61,6 @@ function MainMenuScene:init()
     else
         music("Dropbox:Nigel Good - Discover", true, 0.20)
     end
-    
-    if(gamecenter.enabled() == true) then
-        if(amountOfCandyInBasket == 1) then
-            --the achievement for buying something from the store
-            gamecenter.submitAchievement("BuySomethingFromTheStoreCandyQuations", 100)
-        end
-    end
 end
 
 function MainMenuScene:draw()
@@ -199,13 +192,13 @@ function MainMenuScene:touched(touch)
                 if(languageForVoiceOver == 1) then
                     speech.rate = 0.1
                     speech.volume = 0.6
-                    speech.pitch = 1.0
+                    speech.pitch = 0.5
                     speech.language = "en-US"
                     speech.say("Press this to begin the game")
                 elseif(languageForVoiceOver == 2) then
                     speech.rate = 0.1
                     speech.volume = 0.6
-                    speech.pitch = 1.0
+                    speech.pitch = 0.5
                     speech.language = "fr-CA"
                     speech.say("Appuyez sur ce bouton pour commencer le jeu")
                 end
@@ -219,13 +212,13 @@ function MainMenuScene:touched(touch)
                 if(languageForVoiceOver == 1) then
                     speech.rate = 0.1
                     speech.volume = 0.6
-                    speech.pitch = 1.0
+                    speech.pitch = 0.5
                     speech.language = "en-US"
                     speech.say("Press this to begin the game")
                 elseif(languageForVoiceOver == 2) then
                     speech.rate = 0.1
                     speech.volume = 0.6
-                    speech.pitch = 1.0
+                    speech.pitch = 0.5
                     speech.language = "fr-CA"
                     speech.say("Appuyez sur ce bouton pour commencer le jeu")
                 end

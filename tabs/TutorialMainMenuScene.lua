@@ -91,16 +91,16 @@ function TutorialMainMenuScene:touched(touch)
                 speech.rate = 0.1
                 speech.volume = 0.6
                 speech.pitch = 1.0
-                speech.preDelay = 2.0
+                speech.preDelay = 0.5
                 speech.language = "en-US"
                 speech.say("Press the addition world")
             elseif(languageForVoiceOver == 2) then --french
                 speech.rate = 0.1
                 speech.volume = 0.6
                 speech.pitch = 1.0
-                speech.preDelay = 2.0
+                speech.preDelay = 0.5
                 speech.language = "fr-CA"
-                speech.say("Appuyez sur l'addtion monde")
+                speech.say("Appuyez sur le monde de l'addition")
             end
         end
     end

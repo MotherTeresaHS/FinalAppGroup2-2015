@@ -23,14 +23,14 @@ function TutorialMainGameRightScene:init()
             speech.rate = 0.1
             speech.volume = 0.6
             speech.pitch = 1.0
-            speech.preDelay = 2.0
+            speech.preDelay = 1.0
             speech.language = "en-US"
             speech.say("Now drag the equation to the red circle")
         elseif(languageForVoiceOver == 2) then --french
             speech.rate = 0.1
             speech.volume = 0.6
             speech.pitch = 1.0
-            speech.preDelay = 2.0
+            speech.preDelay = 1.0
             speech.language = "fr-CA"
             speech.say("Maintenant faites glisser l'équation dans le cercle rouge")
         end

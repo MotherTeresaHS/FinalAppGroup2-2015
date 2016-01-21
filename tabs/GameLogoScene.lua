@@ -14,7 +14,7 @@ local startTime2
 function GameLogoScene:init()
 
     startTime2 = ElapsedTime
-    
+    music.stop()
     if(tutorialOver ~= 0) then
         if noVoiceOver then
             return
@@ -23,14 +23,14 @@ function GameLogoScene:init()
                 speech.rate = 0.1
                 speech.volume = 0.6
                 speech.pitch = 1.0
-                speech.preDelay = 1.0
+                speech.preDelay = 1.5
                 speech.language = "en-US"
                 speech.say("Welcome to CandyQuations")
             elseif(languageForVoiceOver == 2) then --french
                 speech.rate = 0.1
                 speech.volume = 0.6
                 speech.pitch = 1.0
-                speech.preDelay = 1.0
+                speech.preDelay = 1.5
                 speech.language = "fr-CA"
                 speech.say("Bienvenue à CandyQuations")
             end

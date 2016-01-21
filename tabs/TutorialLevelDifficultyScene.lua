@@ -69,14 +69,14 @@ function TutorialLevelDifficultyScene:touched(touch)
                 speech.rate = 0.1
                 speech.volume = 0.6
                 speech.pitch = 1.0
-                speech.preDelay = 2.0
+                speech.preDelay = 0.5
                 speech.language = "en-US"
                 speech.say("Drag the equation to the green circle")
             elseif(languageForVoiceOver == 2) then --french
                 speech.rate = 0.1
                 speech.volume = 0.6
                 speech.pitch = 1.0
-                speech.preDelay = 2.0
+                speech.preDelay = 0.5
                 speech.language = "fr-CA"
                 speech.say("Faites glisser l'équation dans le cercle vert")
             end

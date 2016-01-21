@@ -62,13 +62,13 @@ function StoreScene:draw()
         fontSize(60)
         text("Store", WIDTH/2, HEIGHT/2+300)
         fontSize(55)
-        text("Skips", WIDTH/2-300, HEIGHT/2+15)
+        text("Skips", WIDTH/2-300, HEIGHT/2+150)
     elseif(languageForVoiceOver == 2) then
         buyButtonForSkipsFrench:draw()
         fontSize(60)
         text("Magasin", WIDTH/2, HEIGHT/2+300)
         fontSize(55)
-        text("Passers", WIDTH/2-300, HEIGHT/2+15)
+        text("Passers", WIDTH/2-300, HEIGHT/2+150)
     end
     
     text("15", WIDTH/2+190, HEIGHT/2+150) -- cost for skips
@@ -114,6 +114,7 @@ function StoreScene:touched(touch)
     homeButton:touched(touch)
     buyButtonForSkips:touched(touch)
     buyButtonForSkipsFrench:touched(touch)
+    
     --buyButtonForBackgrounds:touched(touch)
     --backgroundPreviewStripes:touched(touch)
     --backgroundPreviewRainbow:touched(touch)
@@ -136,6 +137,10 @@ function StoreScene:touched(touch)
                 amountOfCandyInBasket = amountOfCandyInBasket - 15
                 amountOfSkips = amountOfSkips + 1
                 saveLocalData("candy", amountOfCandyInBasket)
+                if(gamecenter.enabled() == true) then
+                    --the achievement for buying something from the store
+                    gamecenter.submitAchievement("BuySomethingFromTheStoreCandyQuations", 100)
+                end
             else
                 alert("Not enough candy!", "Can't buy item")
             end
@@ -145,36 +150,41 @@ function StoreScene:touched(touch)
                 amountOfCandyInBasket = amountOfCandyInBasket - 15
                 amountOfSkips = amountOfSkips + 1
                 saveLocalData("candy", amountOfCandyInBasket)
+                if(gamecenter.enabled() == true) then
+                    --the achievement for buying something from the store
+                    gamecenter.submitAchievement("BuySomethingFromTheStoreCandyQuations", 100)
+                end
             else
                 alert("Not enough candy!", "Can't buy item")
             end
         end
         
                         --BACKGROUND BUY CODE WHICH IS NOT IMPLEMENTED IN THE 1.0 VERSION--
-    elseif(buyButtonForBackgrounds.selected == true) then
-        if(amountOfCandyInBasket >= 10) then
-            amountOfCandyInBasket = amountOfCandyInBasket - 10
-            saveLocalData("candy", amountOfCandyInBasket)
+        
+    --elseif(buyButtonForBackgrounds.selected == true) then
+        --if(amountOfCandyInBasket >= 10) then
+            --amountOfCandyInBasket = amountOfCandyInBasket - 10
+            --saveLocalData("candy", amountOfCandyInBasket)
             -- need to make a variable for background in the main game
-        else
-            alert("Not enough candy!", "Can't buy item")
-        end
-    elseif(backgroundPreviewStripes.selected == true) then
-        backgroundPreview = "stripes"
-        backgroundPreviewSelected = "stripes"
-    elseif(backgroundPreviewRainbow.selected == true) then
-        backgroundPreview = "rainbow"
-        backgroundPreviewSelected = "rainbow"
-    elseif(backgroundPreviewDots.selected == true) then
-        backgroundPreview = "dots"
-        backgroundPreviewSelected = "dots"
-    elseif(backgroundPreviewSelectedStripes.selected == true) then
-        backgroundPreviewSelected = "stripesunselected"
-    elseif(backgroundPreviewSelectedRainbow.selected == true) then
-        backgroundPreviewSelected = "rainbowunselected"
-    elseif(backgroundPreviewSelectedDots.selected == true) then
-        backgroundPreviewSelected = "dotsunselected"
-    elseif(backgroundPreviewButton.selected == true) then
-        Scene.Change("backgrounds")
+        --else
+            --alert("Not enough candy!", "Can't buy item")
+        --end
+    --elseif(backgroundPreviewStripes.selected == true) then
+        --backgroundPreview = "stripes"
+        --backgroundPreviewSelected = "stripes"
+    --elseif(backgroundPreviewRainbow.selected == true) then
+        --backgroundPreview = "rainbow"
+        --backgroundPreviewSelected = "rainbow"
+    --elseif(backgroundPreviewDots.selected == true) then
+        --backgroundPreview = "dots"
+        --backgroundPreviewSelected = "dots"
+    --elseif(backgroundPreviewSelectedStripes.selected == true) then
+        --backgroundPreviewSelected = "stripesunselected"
+    --elseif(backgroundPreviewSelectedRainbow.selected == true) then
+        --backgroundPreviewSelected = "rainbowunselected"
+    --elseif(backgroundPreviewSelectedDots.selected == true) then
+        --backgroundPreviewSelected = "dotsunselected"
+    --elseif(backgroundPreviewButton.selected == true) then
+        --Scene.Change("backgrounds")
     end
 end

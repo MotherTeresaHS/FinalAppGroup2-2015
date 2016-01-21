@@ -13,6 +13,25 @@ local startTime
 function MainGameTotalScoreScene:init()
   
     startTime = ElapsedTime
+    
+    if(gamecenter.enabled() == true) then
+        if(worldSelected == "+") then
+            --the achievement for completing the chocolate addition world
+            gamecenter.submitAchievement("CompleteChocolateWorldCandyQuations", 100)
+        elseif(worldSelected == "-") then
+            --the achievement for completing the lollipop subtraction world
+            gamecenter.submitAchievement("CompleteLollipopWorldCandyQuations", 100)
+        elseif(worldSelected == "*") then
+            --the achievement for completing the jellybean multiplication world
+            gamecenter.submitAchievement("CompleteJellybeanWorldCandyQuations", 100)
+        elseif(worldSelected == "/") then
+            --the achievement for completing the gummybear division world
+            gamecenter.submitAchievement("CompleteGummybearWorldCandyQuations", 100)
+        elseif(worldSelected == "?") then
+            --the achievement for completing the sugar mountain world
+            gamecenter.submitAchievement("CompleteSugarMountainWorldCandyQuations", 100)
+        end
+    end
 end
 
 function MainGameTotalScoreScene:draw()
@@ -24,8 +43,13 @@ function MainGameTotalScoreScene:draw()
     fill(0, 0, 0, 255)
     font("Futura-CondensedExtraBold")
     fontSize(60) 
-    text(MainGameScene.getCorrectCounter().." Candy has been added basket!", WIDTH/2, 100)
-    text("Score "..MainGameScene.getCorrectCounter().." out of 10",WIDTH/2, 600)
+    if(languageForVoiceOver == 1) then
+        text(MainGameScene.getCorrectCounter().." Candy has been added to basket!", WIDTH/2, 100)
+        text("Score "..MainGameScene.getCorrectCounter().." out of 10",WIDTH/2, 600)
+    elseif(languageForVoiceOver == 2) then
+        text(MainGameScene.getCorrectCounter().." Bonbons a été ajouté au panier!", WIDTH/2, 100)
+        text("Score "..MainGameScene.getCorrectCounter().." des 10",WIDTH/2, 600)    
+    end
     
     if(startTime + 3 < ElapsedTime) then
         Scene.Change("mainmenu")

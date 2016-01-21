@@ -55,6 +55,7 @@ function LevelDifficultyScene:draw()
         mediumLevelDifficultyButton:draw()
         hardLevelDifficultyButton:draw()
     elseif(languageForVoiceOver == 2) then
+        fontSize(50)
         text("Niveau de Difficulté Sélecteur", WIDTH/2, HEIGHT/2+330)     
         easyLevelDifficultyFrenchButton:draw()
         mediumLevelDifficultyFrenchButton:draw()

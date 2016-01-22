@@ -28,7 +28,7 @@ end
 
 function TutorialMainGameWrongScene:draw()
   
-    sprite("Dropbox:backgroundsForMainGameDots", WIDTH/2, HEIGHT/2, 1024, 768)
+    sprite("Dropbox:mainGameWrongBackground", WIDTH/2, HEIGHT/2, 1024, 768)
     
     -- Changes colour, font, size of text
     -- this text indicates to the user that they are incorrect and don't get candy 

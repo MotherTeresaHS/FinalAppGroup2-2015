@@ -46,19 +46,14 @@ function TutorialMainMenuScene:draw()
     
     settingsButton:draw()
     mainGameButton:draw()
-    storeButton:draw()
-    achievementsButton:draw()
-    leaderboardsButton:draw()
     backgroundTextBox:draw()
     
     fill(0, 0, 0, 255)
-    if(languageForVoiceOver == 1) then   
-        fontSize(27)
-        text("Press this to begin the game->", WIDTH/2-320, HEIGHT/2)
-    elseif(languageForVoiceOver == 2) then
-        fontSize(17)
-        text("Appuyez sur ce bouton pour commencer le jeu->", WIDTH/2-320, HEIGHT/2)
-    end
+    storeButton:draw()
+    achievementsButton:draw()
+    leaderboardsButton:draw()
+    fontSize(27)
+    text("Press this to begin the game->", WIDTH/2-320, HEIGHT/2)
 end
 
 function TutorialMainMenuScene:touched(touch)
@@ -71,21 +66,12 @@ function TutorialMainMenuScene:touched(touch)
         if noVoiceOver then
             return
         else
-            if(languageForVoiceOver == 1) then --english
-                speech.rate = 0.1
-                speech.volume = 0.6
-                speech.pitch = 1.0
-                speech.preDelay = 2.0
-                speech.language = "en-US"
-                speech.say("Press the addition world")
-            elseif(languageForVoiceOver == 2) then --french
-                speech.rate = 0.1
-                speech.volume = 0.6
-                speech.pitch = 1.0
-                speech.preDelay = 2.0
-                speech.language = "fr-CA"
-                speech.say("Appuyez sur l'addtion monde")
-            end
+            speech.rate = 0.1
+            speech.volume = 0.6
+            speech.pitch = 1.0
+            speech.preDelay = 0.5
+            speech.language = "en-US"
+            speech.say("Press the addition world")
         end
     end
 end

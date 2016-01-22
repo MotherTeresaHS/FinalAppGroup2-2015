@@ -48,7 +48,7 @@ function WorldsScene:draw()
     
     fill(0, 0, 0, 255)
     fontSize(60)
-    text("Worlds", WIDTH/2, HEIGHT/2+300) 
+    text("Worlds", WIDTH/2, HEIGHT/2+300)
 end
 
 function WorldsScene:touched(touch)

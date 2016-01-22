@@ -33,10 +33,11 @@ function LevelDifficultyScene:draw()
     sprite("Dropbox:levelDifficultyScene", WIDTH/2, HEIGHT/2)
     
     fill(0, 0, 0, 255)
-    fontSize(60)
-    text("Level Difficulty Selector", WIDTH/2, HEIGHT/2+330) 
     
     homeButton:draw()
+    
+    fontSize(60)
+    text("Level Difficulty Selector", WIDTH/2, HEIGHT/2+330)
     easyLevelDifficultyButton:draw()
     mediumLevelDifficultyButton:draw()
     hardLevelDifficultyButton:draw()

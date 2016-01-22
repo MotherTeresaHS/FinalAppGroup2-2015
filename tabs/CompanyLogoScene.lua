@@ -14,6 +14,7 @@ local startTime
 function CompanyLogoScene:init()
 
     startTime = ElapsedTime
+    music.stop()
 end
 
 function CompanyLogoScene:draw()

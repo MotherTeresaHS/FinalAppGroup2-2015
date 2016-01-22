@@ -10,8 +10,8 @@
 		<string>CompanyLogoScene</string>
 		<string>GameLogoScene</string>
 		<string>MainMenuScene</string>
-		<string>CreditsScene</string>
 		<string>SettingsScene</string>
+		<string>CreditsScene</string>
 		<string>StoreScene</string>
 		<string>BackgroundPreviewScene</string>
 		<string>AchievementsScene</string>

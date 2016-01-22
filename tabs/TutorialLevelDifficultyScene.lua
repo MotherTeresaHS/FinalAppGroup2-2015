@@ -46,13 +46,8 @@ function TutorialLevelDifficultyScene:draw()
     
     fill(0, 0, 0, 255)
     
-    if(languageForVoiceOver == 1) then
-        fontSize(24)
-        text("Select the easy difficulty->", WIDTH/2-370, HEIGHT/2)
-    elseif(languageForVoiceOver == 2) then
-        fontSize(18)
-        text("Sélectionnez la difficulté facile->", WIDTH/2-370, HEIGHT/2)
-    end
+    fontSize(24)
+    text("Select the easy difficulty->", WIDTH/2-370, HEIGHT/2)
 end
 
 function TutorialLevelDifficultyScene:touched(touch)
@@ -65,21 +60,12 @@ function TutorialLevelDifficultyScene:touched(touch)
         if noVoiceOver then
             return
         else
-            if(languageForVoiceOver == 1) then --english
-                speech.rate = 0.1
-                speech.volume = 0.6
-                speech.pitch = 1.0
-                speech.preDelay = 2.0
-                speech.language = "en-US"
-                speech.say("Drag the equation to the green circle")
-            elseif(languageForVoiceOver == 2) then --french
-                speech.rate = 0.1
-                speech.volume = 0.6
-                speech.pitch = 1.0
-                speech.preDelay = 2.0
-                speech.language = "fr-CA"
-                speech.say("Faites glisser l'équation pour le cercle vert")
-            end
+            speech.rate = 0.1
+            speech.volume = 0.6
+            speech.pitch = 1.0
+            speech.preDelay = 0.5
+            speech.language = "en-US"
+            speech.say("Drag the equation to the green circle")
         end
     end
 end

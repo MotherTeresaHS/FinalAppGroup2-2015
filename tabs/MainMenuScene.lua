@@ -17,7 +17,7 @@ local leaderboardsButton
 local tutorialYesButton
 local tutorialNoButton
 local backgroundTextBox
-    
+
 function MainMenuScene:init()
     
     settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
@@ -28,6 +28,7 @@ function MainMenuScene:init()
     tutorialYesButton = Button("Dropbox:tutorialYesButton", vec2(WIDTH/2-100, HEIGHT/2+225))
     tutorialNoButton = Button("Dropbox:tutorialNoButton", vec2(WIDTH/2+100, HEIGHT/2+225))
     backgroundTextBox = SpriteObject("Dropbox:backgroundRectangleForTextMainMenu", vec2(WIDTH/2, HEIGHT/2+300))
+ 
     
     settingsButton.draggable = false
     mainGameButton.draggable = false 
@@ -38,6 +39,7 @@ function MainMenuScene:init()
     tutorialNoButton.draggable = false
     backgroundTextBox.draggable = false
 
+    
     if musicOff then
         music.stop()
     else
@@ -51,9 +53,6 @@ function MainMenuScene:draw()
     
     settingsButton:draw()
     mainGameButton:draw()
-    storeButton:draw()
-    achievementsButton:draw()
-    leaderboardsButton:draw()
     
     fill(255, 255, 255, 255)
     stroke(0, 0, 0, 255)
@@ -65,29 +64,22 @@ function MainMenuScene:draw()
     fontSize(35)
     font("ArialMT")
     
-    if(languageForVoiceOver == 1) then
-        text("Your total amount of equations right: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
-    elseif(languageForVoiceOver == 2) then
-        text("Votre total d'équations correcte: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
-    end
+    text("Your total amount of equations right: "..math.floor(amountOfEquationsRightInTotal), WIDTH/2, HEIGHT/2-230)
+    storeButton:draw()
+    achievementsButton:draw()
+    leaderboardsButton:draw()
     
     if(tutorialOver ~= 0) then
         if noTutorialQuestion then
             return
         else
-            backgroundTextBox:draw()
-            tutorialYesButton:draw()
-            tutorialNoButton:draw()
-            
             fill(0, 0, 0, 255)
             fontSize(27)
             font("ArialMT")
-            if(languageForVoiceOver == 1) then
-                text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
-            elseif(languageForVoiceOver == 2) then
-                fontSize(24)
-                text("Aimeriez-vous prendre le tutoriel à nouveau?", WIDTH/2, HEIGHT/2+300)
-            end
+            backgroundTextBox:draw()
+            tutorialYesButton:draw()
+            tutorialNoButton:draw()
+            text("Would you like to see the tutorial again?", WIDTH/2, HEIGHT/2+300)
         end
     end
 end
@@ -161,19 +153,11 @@ function MainMenuScene:touched(touch)
             if noVoiceOver then
                 return
             else
-                if(languageForVoiceOver == 1) then
-                    speech.rate = 0.1
-                    speech.volume = 0.6
-                    speech.pitch = 1.0
-                    speech.language = "en-US"
-                    speech.say("Press this to begin the game")
-                elseif(languageForVoiceOver == 2) then
-                    speech.rate = 0.1
-                    speech.volume = 0.6
-                    speech.pitch = 1.0
-                    speech.language = "fr-CA"
-                    speech.say("Appuyez sur ce bouton pour commencer le jeu")
-                end
+                speech.rate = 0.1
+                speech.volume = 0.6
+                speech.pitch = 0.5
+                speech.language = "en-US"
+                speech.say("Press this to begin the game")
             end
         else
             sound(SOUND_HIT, 1851, 0.50)
@@ -181,19 +165,11 @@ function MainMenuScene:touched(touch)
             if noVoiceOver then
                 return
             else
-                if(languageForVoiceOver == 1) then
-                    speech.rate = 0.1
-                    speech.volume = 0.6
-                    speech.pitch = 1.0
-                    speech.language = "en-US"
-                    speech.say("Press this to begin the game")
-                elseif(languageForVoiceOver == 2) then
-                    speech.rate = 0.1
-                    speech.volume = 0.6
-                    speech.pitch = 1.0
-                    speech.language = "fr-CA"
-                    speech.say("Appuyez sur ce bouton pour commencer le jeu")
-                end
+                speech.rate = 0.1
+                speech.volume = 0.6
+                speech.pitch = 0.5
+                speech.language = "en-US"
+                speech.say("Press this to begin the game")
             end            
         end
     elseif(tutorialNoButton.selected == true) then

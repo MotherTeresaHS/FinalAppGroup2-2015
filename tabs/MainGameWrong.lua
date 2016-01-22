@@ -24,7 +24,7 @@ function MainGameWrong:draw()
     --it also shows them the correct answer          
     fill(198, 28, 25, 255)       
     font("Futura-CondensedExtraBold")
-    fontSize(80) 
+    fontSize(80)
     text("You got it Incorrect...",WIDTH/2, 700)
     text("The Correct Answer was:",WIDTH/2,600)
     text("No Candy for you!", WIDTH/2, 100)
@@ -42,5 +42,5 @@ function MainGameWrong:draw()
 end
 
 function MainGameWrong:touched(touch)
-
+    
 end

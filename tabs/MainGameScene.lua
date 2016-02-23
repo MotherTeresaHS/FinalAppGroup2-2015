@@ -49,7 +49,7 @@ local skipButton
 function MainGameScene:init()
     
     --home button to leave the game
-    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
+    homeButton = Button("Dropbox:homeButton", vec2(100, HEIGHT-100))
     skipButton = Button("Dropbox:mainGameSkipButton", vec2(WIDTH/2, HEIGHT/2-300))
    
      -- make the equation not change as you drag it
@@ -70,15 +70,15 @@ function MainGameScene:draw()
     
     --backround (only temporary) more backrounds need to be added
     if(worldSelected == "+") then
-        sprite("Dropbox:chocolateScene", WIDTH/2, HEIGHT/2) 
+        sprite("Dropbox:chocolateScene", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT) 
     elseif(worldSelected == "-") then
-        sprite("Dropbox:lollipopScene", WIDTH/2, HEIGHT/2)
+        sprite("Dropbox:lollipopScene", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     elseif(worldSelected == "*") then
-        sprite("Dropbox:jellyBeanScene", WIDTH/2, HEIGHT/2)
+        sprite("Dropbox:jellyBeanScene", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     elseif(worldSelected == "/") then
-        sprite("Dropbox:gummyBearScene", WIDTH/2, HEIGHT/2)
+        sprite("Dropbox:gummyBearScene", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     elseif(worldSelected == "?") then
-        sprite("Dropbox:sugarMountain", WIDTH/2, HEIGHT/2)
+        sprite("Dropbox:sugarMountain", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     end
     -- invisible box color (text is stuck onto the invisible box to make it draggable)
     fill(255, 0, 226, 0)
@@ -105,12 +105,12 @@ function MainGameScene:draw()
     -- Incorrect circle    
     fill(255, 0, 44, 255)
     stroke(255, 27, 0, 255)
-    ellipse(200,200, perfectCircle*2)
+    ellipse(WIDTH/2-268,200, perfectCircle*2)
     
     --correct circle
     stroke(79, 255, 0, 255)
     fill(41, 255, 0, 255)
-    ellipse(800, 200, perfectCircle*2)
+    ellipse(WIDTH/2+268, 200, perfectCircle*2)
     
     --equation text font, size, and colour
     fontSize(100)
@@ -207,8 +207,8 @@ function MainGameScene:draw()
     
         text("Skips: "..math.floor(amountOfSkips), WIDTH/2, HEIGHT/2-230) -- this displays the amount of skips above the skip button 
          --this counts how many equations you got right or wrong
-        text("Answers You Got Correct: "..correctCounter, 800, 500)
-        text("Answers You Got Incorrect: "..incorrectCounter, 200,500)
+        text("Answers You Got Correct: "..correctCounter, WIDTH/2+300, 500)
+        text("Answers You Got Incorrect: "..incorrectCounter, WIDTH/2-300,500)
         text("Progress...",550, 735)
         skipButton:draw()
 end

@@ -24,14 +24,14 @@ function TutorialMainGameRightScene:init()
         speech.pitch = 1.0
         speech.preDelay = 1.0
         speech.language = "en-US"
-        speech.say("Now drag the equation to the red circle")
+        --speech.say("Now drag the equation to the red circle")
     end
 end
 
 function TutorialMainGameRightScene:draw()
     -- Codea does not automatically call this method
     
-    sprite("Dropbox:mainGameRightBackground", WIDTH/2, HEIGHT/2, 1024, 768)
+    sprite("Dropbox:mainGameRightBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
  
     -- Changes colour, font, size of text
     -- this text indicates to the user that they are correct and get candy         
@@ -39,7 +39,7 @@ function TutorialMainGameRightScene:draw()
     font("Futura-CondensedExtraBold")
     fontSize(100)
     text("You got it Correct!", WIDTH/2, 600)
-    text("Here is a candy", WIDTH/2, 100)
+    text("Here is a candy", WIDTH/2, HEIGHT/2-284)
     sprite("Dropbox:candyForCurrency", WIDTH/2, HEIGHT/2)
     
     if(startTime + 3 < ElapsedTime) then

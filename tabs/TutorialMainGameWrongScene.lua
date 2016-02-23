@@ -22,13 +22,13 @@ function TutorialMainGameWrongScene:init()
         speech.pitch = 1.0
         speech.preDelay = 4.0
         speech.language = "en-US"
-        speech.say("Tutorial over. Enjoy the game!")
+        --speech.say("Tutorial over. Enjoy the game!")
     end
 end
 
 function TutorialMainGameWrongScene:draw()
   
-    sprite("Dropbox:mainGameWrongBackground", WIDTH/2, HEIGHT/2, 1024, 768)
+    sprite("Dropbox:mainGameWrongBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     -- Changes colour, font, size of text
     -- this text indicates to the user that they are incorrect and don't get candy 
@@ -38,8 +38,8 @@ function TutorialMainGameWrongScene:draw()
     fontSize(80) 
     
     text("You got it Incorrect...",WIDTH/2, 700)
-    text("The Correct Answer was:",WIDTH/2,600)
-    text("No Candy for you!", WIDTH/2, 100)
+    text("The Correct Answer was:",WIDTH/2, 600)
+    text("No Candy for you!", WIDTH/2, HEIGHT/2-284)
     
     fill(24, 164, 24, 255)
     text("2 + 2 = 4 ", WIDTH/2,500)

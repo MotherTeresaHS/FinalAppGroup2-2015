@@ -35,7 +35,7 @@ end
 
 function MainGameRight:draw()
 
-    sprite("Dropbox:mainGameRightBackground", WIDTH/2, HEIGHT/2, 1024, 768)
+    sprite("Dropbox:mainGameRightBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
 
     -- Changes colour, font, size of text
     -- this text indicates to the user that they are correct and get candy         

@@ -28,7 +28,7 @@ function TutorialOverScene:draw()
     -- Codea does not automatically call this method
     
     --background(0, 0, 0, 255)
-    sprite("Dropbox:tutorialOverSceneBackground", WIDTH/2, HEIGHT/2, 2048, 1536)
+    sprite("Dropbox:tutorialOverSceneBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     fill(0, 0, 0, 255)
     font("Arial-BoldMT")

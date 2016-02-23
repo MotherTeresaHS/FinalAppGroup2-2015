@@ -18,7 +18,7 @@ local backgroundTextBox
 
 function TutorialMainMenuScene:init()
     
-    settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
+    settingsButton = Button("Dropbox:Blue Settings Button", vec2(100, HEIGHT-100))
     mainGameButton = Button("Dropbox:mainMenuPlayButton", vec2(WIDTH/2, HEIGHT/2))
     storeButton = Button("Dropbox:mainMenuStoreButton", vec2(WIDTH/2, HEIGHT/2-300))
     achievementsButton = Button("Dropbox:mainMenuAchievementsButton", vec2(WIDTH/2+300, HEIGHT/2-300))
@@ -42,7 +42,7 @@ end
 function TutorialMainMenuScene:draw()
     -- Codea does not automatically call this method
 
-    sprite("Dropbox:mainMenuScene", WIDTH/2, HEIGHT/2, 1024, 800)
+    sprite("Dropbox:mainMenuScene", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     settingsButton:draw()
     mainGameButton:draw()
@@ -71,7 +71,7 @@ function TutorialMainMenuScene:touched(touch)
             speech.pitch = 1.0
             speech.preDelay = 0.5
             speech.language = "en-US"
-            speech.say("Press the addition world")
+            --speech.say("Press the addition world")
         end
     end
 end

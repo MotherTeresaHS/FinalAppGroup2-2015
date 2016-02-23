@@ -16,7 +16,7 @@ local hardLevelDifficultyButton
 function LevelDifficultyScene:init()
     -- you can accept and set parameters here
    
-    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
+    homeButton = Button("Dropbox:homeButton", vec2(100, HEIGHT-100))
     easyLevelDifficultyButton = Button("Dropbox:levelDifficultyEasyButton", vec2(WIDTH/2-200, HEIGHT/2))
     mediumLevelDifficultyButton = Button("Dropbox:levelDifficultyMediumButton", vec2(WIDTH/2-20, HEIGHT/2))
     hardLevelDifficultyButton = Button("Dropbox:levelDifficultyHardButton", vec2(WIDTH/2+180,HEIGHT/2))
@@ -30,7 +30,7 @@ end
 function LevelDifficultyScene:draw()
     -- Codea does not automatically call this method
     
-    sprite("Dropbox:levelDifficultyScene", WIDTH/2, HEIGHT/2)
+    sprite("Dropbox:levelDifficultyScene", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     fill(0, 0, 0, 255)
     

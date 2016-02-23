@@ -18,7 +18,7 @@ local backgroundTextBox
 
 function TutorialWorldsScene:init()
     
-    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
+    homeButton = Button("Dropbox:homeButton", vec2(100, HEIGHT-100))
     additionWorldButton = Button("Dropbox:additionWorldSelect", vec2(WIDTH/2-325, HEIGHT/2+150))
     subtractionWorldButton = Button("Dropbox:subtractionWorldSelect", vec2(WIDTH/2+325, HEIGHT/2+150))
     multiplicationWorldButton = Button("Dropbox:multiplicationWorldSelect", vec2(WIDTH/2-325, HEIGHT/2-230))
@@ -37,7 +37,7 @@ end
 
 function TutorialWorldsScene:draw()
     
-    sprite("Dropbox:levelSelectBackground", WIDTH/2, HEIGHT/2)
+    sprite("Dropbox:levelSelectBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     homeButton:draw()
     additionWorldButton:draw()
@@ -70,7 +70,7 @@ function TutorialWorldsScene:touched(touch)
             speech.pitch = 1.0
             speech.preDelay = 0.5
             speech.language = "en-US"
-            speech.say("Select the easy difficulty")
+            --speech.say("Select the easy difficulty")
         end
     end
 end

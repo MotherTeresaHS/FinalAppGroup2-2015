@@ -16,7 +16,7 @@ local twitterButton
 
 function CreditsScene:init()
     
-    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
+    homeButton = Button("Dropbox:homeButton", vec2(100, HEIGHT-100))
     facebookButton = Button("Dropbox:creditsNigelGoodFacebookButton", vec2(WIDTH/2-200, HEIGHT/2-190))
     soundcloudButton = Button("Dropbox:creditsNigelGoodSoundcloudButton", vec2(WIDTH/2, HEIGHT/2-190))
     twitterButton = Button("Dropbox:creditsNigelGoodTwitterButton", vec2(WIDTH/2+200, HEIGHT/2-190))
@@ -32,7 +32,7 @@ end
 function CreditsScene:draw()
     
     --background(0, 0, 0, 255)
-    sprite("Dropbox:creditsBackground", WIDTH/2, HEIGHT/2, 1024, 768)
+    sprite("Dropbox:creditsBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     homeButton:draw()
     facebookButton:draw()

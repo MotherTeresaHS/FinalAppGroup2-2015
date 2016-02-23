@@ -20,7 +20,7 @@ local backgroundTextBox
 
 function MainMenuScene:init()
     
-    settingsButton = Button("Dropbox:Blue Settings Button", vec2(WIDTH/2-390, HEIGHT/2+315))
+    settingsButton = Button("Dropbox:Blue Settings Button", vec2(100, HEIGHT-100))
     mainGameButton = Button("Dropbox:mainMenuPlayButton", vec2(WIDTH/2, HEIGHT/2))
     storeButton = Button("Dropbox:mainMenuStoreButton", vec2(WIDTH/2, HEIGHT/2-300))
     achievementsButton = Button("Dropbox:mainMenuAchievementsButton", vec2(WIDTH/2+300, HEIGHT/2-300))
@@ -49,7 +49,7 @@ end
 
 function MainMenuScene:draw()
     
-    sprite("Dropbox:mainMenuScene", WIDTH/2, HEIGHT/2, 1024, 800)
+    sprite("Dropbox:mainMenuScene", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     settingsButton:draw()
     mainGameButton:draw()
@@ -157,7 +157,7 @@ function MainMenuScene:touched(touch)
                 speech.volume = 0.6
                 speech.pitch = 0.5
                 speech.language = "en-US"
-                speech.say("Press this to begin the game")
+                --speech.say("Press this to begin the game")
             end
         else
             sound(SOUND_HIT, 1851, 0.50)
@@ -169,7 +169,7 @@ function MainMenuScene:touched(touch)
                 speech.volume = 0.6
                 speech.pitch = 0.5
                 speech.language = "en-US"
-                speech.say("Press this to begin the game")
+                --speech.say("Press this to begin the game")
             end            
         end
     elseif(tutorialNoButton.selected == true) then

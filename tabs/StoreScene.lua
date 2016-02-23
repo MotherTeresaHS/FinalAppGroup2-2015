@@ -23,8 +23,8 @@ local buyButtonForSkips
 
 function StoreScene:init()
     
-    homeButton = Button("Dropbox:homeButton", vec2(WIDTH/2-400, HEIGHT/2+325))
-    buyButtonForSkips = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+400, HEIGHT/2+150))
+    homeButton = Button("Dropbox:homeButton", vec2(100, HEIGHT-100))
+    buyButtonForSkips = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+400, HEIGHT/2-250))
     --buyButtonForBackgrounds = Button("Dropbox:storeBuyButton", vec2(WIDTH/2+350, HEIGHT/2))
     --backgroundPreviewStripes = Button("Dropbox:storeBackgroundPreviewStripes", vec2(WIDTH/2-75, HEIGHT/2))
     --backgroundPreviewRainbow = Button("Dropbox:storeBackgroundPreviewRainbow", vec2(WIDTH/2, HEIGHT/2))
@@ -49,23 +49,25 @@ end
 function StoreScene:draw()
     
     --background(0, 0, 0, 255)
-    sprite("Dropbox:storeBackground", WIDTH/2, HEIGHT/2, 1024, 768)
+    sprite("Dropbox:storeBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
-    fill(0, 0, 0, 255)
+    fill(255, 255, 255, 255)
     
     homeButton:draw()
     buyButtonForSkips:draw()
-    fontSize(60)
+    fontSize(75)
     text("Store", WIDTH/2, HEIGHT/2+300)
-    fontSize(55)
-    text("Skips", WIDTH/2-320, HEIGHT/2+150)
     
-    text("15", WIDTH/2+230, HEIGHT/2+150) -- cost for skips
-    sprite("Dropbox:candyForCurrency", WIDTH/2+340, HEIGHT/2+150, 75, 75)
+    fill(0, 0, 0, 255)
+    fontSize(55)
+    text("Skips cost 15", WIDTH/2-100, HEIGHT/2-250)
+    
+    --text("15", WIDTH/2+230, HEIGHT/2+150) -- cost for skips
+    sprite("Dropbox:candyForCurrency", WIDTH/2+210, HEIGHT/2+25, 75, 75)
     
     --amount of candy in basket in top right of screen
-    text(math.floor(amountOfCandyInBasket), WIDTH/2+300, HEIGHT/2+325)
-    sprite("Dropbox:candyForCurrency", WIDTH/2+400, HEIGHT/2+325, 75, 75)
+    text("You currently have " .. math.floor(amountOfCandyInBasket), WIDTH/2-100, HEIGHT/2+25)
+    sprite("Dropbox:candyForCurrency", WIDTH/2+110, HEIGHT/2-250, 75, 75)
     
     
     --buyButtonForBackgrounds:draw()

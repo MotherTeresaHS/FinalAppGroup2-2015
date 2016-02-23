@@ -24,7 +24,7 @@ function GameLogoScene:init()
             speech.pitch = 1.0
             speech.preDelay = 1.5
             speech.language = "en-US"
-            speech.say("Welcome to CandyQuations")
+            --speech.say("Welcome to CandyQuations")
             
         end
     elseif(tutorialOver == 0) then
@@ -35,14 +35,14 @@ function GameLogoScene:init()
             speech.volume = 0.6
             speech.pitch = 1.0
             speech.language = "en-US"
-            speech.say("Press this to begin the game")
+            --speech.say("Press this to begin the game")
         end
     end
 end
 
 function GameLogoScene:draw()
     
-    sprite("Dropbox:gameLogo", WIDTH/2, HEIGHT/2)
+    sprite("Dropbox:gameLogo", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     if(startTime2 + 2 < ElapsedTime) then
         if(tutorialOver ~= 0) then

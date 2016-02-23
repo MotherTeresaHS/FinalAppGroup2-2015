@@ -36,7 +36,7 @@ end
 
 function TutorialMainGameScene:draw()
     
-    sprite("Dropbox:chocolateScene", WIDTH/2, HEIGHT/2)
+    sprite("Dropbox:chocolateScene", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
 
     greenCircle:draw()
     redCircle:draw()
